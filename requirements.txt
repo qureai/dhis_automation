@@ -1,0 +1,20 @@
+# DHIS2 Smart Automation Requirements
+playwright>=1.40.0
+asyncio-throttle>=1.0.2
+
+# PDF processing (optional - for data extraction)
+pdfplumber>=0.9.0
+PyPDF2>=3.0.0
+
+# OCR (optional - for scanned PDFs) 
+pytesseract>=0.3.10
+pdf2image>=3.1.0
+Pillow>=10.0.0
+
+# LLM Integration (for enhanced PDF processing)
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# AI/ML (optional - for fallback matching)
+# sentence-transformers>=2.2.0
+# scikit-learn>=1.3.0

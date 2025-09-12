@@ -1,0 +1,7 @@
+/sandbox
+/data
+/logs
+/__pycache__
+/.pytest_cache
+/.playwright-mcp
+.env
