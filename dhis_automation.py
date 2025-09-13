@@ -2,7 +2,6 @@ import asyncio
 import json
 import logging
 import os
-import time
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
@@ -12,6 +11,23 @@ from openai import OpenAI
 
 # Load environment variables for LLM integration
 load_dotenv()
+
+# Configuration constants
+class Config:
+    """Configuration constants for DHIS automation"""
+    # Timeouts (milliseconds)
+    LOGIN_TIMEOUT = int(os.getenv("DHIS_LOGIN_TIMEOUT", "30000"))
+    NAVIGATION_TIMEOUT = int(os.getenv("DHIS_NAVIGATION_TIMEOUT", "10000"))
+    FORM_LOAD_TIMEOUT = int(os.getenv("DHIS_FORM_LOAD_TIMEOUT", "10000"))
+    TAB_SWITCH_DELAY = int(os.getenv("DHIS_TAB_SWITCH_DELAY", "2000"))
+    
+    # Cache settings
+    ORG_CACHE_HOURS = int(os.getenv("DHIS_ORG_CACHE_HOURS", "168"))  # 7 days
+    FIELD_CACHE_HOURS = int(os.getenv("DHIS_FIELD_CACHE_HOURS", "24"))  # 1 day
+    
+    # Retry settings
+    MAX_LOGIN_RETRIES = int(os.getenv("DHIS_MAX_LOGIN_RETRIES", "3"))
+    RETRY_DELAY = int(os.getenv("DHIS_RETRY_DELAY", "2000"))
 
 # Setup logging with file and console handlers
 def setup_logging():
@@ -80,20 +96,37 @@ class DHISSmartAutomation:
             logger.warning("No OpenAI API key found - LLM features disabled")
         
     async def initialize(self):
-        playwright = await async_playwright().start()
-        self.browser = await playwright.chromium.launch(headless=False)
-        self.context = await self.browser.new_context()
-        self.page = await self.context.new_page()
+        try:
+            playwright = await async_playwright().start()
+            self.browser = await playwright.chromium.launch(headless=False)
+            self.context = await self.browser.new_context()
+            self.page = await self.context.new_page()
+            logger.info("Browser initialized successfully")
+        except Exception as e:
+            logger.error(f"Failed to initialize browser: {e}")
+            logger.error("Make sure Playwright is installed: pip install playwright && playwright install")
+            raise
         
-    async def login(self, url: str, username: str, password: str):
-        logger.info(f"Navigating to: {url}")
-        await self.page.goto(url)
-        await self.page.wait_for_selector("#username", timeout=10000)
-        await self.page.fill("#username", username)
-        await self.page.fill("#password", password)
-        await self.page.click('button[data-test="dhis2-uicore-button"]')
-        await self.page.wait_for_selector('[data-test="headerbar-apps-icon"]', timeout=30000)
-        logger.info("Login successful!")
+    async def login(self, url: str, username: str, password: str, max_retries: int = None):
+        if max_retries is None:
+            max_retries = Config.MAX_LOGIN_RETRIES
+        for attempt in range(max_retries):
+            try:
+                logger.info(f"Login attempt {attempt + 1}/{max_retries}: Navigating to {url}")
+                await self.page.goto(url)
+                await self.page.wait_for_selector("#username", timeout=Config.NAVIGATION_TIMEOUT)
+                await self.page.fill("#username", username)
+                await self.page.fill("#password", password)
+                await self.page.click('button[data-test="dhis2-uicore-button"]')
+                await self.page.wait_for_selector('[data-test="headerbar-apps-icon"]', timeout=Config.LOGIN_TIMEOUT)
+                logger.info("Login successful!")
+                return
+            except Exception as e:
+                logger.warning(f"Login attempt {attempt + 1} failed: {e}")
+                if attempt == max_retries - 1:
+                    logger.error("All login attempts failed")
+                    raise
+                await self.page.wait_for_timeout(Config.RETRY_DELAY)  # Wait before retry
         
     async def navigate_to_data_entry(self):
         logger.info("Navigating to Data Entry...")
@@ -161,8 +194,12 @@ class DHISSmartAutomation:
                 "discovery_type": "comprehensive"
             }
             
-            with open(self.org_unit_cache_file, 'w') as f:
-                json.dump(cache_data, f, indent=2)
+            try:
+                with open(self.org_unit_cache_file, 'w') as f:
+                    json.dump(cache_data, f, indent=2)
+                logger.info(f"Saved org units to cache: {self.org_unit_cache_file}")
+            except Exception as e:
+                logger.warning(f"Could not save org unit cache: {e}")
             
             self.org_unit_cache = org_mapping
             return org_mapping
@@ -505,7 +542,9 @@ class DHISSmartAutomation:
             logger.error(f"Failed to select {unit_name}: {e}")
             raise
         
-    async def select_period(self, period: str = "August 2025"):
+    async def select_period(self, period: str = None):
+        if period is None:
+            period = os.getenv("DHIS_PERIOD", "August 2025")
         logger.info(f"Attempting to select period: {period}")
         
         try:
@@ -854,32 +893,6 @@ class DHISSmartAutomation:
             logger.warning(f"Error loading cache: {e}")
             return False
             
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW (replaced by fill_field_by_selector)
-    # async def fill_field_by_key(self, key: str, value: str) -> bool:
-    #     if key not in self.mapping_cache:
-    #         logger.warning(f"No mapping found for key: {key}")
-    #         return False
-    #         
-    #     selector = self.mapping_cache[key]
-    #     
-    #     try:
-    #         # Check if element exists and is visible
-    #         element = self.page.locator(selector)
-    #         if await element.count() == 0:
-    #             logger.warning(f"Element not found: {selector}")
-    #             return False
-    #             
-    #         # Fill the field
-    #         await element.fill(str(value))
-    #         logger.info(f"Filled {key} = {value}")
-    #         
-    #         # Brief pause to allow UI updates
-    #         await self.page.wait_for_timeout(100)
-    #         return True
-    #         
-    #     except Exception as e:
-    #         logger.error(f"Error filling {key}: {e}")
-    #         return False
             
     async def fill_form_data(self, data: Dict[str, Any]) -> Dict[str, bool]:
         logger.info(f"Starting TAB-AWARE form filling with {len(data)} data points...")
@@ -925,6 +938,9 @@ class DHISSmartAutomation:
             try:
                 logger.info(f"Switching to {tab_name} to fill {len(fields)} fields...")
                 
+                # Clear any stuck focus before switching tabs to prevent focus lock issues
+                await self.clear_focus_safely()
+                
                 # ALWAYS switch to the correct tab (don't assume any tab is active)
                 tab_switch_success = await self._switch_to_tab(tab_name)
                 
@@ -935,19 +951,35 @@ class DHISSmartAutomation:
                     continue
                 
                 # Fill all fields on this tab
+                filled_count = 0
+                hidden_count = 0
+                error_count = 0
+                
                 for field_name, value, selector in fields:
                     try:
                         success = await self.fill_field_by_selector(selector, value)
                         results[field_name] = success
                         if success:
+                            filled_count += 1
                             logger.info(f"Filled {field_name} = {value}")
                         else:
-                            logger.warning(f"Failed to fill {field_name}")
+                            # Check if field was hidden vs other error
+                            if not await self.is_field_truly_visible(selector):
+                                hidden_count += 1
+                                logger.debug(f"Skipped {field_name} (field hidden)")
+                            else:
+                                error_count += 1
+                                logger.warning(f"Failed to fill {field_name}")
                     except Exception as e:
+                        error_count += 1
                         logger.error(f"Error filling {field_name}: {e}")
                         results[field_name] = False
                 
-                logger.info(f"Completed {tab_name}: {sum(1 for fn, _, _ in fields if results.get(fn, False))}/{len(fields)} successful")
+                # Clear focus after completing tab to prevent cross-tab interference
+                await self.clear_focus_safely()
+                
+                # Enhanced completion logging
+                logger.info(f"Completed {tab_name}: {filled_count}/{len(fields)} successful ({hidden_count} hidden, {error_count} errors)")
                 
                 # Wait 5 seconds after completing each page/tab
                 logger.info(f"Waiting 5 seconds after completing {tab_name}...")
@@ -1033,26 +1065,113 @@ class DHISSmartAutomation:
             logger.error(f"Error switching to {tab_name}: {e}")
             return False
     
-    async def fill_field_by_selector(self, selector: str, value: str) -> bool:
-        """Fill a field using its CSS selector"""
+    async def is_field_truly_visible(self, selector: str) -> bool:
+        """Check if field is truly visible and interactable without causing focus lock"""
         try:
             element = self.page.locator(selector)
             
-            # Wait for element to be visible and enabled
-            await element.wait_for(state="visible", timeout=5000)
+            # Quick check if element exists
+            if not await element.count():
+                return False
+            
+            # Check if element is visible using JavaScript without focusing
+            is_visible = await self.page.evaluate(f"""
+                () => {{
+                    const element = document.querySelector('{selector}');
+                    if (!element) return false;
+                    
+                    const style = window.getComputedStyle(element);
+                    const rect = element.getBoundingClientRect();
+                    
+                    return (
+                        style.display !== 'none' &&
+                        style.visibility !== 'hidden' &&
+                        style.opacity !== '0' &&
+                        rect.width > 0 &&
+                        rect.height > 0 &&
+                        element.offsetParent !== null
+                    );
+                }}
+            """)
+            
+            return is_visible
+            
+        except Exception:
+            return False
+
+    async def clear_focus_safely(self):
+        """Clear any stuck focus to prevent tab switching issues"""
+        try:
+            await self.page.evaluate("""
+                () => {
+                    if (document.activeElement && document.activeElement.blur) {
+                        document.activeElement.blur();
+                    }
+                    document.body.focus();
+                }
+            """)
+            await self.page.wait_for_timeout(100)  # Brief pause
+        except Exception:
+            pass  # Not critical if this fails
+
+    async def take_screenshot(self, description: str = "form_state") -> str:
+        """Take a timestamped screenshot and save to screenshots folder"""
+        try:
+            # Create screenshots directory if it doesn't exist
+            screenshots_dir = Path("screenshots")
+            screenshots_dir.mkdir(exist_ok=True)
+            
+            # Generate timestamp-based filename
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"{timestamp}_{description}.png"
+            filepath = screenshots_dir / filename
+            
+            # Take screenshot
+            await self.page.screenshot(path=str(filepath), full_page=True)
+            logger.info(f"Screenshot saved: {filepath}")
+            
+            return str(filepath)
+            
+        except Exception as e:
+            logger.warning(f"Failed to take screenshot: {e}")
+            return ""
+
+    async def fill_field_by_selector(self, selector: str, value: str) -> bool:
+        """Fill a field using its CSS selector with smart visibility checking"""
+        try:
+            # CRITICAL: Check visibility first WITHOUT focusing the element
+            if not await self.is_field_truly_visible(selector):
+                logger.debug(f"Field {selector} is hidden - skipping immediately")
+                return False
+            
+            element = self.page.locator(selector)
+            
+            # Now that we know it's visible, wait a short time for it to be ready
+            await element.wait_for(state="visible", timeout=2000)
+            
+            # Ensure element is enabled and editable
+            is_enabled = await element.is_enabled()
+            if not is_enabled:
+                logger.debug(f"Field {selector} is disabled - skipping")
+                return False
             
             # Clear and fill the field
             await element.clear()
             await element.fill(str(value))
             
+            # Clear focus to prevent tab switching issues
+            await self.clear_focus_safely()
+            
             return True
             
         except Exception as e:
-            logger.warning(f"Failed to fill field {selector}: {e}")
+            logger.debug(f"Failed to fill field {selector}: {e}")
+            # Clear focus if we got stuck
+            await self.clear_focus_safely()
             return False
         
     async def validate_form_data(self) -> bool:
-        """Click the validate button to validate the filled form data"""
+        """Click the validate button to validate the filled form data and take screenshot"""
         logger.info("Validating form data...")
         
         try:
@@ -1062,8 +1181,11 @@ class DHISSmartAutomation:
             await validate_button.click()
             logger.info("Clicked validate button")
             
-            # Wait a bit for validation to complete
+            # Wait for validation to complete
             await self.page.wait_for_timeout(3000)
+            
+            # Take screenshot after validation
+            screenshot_path = await self.take_screenshot("validation_result")
             
             # TODO: Add logic to check validation results
             # Could check for validation error messages or success indicators
@@ -1073,294 +1195,10 @@ class DHISSmartAutomation:
             
         except Exception as e:
             logger.error(f"Form validation failed: {e}")
+            # Take screenshot of error state too
+            await self.take_screenshot("validation_error")
             return False
         
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW
-    # async def ai_fallback_mapping(self, missing_keys: List[str]) -> Dict[str, str]:
-    #     """
-    #     AI Fallback: Attempt fuzzy matching for missing keys
-    #     """
-    #     logger.info(f"AI fallback for {len(missing_keys)} missing keys...")
-    #     
-    #     # Placeholder for AI/fuzzy matching logic
-    #     # Could implement:
-    #     # 1. XPath-based label matching
-    #     # 2. Text similarity matching
-    #     # 3. ML-based field identification
-    #     
-    #     fallback_mappings = {}
-    #     
-    #     # Simple example: try to find fields by partial text match
-    #     for key in missing_keys:
-    #         # Extract meaningful parts from the key
-    #         parts = key.replace("||", " ").split()
-    #         search_text = " ".join(parts[:2])  # Use first 2 meaningful words
-    #         
-    #         try:
-    #             # Try to find input near text containing search terms
-    #             xpath = f"//text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '{search_text.lower()}')]/following::input[1]"
-    #             element = self.page.locator(f"xpath={xpath}")
-    #             
-    #             if await element.count() > 0:
-    #                 element_id = await element.get_attribute('id')
-    #                 if element_id:
-    #                     fallback_mappings[key] = f"#{element_id}"
-    #                     logger.info(f"AI fallback found: {key} -> #{element_id}")
-    #                     
-    #         except Exception as e:
-    #             logger.warning(f"AI fallback failed for {key}: {e}")
-    #             
-    #     return fallback_mappings
-        
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW
-    # async def take_screenshot(self, name: str = "form_state"):
-    #     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    #     filename = f"screenshots/{name}_{timestamp}.png"
-    #     
-    #     os.makedirs("screenshots", exist_ok=True)
-    #     await self.page.screenshot(path=filename)
-    #     logger.info(f"Screenshot saved: {filename}")
-        
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW (replaced by main() function)
-    # async def run_complete_workflow(self, sample_data: Optional[Dict] = None):
-    #     try:
-    #         # Initialize
-    #         await self.initialize()
-    #         
-    #         # Login
-    #         await self.login(
-    #             url="https://sols1.baosystems.com",
-    #             username="qure", 
-    #             password="A1@wpro1"
-    #         )
-    #         
-    #         await self.navigate_to_data_entry()
-    #         await self.navigate_organizational_units()
-    #         await self.select_period("August 2025")
-    #         cache_loaded = await self.load_cached_mappings()
-    #         if not cache_loaded:
-    #             await self.discover_field_mappings()
-    # 
-    #         await self.validate_form_data()
-    # 
-    #         if sample_data:
-    #             logger.info("Filling form with sample data...")
-    #             results = await self.fill_form_data(sample_data)
-    # 
-    #             successful = sum(1 for success in results.values() if success)
-    #             logger.info(f"Final results: {successful}/{len(results)} fields filled successfully")
-    #             
-    #         logger.info("Workflow completed successfully!")
-    #         
-    #     except Exception as e:
-    #         logger.error(f"Workflow error: {e}")
-    #         await self.take_screenshot("error_state")
-    #         raise
-            
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW (partially commented out and replaced by map_health_data_to_dhis_fields)
-    # def map_kwaraka_to_dhis_fields(self, kwaraka_data: Dict[str, Any]) -> Dict[str, str]:
-    #     """Enhanced LLM mapping to utilize ALL available data points"""
-    #     
-    #     if not self.openai_client:
-    #         logger.error("LLM not available - cannot map KWARAKA data")
-    #         return {}
-    #     
-    #     dhis2_fields = []
-    #     if os.path.exists(self.cache_file):
-    #         try:
-    #             with open(self.cache_file, 'r') as f:
-    #                 cache_data = json.load(f)
-    #                 dhis2_fields = list(cache_data.get('mappings', {}).keys())
-    #         except Exception as e:
-    #             logger.error(f"Failed to load DHIS2 fields: {e}")
-    #             return {}
-    #     
-    #     if not dhis2_fields:
-    #         logger.error("No DHIS2 fields available - run field discovery first")
-    #         return {}
-    #     
-    #     logger.info(f"Using LLM to map KWARAKA data to {len(dhis2_fields)} available DHIS2 fields")
-    #     
-    #     # Smart filtering: Show only RELEVANT DHIS2 fields to fit in token limit
-    #     relevant_keywords = [
-    #         'HA - Outpatients', 'HA - Treatments', 'HA - Referrals', 'HA - Tours', 
-    #         'HA - Cold chain', 'HA - Radio', 'HA - Access to basic', 'HA - Medical',
-    #         'HA - Midwife', 'HA - Registered Nurse', 'HA - GBV', 'Outpatients with Disability',
-    #         'Stock out'
-    #     ]
-    #     
-    #     relevant_fields = []
-    #     for field in dhis2_fields:
-    #         if any(keyword in field for keyword in relevant_keywords):
-    #             relevant_fields.append(field)
-    #     
-    #     logger.info(f"Filtered to {len(relevant_fields)} relevant DHIS2 fields for LLM context")
-    #     
-    #     # Create comprehensive LLM prompt that covers ALL data types  
-    #     prompt = f"""You are a DHIS2 health data mapping expert. Your task is to map ALL non-zero/non-empty data from this KWARAKA health facility report to exact DHIS2 field names.
-    # 
-    # KWARAKA HEALTH FACILITY DATA (COMPLETE):
-    # {json.dumps(kwaraka_data, indent=2)}
-    # 
-    # RELEVANT DHIS2 FIELDS ({len(relevant_fields)} fields):
-    # {json.dumps(relevant_fields, indent=1)}
-    # 
-    # COMPREHENSIVE MAPPING RULES:
-    # ==========================
-    # 
-    # 1. OUTPATIENT DATA MAPPING:
-    #    - new_cases_by_age_sex → "HA - Outpatients New||[AGE], [GENDER]"
-    #    - return_cases_by_age_sex → "HA - Outpatients Returned||[AGE], [GENDER]"  
-    #    - chronic_cases_by_age_sex → "HA - Outpatients Chronic||[AGE], [GENDER]"
-    #    - person_with_disability_by_age_sex → "Outpatients with Disability||[AGE], [GENDER]"
-    # 
-    # 2. AGE GROUP CONVERSIONS:
-    #    - "< 8 days" → "<8 Days"
-    #    - "8 to 27 days" → "8 to 27 Days" 
-    #    - "28 days to < 1 yr" → "28 Days to <1 Year"
-    #    - "1 to 4" → "1 to 4 Years"
-    #    - "5 to 14" → "5 to 14 Years"
-    #    - "15 to 49" → "15 to 49 Years"
-    #    - "50+" → "50+ Years"
-    # 
-    # 3. GENDER CONVERSIONS:
-    #    - "male" → "M"
-    #    - "female" → "F"
-    # 
-    # 4. TREATMENTS MAPPING:
-    #    - new_cases_total_injections → "HA - Treatments Injection||default"
-    #    - return_cases_total_dressings → "HA - Treatments Dressing||default"
-    # 
-    # 5. REFERRALS MAPPING:
-    #    - referrals_to_clinics_and_hospitals.emergency → "HA - Referrals Emergency||[TYPE]"
-    #    - referrals_to_clinics_and_hospitals.non_emergency → "HA - Referrals Non-Emergency||[TYPE]"
-    #    - Where [TYPE] = "RHC", "AHC", "Hospital", "NRH"
-    # 
-    # 6. SUPERVISORY TOURS MAPPING:
-    #    - supervisory_tours.national_program → "HA - Tours National program||default"
-    #    - supervisory_tours.provincial_program → "HA - Tours Provincial program||default"
-    #    - supervisory_tours.area_supervisors → "HA - Tours Area Supervisory||default"
-    #    - supervisory_tours.medical_team → "HA - Tours Medical team||default"
-    # 
-    # 7. COLD CHAIN & RADIO MAPPING:
-    #    - cold_chain_radio.cold_chain.days_not_working → "HA - Cold chain days not working||default"
-    #    - cold_chain_radio.radio.days_not_working → "HA - Radio days not working||default"
-    # 
-    # 8. RWASH SERVICES MAPPING:
-    #    - access_to_basic_rwash_services.water_access → "HA - Access to basic Water||[LEVEL]"
-    #    - access_to_basic_rwash_services.sanitation_access → "HA - Access to basic Sanitation||[LEVEL]"
-    #    - access_to_basic_rwash_services.hygiene_access → "HA - Access to basic Hygiene||[LEVEL]"
-    #    - access_to_basic_rwash_services.waste_management → "HA - Access to basic Waste Management||[LEVEL]"
-    #    - Where [LEVEL]: "Limited" → "Limit", "Basic" → "Basic", "No Service" → "No Service"
-    # 
-    # 9. HUMAN RESOURCES MAPPING:
-    #    - human_resource.no_of_medical_doctors → "HA - Medical doctor(s)||default"
-    #    - human_resource.no_of_midwives → "HA - Midwife(s)||default"
-    #    - human_resource.no_of_registered_nurses → "HA - Registered Nurse(s)||default"
-    #    - human_resource.no_of_registered_nurse_aides → "HA - Registered Nurse Aide(s)||default"
-    # 
-    # 10. GBV REFERRALS MAPPING:
-    #     - gbv_referrals → "HA - GBV referrals||[AGE]" where [AGE] = "<18 Years" or "18+ Years"
-    # 
-    # CRITICAL REQUIREMENTS - MAP ALL DATA:
-    # ===================================
-    # - YOU MUST extract ALL 60 data points from KWARAKA data (including zeros!)
-    # - Map EVERY age/gender combination in new_cases, return_cases, chronic_cases, disability_cases
-    # - Map ALL treatment totals (injections, dressings)
-    # - Map ALL referral data (emergency, non_emergency by type)
-    # - Map ALL supervisory tours (national, provincial, area, medical)
-    # - Map ALL cold chain/radio data (availability = Yes/No, days_not_working = 0)  
-    # - Map ALL RWASH services (water, sanitation, hygiene, waste = "Limited")
-    # - Map ALL human resources (doctors, midwives, nurses, nurse_aides)
-    # - Map drug stock status and completed_by information
-    # - INCLUDE zero values - they are meaningful data points in health reporting
-    # - Convert values: "Yes"→"true", "No"→"false", "Limited"→"Limited", numbers→strings
-    # 
-    # OUTPUT FORMAT - COMPREHENSIVE MAPPING (JSON only):
-    # {{
-    #   "HA - Outpatients New||<8 Days, M": "0",
-    #   "HA - Outpatients New||<8 Days, F": "0", 
-    #   "HA - Outpatients New||28 Days to <1 Year, F": "3",
-    #   "HA - Outpatients New||1 to 4 Years, M": "5",
-    #   "HA - Outpatients Returned||15 to 49 Years, F": "0",
-    #   "HA - Outpatients Returned||50+ Years, M": "0", 
-    #   "HA - Outpatients Chronic||15 to 49 Years, F": "1",
-    #   "HA - Outpatients Chronic||50+ Years, M": "1",
-    #   "Outpatients with Disability||15 to 49 Years, M": "1",
-    #   "HA - Treatments Injection||default": "62",
-    #   "HA - Treatments Dressing||default": "67",
-    #   "HA - Referrals Non-Emergency||Hospital": "3", 
-    #   "HA - Tours Medical team||default": "1",
-    #   "HA - Cold chain days not working||default": "0",
-    #   "HA - Radio days not working||default": "0",
-    #   "HA - Access to basic Water||Limit": "Limited",
-    #   "HA - Access to basic Sanitation||Limit": "Limited",
-    #   "HA - Access to basic Hygiene||Limit": "Limited", 
-    #   "HA - Access to basic Waste Management||Limit": "Limited",
-    #   "HA - Registered Nurse(s)||default": "1"
-    # }}
-    # 
-    # DEMAND: Return 40-50+ mappings from ALL 60 data points. Be comprehensive and include zeros!"""
-    # 
-    #     try:
-    #         logger.info("Calling enhanced LLM for comprehensive KWARAKA → DHIS2 mapping...")
-    #         
-    #         response = self.openai_client.chat.completions.create(
-    #             model="gpt-3.5-turbo",
-    #             messages=[{"role": "user", "content": prompt}],
-    #             max_tokens=4000,  # Increased for comprehensive mapping
-    #             temperature=0.0   # Zero temperature for maximum consistency
-    #         )
-    #         
-    #         result = response.choices[0].message.content.strip()
-    #         
-    #         # Parse LLM response
-    #         try:
-    #             # Clean response - sometimes LLM adds markdown formatting
-    #             if "```json" in result:
-    #                 result = result.split("```json")[1].split("```")[0].strip()
-    #             elif "```" in result:
-    #                 result = result.split("```")[1].strip()
-    #             
-    #             mapped_fields = json.loads(result)
-    #             logger.info(f"Enhanced LLM successfully mapped {len(mapped_fields)} fields from {self._count_available_data_points(kwaraka_data)} available data points")
-    #             
-    #             # Validate mappings exist in full DHIS2 fields list (not just filtered)
-    #             validated_mappings = {}
-    #             for dhis_field, value in mapped_fields.items():
-    #                 if dhis_field in dhis2_fields:
-    #                     validated_mappings[dhis_field] = str(value)
-    #                 else:
-    #                     logger.warning(f"Field not found in DHIS2: {dhis_field}")
-    #             
-    #             logger.info(f"Final validated mappings: {len(validated_mappings)} fields (from {len(mapped_fields)} LLM suggestions)")
-    #             return validated_mappings
-    #             
-    #         except json.JSONDecodeError as e:
-    #             logger.error(f"LLM returned invalid JSON: {e}")
-    #             logger.debug(f"Raw LLM response: {result}")
-    #             return {}
-    #             
-    #     except Exception as e:
-    #         logger.error(f"Enhanced LLM mapping failed: {e}")
-    #         return {}
-    
-    # UNUSED METHOD - NOT USED IN CURRENT FLOW (related to commented out map_kwaraka_to_dhis_fields)
-    # def _count_available_data_points(self, data: Dict[str, Any], path: str = '') -> int:
-    #     """Count non-zero/non-empty data points in the JSON"""
-    #     count = 0
-    #     if isinstance(data, dict):
-    #         for key, value in data.items():
-    #             if isinstance(value, (int, float)) and value != 0:
-    #                 count += 1
-    #             elif isinstance(value, str) and value.strip() and key not in ['province_name', 'health_facility_name', 'month', 'zone', 'type', 'year']:
-    #                 count += 1
-    #             elif isinstance(value, (dict, list)):
-    #                 count += self._count_available_data_points(value, f"{path}.{key}" if path else key)
-    #     elif isinstance(data, list):
-    #         for item in data:
-    #             count += self._count_available_data_points(item, path)
-    #     return count
 
     def map_health_data_to_dhis_fields(self, health_data: Dict[str, Any]) -> Dict[str, str]:
         """
@@ -1389,70 +1227,133 @@ class DHISSmartAutomation:
         
         logger.info(f"Using LLM to extract health facility data and map to {len(dhis2_fields)} DHIS2 fields")
         
-        # Create focused LLM prompt for data extraction and mapping
-        prompt = f"""You are a DHIS2 health data mapping expert. Map health facility data fields to exact DHIS2 field names.
+        # Create comprehensive LLM prompt for health facility data mapping
+        prompt = f"""You are a DHIS2 health data mapping expert specializing in Solomon Islands health facility reporting. 
 
-INPUT DATA:
+TASK: Map the provided health facility data to exact DHIS2 field names using the comprehensive patterns below.
+
+INPUT HEALTH FACILITY DATA:
 {json.dumps(health_data, indent=2)}
 
-AVAILABLE DHIS2 FIELDS:
-{json.dumps(dhis2_fields, indent=1)}
+AVAILABLE DHIS2 FIELDS (must match exactly):
+{json.dumps(dhis2_fields[:200] if len(dhis2_fields) > 200 else dhis2_fields, indent=1)}
+{"... (" + str(len(dhis2_fields) - 200) + " more fields available)" if len(dhis2_fields) > 200 else ""}
 
-FIELD MAPPING RULES:
-==================
+COMPREHENSIVE MAPPING PATTERNS:
+================================
 
-OUTPATIENT DATA MAPPING:
-- outpatients_new_cases_less_than_8_days_male → "HA - Outpatients New||<8 Days, M"
-- outpatients_new_cases_less_than_8_days_female → "HA - Outpatients New||<8 Days, F"
-- outpatients_new_cases_8_to_27_days_male → "HA - Outpatients New||8 to 27 Days, M"  
-- outpatients_new_cases_8_to_27_days_female → "HA - Outpatients New||8 to 27 Days, F"
-- outpatients_new_cases_28_days_to_less_than_1_year_male → "HA - Outpatients New||28 Days to <1 Year, M"
-- outpatients_new_cases_28_days_to_less_than_1_year_female → "HA - Outpatients New||28 Days to <1 Year, F"
-- outpatients_new_cases_1_to_4_years_male → "HA - Outpatients New||1 to 4 Years, M"
-- outpatients_new_cases_1_to_4_years_female → "HA - Outpatients New||1 to 4 Years, F"
-- outpatients_new_cases_5_to_14_years_male → "HA - Outpatients New||5 to 14 Years, M"
-- outpatients_new_cases_5_to_14_years_female → "HA - Outpatients New||5 to 14 Years, F"
-- outpatients_new_cases_15_to_49_years_male → "HA - Outpatients New||15 to 49 Years, M"
-- outpatients_new_cases_15_to_49_years_female → "HA - Outpatients New||15 to 49 Years, F"
-- outpatients_new_cases_50_plus_years_male → "HA - Outpatients New||50+ Years, M"
-- outpatients_new_cases_50_plus_years_female → "HA - Outpatients New||50+ Years, F"
+1. OUTPATIENT DATA:
+- outpatients_new_cases_*_male/female → "HA - Outpatients New||[AGE_GROUP], [M/F]"
+- outpatients_return_cases_*_male/female → "HA - Outpatients Returned||[AGE_GROUP], [M/F]" 
+- outpatients_chronic_*_male/female → "HA - Outpatients Chronic||[AGE_GROUP], [M/F]"
 
-RETURN CASES:
-- outpatients_return_cases_*_male → "HA - Outpatients Returned||[AGE], M"
-- outpatients_return_cases_*_female → "HA - Outpatients Returned||[AGE], F"
+2. ADMISSIONS DATA:
+- admissions_malaria_*_male/female → "HA - Admissions Malaria||[AGE_GROUP], [M/F]"
+- admissions_pneumonia_*_male/female → "HA - Admissions Pneumonia||[AGE_GROUP], [M/F]"
+- admissions_diarrhoea_*_male/female → "HA - Admissions Diarrhoea||[AGE_GROUP], [M/F]"
+- admissions_injury_*_male/female → "HA - Admissions Injury/Trauma||[AGE_GROUP], [M/F]"
+- admissions_childbirth_* → "HA - Admissions Childbirth [AGE_GROUP]||default"
+- admissions_diabetes_*_male/female → "HA - Admissions Diabetes||[AGE_GROUP], [M/F]"
+- admissions_hypertension_*_male/female → "HA - Admissions Hypertension||[AGE_GROUP], [M/F]"
 
-REFERRAL DATA:
-- referrals_emergency_rhc → "HA - Referrals Emergency||RHC"
-- referrals_emergency_hospital → "HA - Referrals Emergency||Hospital"
-- referrals_non_emergency_rhc → "HA - Referrals Non-Emergency||RHC"
-- referrals_non_emergency_hospital → "HA - Referrals Non-Emergency||Hospital"
+3. DEATHS DATA:
+- deaths_general_*_male/female_* → "HA - Deaths general||[AGE_GROUP], [LOCATION], [M/F]"
+- deaths_maternal_*_* → "HA - Deaths maternal||[AGE_GROUP], [LOCATION]"
 
-CRITICAL REQUIREMENTS:
-1. Map ONLY fields that exist in the input data AND the DHIS2 fields list
-2. Convert all values to strings: 0 → "0", 62 → "62"
-3. Use exact DHIS2 field names (case sensitive)
-4. Include ALL non-null values from input data
+4. CHILD HEALTH & NUTRITION:
+- child_stunting_*_new/return → "HA - Child stunting < -2ZS - New/Return||[AGE_GROUP]"
+- child_wasting_*_new/return → "HA - Child Wasting < -2ZS - New/Return||[AGE_GROUP]" 
+- child_underweight_*_new/return → "HA - Child Underweight < -2ZS - New/Return||[AGE_GROUP]"
+- child_overweight_*_new → "HA - Child Overweight >+2ZS - New||[AGE_GROUP]"
+- child_obese_*_new/return → "HA - Child Obese >+3ZS New/Return||[AGE_GROUP]"
+- child_welfare_clinic_* → "HA - Child welfare clinic attendance||[AGE_GROUP], [LOCATION]"
 
-EXPECTED OUTPUT FORMAT (JSON only):
+5. MATERNAL HEALTH:
+- anc_1st_visit_*_* → "HA - ANC 1st visit||[TRIMESTER], [LOCATION]"
+- anc_return_visit_* → "HA - ANC Return Visit||[LOCATION]"
+- pnc_visit_*_* → "HA - PNC visit [TIME_PERIOD]||[LOCATION]"
+- delivery_*_* → "HA - Delivery by [TYPE/ATTENDANTS]||[CATEGORY]"
+- births_*_* → "HA - Birth [TYPE]||[LOCATION], [CONDITION]"
+
+6. DISEASE CASES:
+- *_pneumonia_cases_* → "HA - [Severe ]Pneumonia cases||[AGE_GROUP]"
+- *_diarrhea_cases_* → "HA - Diarrhea [TYPE] cases||[AGE_GROUP]"
+- *_influenza_cases_* → "HA - Influenza like illness cases||[AGE_GROUP]"
+- *_malaria_cases_* → "HA - Malaria cases||[AGE_GROUP]"
+
+7. IMMUNIZATION:
+- hpv_*_years_* → "HPV||[AGE] years, [LOCATION]"
+- measles_rubella_* → "HA - Measles Rubella Vaccine 1||default"
+- vitamin_a_* → "HA - Vitamin A doses [AGE_GROUP]||default"
+- anc_booster → "HA - ANC Booster||default"
+
+8. REFERRALS:
+- referrals_emergency_* → "HA - Referrals Emergency||[FACILITY_TYPE]"
+- referrals_non_emergency_* → "HA - Referrals Non-Emergency||[FACILITY_TYPE]"
+- referrals_mental_health_* → "HA - Referrals Mental Health Problem||[FACILITY_TYPE]"
+- gbv_referrals_* → "HA - GBV referrals||[AGE_GROUP]"
+
+9. STAFF & INFRASTRUCTURE:
+- medical_doctors → "HA - Medical doctor(s)||default"
+- registered_nurses → "HA - Registered Nurse(s)||default"  
+- nurse_aides → "HA - Registered Nurse Aide(s)||default"
+- cold_chain_days_not_working → "HA - Cold chain days not working||default"
+- radio_days_not_working → "HA - Radio days not working||default"
+
+10. SERVICES & ACTIVITIES:
+- tours_* → "HA - Tours [TYPE]||default"
+- satellite_clinic_conducted → "HA - Satellite Clinic Conducted||default"
+- school_health_visits → "HA - School Health Visits||default"
+- family_health_card_* → "HA - Family Health Card [TYPE]||default"
+
+AGE GROUP MAPPINGS:
+- less_than_8_days / <8_days → "<8 Days"
+- 8_to_27_days → "8 to 27 Days"  
+- 28_days_to_less_than_1_year / 28_days_to_1_year → "28 Days to <1 Year" / "28 Days to 1 Year"
+- 1_to_4_years → "1 to 4 Years"
+- 5_to_14_years → "5 to 14 Years"
+- 15_to_49_years → "15 to 49 Years"
+- 50_plus_years / 50+ → "50+ Years"
+- 0_to_5_months → "0 to 5 Months"
+- 6_to_11_months → "6 to 11 Months"
+- 12_to_23_months → "12 to 23 Months"
+- 24_to_59_months → "24 to 59 Months"
+
+BOOLEAN/CHECKBOX MAPPING:
+- true/yes/1 → "Yes" or "True"
+- false/no/0 → "No" or "False"
+- Basic/Limited/No Service → "Basic" or "Limited" or "No Service"
+
+CRITICAL MAPPING RULES:
+======================
+1. Map ONLY fields that exist in both input data AND the DHIS2 fields list
+2. Convert ALL numeric values to strings: 0 → "0", 62 → "62"
+3. Use exact DHIS2 field names (case and punctuation sensitive)
+4. Handle age groups, gender (M/F), and location categories precisely
+5. Map complex nested fields using the "||" separator correctly
+6. Include ALL non-null values from input data
+7. For missing exact matches, find closest semantic match in DHIS2 fields list
+8. Prioritize completeness - map as many fields as possible
+
+OUTPUT FORMAT (JSON only - no explanations):
 {{
   "HA - Outpatients New||<8 Days, M": "0",
-  "HA - Outpatients New||<8 Days, F": "0",
-  "HA - Outpatients New||8 to 27 Days, M": "0",
-  "HA - Outpatients New||8 to 27 Days, F": "3",
-  "HA - Outpatients New||28 Days to <1 Year, M": "5",
-  "HA - Outpatients New||28 Days to <1 Year, F": "30"
+  "HA - Outpatients New||28 Days to <1 Year, F": "30",  
+  "HA - Admissions Childbirth 15 To 49 Years||default": "31",
+  "HA - Medical doctor(s)||default": "0",
+  "HPV||9 years, Health Facility": "0"
 }}
 
-Return ONLY the JSON mapping, no explanations."""
+Return ONLY the JSON mapping."""
 
         try:
             logger.info("Calling LLM for health facility data → DHIS2 field mapping...")
             
             response = self.openai_client.chat.completions.create(
-                model="gpt-4o-mini",  # Using more capable model for better extraction
+                model=os.getenv("OPENAI_MODEL", "gpt-4o"),  # Configurable model for health data mapping
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=4000,
-                temperature=0.0
+                max_tokens=int(os.getenv("OPENAI_MAX_TOKENS", "8000")),  # Configurable token limit
+                temperature=float(os.getenv("OPENAI_TEMPERATURE", "0.0"))
             )
             
             result = response.choices[0].message.content.strip()
@@ -1493,243 +1394,6 @@ Return ONLY the JSON mapping, no explanations."""
             logger.error(f"LLM mapping failed: {e}")
             return {}
 
-    # def _fallback_mapping(self, health_data: Dict[str, Any]) -> Dict[str, str]:
-    #     """
-    #     LEGACY FALLBACK - Only used when complete mapping and auto-regeneration both fail
-    #     This provides minimal coverage as a last resort. The hybrid system above handles 98.5% coverage.
-    #     """
-    #     logger.warning("Using legacy fallback mapping - limited coverage available")
-    #     logger.info("Consider running: python generate_complete_mapping.py for full coverage")
-        
-    #     # Load DHIS2 field mappings
-    #     dhis2_fields = []
-    #     if os.path.exists(self.cache_file):
-    #         try:
-    #             with open(self.cache_file, 'r') as f:
-    #                 cache_data = json.load(f)
-    #                 dhis2_fields = list(cache_data.get('mappings', {}).keys())
-    #         except Exception as e:
-    #             logger.error(f"Failed to load DHIS2 field mappings: {e}")
-    #             return {}
-        
-    #     if not dhis2_fields:
-    #         logger.error("No DHIS2 field mappings available")
-    #         return {}
-        
-    #     mapped_data = {}
-        
-    #     # COMMENTED OUT: Large hardcoded mapping rules (replaced by auto-regeneration in hybrid system)
-    #     # The following ~200 lines of hardcoded mappings are now replaced by the auto-regeneration system
-    #     # which provides the same mappings dynamically. Keeping only essential ones for absolute emergency.
-        
-    #     # Essential emergency mappings (minimal set for absolute fallback)
-    #     essential_mapping_rules = {
-    #         # Core outpatient fields - just the basics for emergency fallback
-    #         'outpatients_new_cases_less_than_8_days_male': 'HA - Outpatients New||<8 Days, M',
-    #         'outpatients_new_cases_less_than_8_days_female': 'HA - Outpatients New||<8 Days, F',
-    #         'referrals_non_emergency_hospital': 'HA - Referrals Non-Emergency||Hospital',
-    #         'gbv_referrals_18_plus_years': 'HA - GBV referrals||18+ Years',
-    #         'cold_chain_days_not_working': 'HA - Cold chain days not working||default',
-    #     }
-        
-    #     # COMMENTED OUT: ~200 lines of detailed hardcoded mappings (replaced by hybrid system)
-    #     # The hybrid system above provides all these mappings automatically via:
-    #     # 1. complete_field_mapping.json (828 mappings, 98.5% coverage)
-    #     # 2. Auto-regeneration (generates same mappings dynamically)
-    #     # 3. This emergency fallback (5 essential mappings)
-        
-    #     # LARGE COMMENTED SECTION - The original mapping_rules contained ~200 lines
-    #     # All those detailed mappings are now provided by the hybrid system automatically
-    #     # Replaced with minimal essential_mapping_rules above for emergency fallback only
-        
-        
-    #     ORIGINAL LARGE MAPPING RULES (NOW COMMENTED OUT):
-    #     mapping_rules = {
-    #         'outpatients_new_cases_8_to_27_days_male': 'HA - Outpatients New||8 to 27 Days, M',
-    #         'outpatients_new_cases_8_to_27_days_female': 'HA - Outpatients New||8 to 27 Days, F',
-    #         'outpatients_new_cases_28_days_to_less_than_1_year_male': 'HA - Outpatients New||28 Days to <1 Year, M',
-    #         'outpatients_new_cases_28_days_to_less_than_1_year_female': 'HA - Outpatients New||28 Days to <1 Year, F',
-    #         'outpatients_new_cases_1_to_4_years_male': 'HA - Outpatients New||1 to 4 Years, M',
-    #         'outpatients_new_cases_1_to_4_years_female': 'HA - Outpatients New||1 to 4 Years, F',
-    #         'outpatients_new_cases_5_to_14_years_male': 'HA - Outpatients New||5 to 14 Years, M',
-    #         'outpatients_new_cases_5_to_14_years_female': 'HA - Outpatients New||5 to 14 Years, F',
-    #         'outpatients_new_cases_15_to_49_years_male': 'HA - Outpatients New||15 to 49 Years, M',
-    #         'outpatients_new_cases_15_to_49_years_female': 'HA - Outpatients New||15 to 49 Years, F',
-    #         'outpatients_new_cases_50_plus_years_male': 'HA - Outpatients New||50+ Years, M',
-    #         'outpatients_new_cases_50_plus_years_female': 'HA - Outpatients New||50+ Years, F',
-            
-    #         # Outpatient return cases
-    #         'outpatients_return_cases_less_than_8_days_male': 'HA - Outpatients Returned||<8 Days, M',
-    #         'outpatients_return_cases_less_than_8_days_female': 'HA - Outpatients Returned||<8 Days, F',
-    #         'outpatients_return_cases_8_to_27_days_male': 'HA - Outpatients Returned||8 to 27 Days, M',
-    #         'outpatients_return_cases_8_to_27_days_female': 'HA - Outpatients Returned||8 to 27 Days, F',
-    #         'outpatients_return_cases_28_days_to_less_than_1_year_male': 'HA - Outpatients Returned||28 Days to <1 Year, M',
-    #         'outpatients_return_cases_28_days_to_less_than_1_year_female': 'HA - Outpatients Returned||28 Days to <1 Year, F',
-    #         'outpatients_return_cases_1_to_4_years_male': 'HA - Outpatients Returned||1 to 4 Years, M',
-    #         'outpatients_return_cases_1_to_4_years_female': 'HA - Outpatients Returned||1 to 4 Years, F',
-    #         'outpatients_return_cases_5_to_14_years_male': 'HA - Outpatients Returned||5 to 14 Years, M',
-    #         'outpatients_return_cases_5_to_14_years_female': 'HA - Outpatients Returned||5 to 14 Years, F',
-    #         'outpatients_return_cases_15_to_49_years_male': 'HA - Outpatients Returned||15 to 49 Years, M',
-    #         'outpatients_return_cases_15_to_49_years_female': 'HA - Outpatients Returned||15 to 49 Years, F',
-    #         'outpatients_return_cases_50_plus_years_male': 'HA - Outpatients Returned||50+ Years, M',
-    #         'outpatients_return_cases_50_plus_years_female': 'HA - Outpatients Returned||50+ Years, F',
-            
-    #         # Referrals
-    #         'referrals_non_emergency_hospital': 'HA - Referrals Non-Emergency||Hospital',
-    #         'referrals_emergency_hospital': 'HA - Referrals Emergency||Hospital',
-    #         'referrals_non_emergency_rhc': 'HA - Referrals Non-Emergency||RHC',
-    #         'referrals_emergency_rhc': 'HA - Referrals Emergency||RHC',
-    #         'referrals_non_emergency_ahc': 'HA - Referrals Non-Emergency||AHC',
-    #         'referrals_emergency_ahc': 'HA - Referrals Emergency||AHC',
-    #         'referrals_non_emergency_nrh': 'HA - Referrals Non-Emergency||NRH',
-    #         'referrals_emergency_nrh': 'HA - Referrals Emergency||NRH',
-            
-    #         # PAGE3 DISEASE DATA - Serious Bacterial Infection Cases
-    #         'communicable_diseases_serious_bacter_infection_less_than_28_days': 'HA - Serious Bacterial Infection Cases||<28 Days',
-    #         'communicable_diseases_serious_bacter_infection_28_days_to_less_than_1_year': 'HA - Serious Bacterial Infection Cases||28 Days to 1 Year',
-    #         'communicable_diseases_serious_bacter_infection_1_to_4_years': 'HA - Serious Bacterial Infection Cases||1 to 4 Years',
-    #         'communicable_diseases_serious_bacter_infection_5_to_14_years': 'HA - Serious Bacterial Infection Cases||5 to 14 Years',
-    #         'communicable_diseases_serious_bacter_infection_15_to_49_years': 'HA - Serious Bacterial Infection Cases||15 to 49 Years',
-    #         'communicable_diseases_serious_bacter_infection_50_plus_years': 'HA - Serious Bacterial Infection Cases||50+ Years',
-            
-    #         # Local Bacterial Infection Cases
-    #         'communicable_diseases_local_bacterial_infection_less_than_28_days': 'HA - Local Bacterial Infection Cases||<28 Days',
-    #         'communicable_diseases_local_bacterial_infection_28_days_to_less_than_1_year': 'HA - Local Bacterial Infection Cases||28 Days to 1 Year',
-    #         'communicable_diseases_local_bacterial_infection_1_to_4_years': 'HA - Local Bacterial Infection Cases||1 to 4 Years',
-    #         'communicable_diseases_local_bacterial_infection_5_to_14_years': 'HA - Local Bacterial Infection Cases||5 to 14 Years',
-    #         'communicable_diseases_local_bacterial_infection_15_to_49_years': 'HA - Local Bacterial Infection Cases||15 to 49 Years',
-    #         'communicable_diseases_local_bacterial_infection_50_plus_years': 'HA - Local Bacterial Infection Cases||50+ Years',
-            
-    #         # Pneumonia Cases
-    #         'communicable_diseases_pneumonia_less_than_28_days': 'HA - Pneumonia cases||<28 Days',
-    #         'communicable_diseases_pneumonia_28_days_to_less_than_1_year': 'HA - Pneumonia cases||28 Days to 1 Year',
-    #         'communicable_diseases_pneumonia_1_to_4_years': 'HA - Pneumonia cases||1 to 4 Years',
-    #         'communicable_diseases_pneumonia_5_to_14_years': 'HA - Pneumonia cases||5 to 14 Years',
-    #         'communicable_diseases_pneumonia_15_to_49_years': 'HA - Pneumonia cases||15 to 49 Years',
-    #         'communicable_diseases_pneumonia_50_plus_years': 'HA - Pneumonia cases||50+ Years',
-            
-    #         # Severe Pneumonia Cases
-    #         'communicable_diseases_severe_pneumonia_less_than_28_days': 'HA - Severe Pneumonia cases||<28 Days',
-    #         'communicable_diseases_severe_pneumonia_28_days_to_less_than_1_year': 'HA - Severe Pneumonia cases||28 Days to 1 Year',
-    #         'communicable_diseases_severe_pneumonia_1_to_4_years': 'HA - Severe Pneumonia cases||1 to 4 Years',
-    #         'communicable_diseases_severe_pneumonia_5_to_14_years': 'HA - Severe Pneumonia cases||5 to 14 Years',
-    #         'communicable_diseases_severe_pneumonia_15_to_49_years': 'HA - Severe Pneumonia cases||15 to 49 Years',
-    #         'communicable_diseases_severe_pneumonia_50_plus_years': 'HA - Severe Pneumonia cases||50+ Years',
-            
-    #         # Influenza Like Illness Cases
-    #         'communicable_diseases_influenza_like_illness_less_than_28_days': 'HA - Influenza like illness cases||<28 Days',
-    #         'communicable_diseases_influenza_like_illness_28_days_to_less_than_1_year': 'HA - Influenza like illness cases||28 Days to 1 Year',
-    #         'communicable_diseases_influenza_like_illness_1_to_4_years': 'HA - Influenza like illness cases||1 to 4 Years',
-    #         'communicable_diseases_influenza_like_illness_5_to_14_years': 'HA - Influenza like illness cases||5 to 14 Years',
-    #         'communicable_diseases_influenza_like_illness_15_to_49_years': 'HA - Influenza like illness cases||15 to 49 Years',
-    #         'communicable_diseases_influenza_like_illness_50_plus_years': 'HA - Influenza like illness cases||50+ Years',
-            
-    #         # Diarrhea Cases (multiple types)
-    #         'communicable_diseases_diarrhea_no_dehydration_less_than_28_days': 'HA - Diarrhea with no dehydration cases||<28 Days',
-    #         'communicable_diseases_diarrhea_no_dehydration_28_days_to_less_than_1_year': 'HA - Diarrhea with no dehydration cases||28 Days to 1 Year',
-    #         'communicable_diseases_diarrhea_no_dehydration_1_to_4_years': 'HA - Diarrhea with no dehydration cases||1 to 4 Years',
-    #         'communicable_diseases_diarrhea_no_dehydration_5_to_14_years': 'HA - Diarrhea with no dehydration cases||5 to 14 Years',
-    #         'communicable_diseases_diarrhea_no_dehydration_15_to_49_years': 'HA - Diarrhea with no dehydration cases||15 to 49 Years',
-    #         'communicable_diseases_diarrhea_no_dehydration_50_plus_years': 'HA - Diarrhea with no dehydration cases||50+ Years',
-            
-    #         'communicable_diseases_diarrhea_some_dehydration_less_than_28_days': 'HA - Diarrhea with some dehydration cases||<28 Days',
-    #         'communicable_diseases_diarrhea_some_dehydration_28_days_to_less_than_1_year': 'HA - Diarrhea with some dehydration cases||28 Days to 1 Year',
-    #         'communicable_diseases_diarrhea_some_dehydration_1_to_4_years': 'HA - Diarrhea with some dehydration cases||1 to 4 Years',
-    #         'communicable_diseases_diarrhea_some_dehydration_5_to_14_years': 'HA - Diarrhea with some dehydration cases||5 to 14 Years',
-    #         'communicable_diseases_diarrhea_some_dehydration_15_to_49_years': 'HA - Diarrhea with some dehydration cases||15 to 49 Years',
-    #         'communicable_diseases_diarrhea_some_dehydration_50_plus_years': 'HA - Diarrhea with some dehydration cases||50+ Years',
-            
-    #         'communicable_diseases_diarrhea_severe_dehydration_less_than_28_days': 'HA - Diarrhea with severe dehydration cases||<28 Days',
-    #         'communicable_diseases_diarrhea_severe_dehydration_28_days_to_less_than_1_year': 'HA - Diarrhea with severe dehydration cases||28 Days to 1 Year',
-    #         'communicable_diseases_diarrhea_severe_dehydration_1_to_4_years': 'HA - Diarrhea with severe dehydration cases||1 to 4 Years',
-    #         'communicable_diseases_diarrhea_severe_dehydration_5_to_14_years': 'HA - Diarrhea with severe dehydration cases||5 to 14 Years',
-    #         'communicable_diseases_diarrhea_severe_dehydration_15_to_49_years': 'HA - Diarrhea with severe dehydration cases||15 to 49 Years',
-    #         'communicable_diseases_diarrhea_severe_dehydration_50_plus_years': 'HA - Diarrhea with severe dehydration cases||50+ Years',
-            
-    #         # ANC/PNC/Delivery data (Page2)
-    #         'anc_1st_visit_1st_trimester_health_facility': 'HA - ANC 1st visit||Trimester 1st, Health Facility',
-    #         'anc_1st_visit_1st_trimester_satellite': 'HA - ANC 1st visit||Trimester 1st, Satellite',
-    #         'anc_1st_visit_2nd_trimester_health_facility': 'HA - ANC 1st visit||Trimester 2nd, Health Facility',
-    #         'anc_1st_visit_2nd_trimester_satellite': 'HA - ANC 1st visit||Trimester 2nd, Satellite',
-    #         'anc_1st_visit_3rd_trimester_health_facility': 'HA - ANC 1st visit||Trimester 3rd, Health Facility',
-    #         'anc_1st_visit_3rd_trimester_satellite': 'HA - ANC 1st visit||Trimester 3rd, Satellite',
-    #         'anc_return_visit_health_facility': 'HA - ANC Return Visit||Health Facility',
-    #         'anc_return_visit_satellite': 'HA - ANC Return Visit||Satellite',
-            
-    #         # PNC visits
-    #         'pnc_visit_within_2_days_health_facility': 'HA - PNC visit <=2 days||Health Facility',
-    #         'pnc_visit_within_2_days_satellite': 'HA - PNC visit <=2 days||Satellite',
-    #         'pnc_visit_2_to_4_days_health_facility': 'HA - PNC visit 2-4 days||Health Facility',
-    #         'pnc_visit_2_to_4_days_satellite': 'HA - PNC visit 2-4 days||Satellite',
-    #         'pnc_visit_5_to_7_days_health_facility': 'HA - PNC visit 5-7 days||Health Facility',
-    #         'pnc_visit_5_to_7_days_satellite': 'HA - PNC visit 5-7 days||Satellite',
-    #         'pnc_visit_at_6_weeks_health_facility': 'HA - PNC visit at 6 weeks||Health Facility',
-    #         'pnc_visit_at_6_weeks_satellite': 'HA - PNC visit at 6 weeks||Satellite',
-            
-    #         # Delivery and birth data
-    #         'delivery_by_others_live_birth': 'HA - Delivery by attendants||Live Birth, Others',
-    #         'delivery_by_skilled_attendant_live_birth': 'HA - Delivery by attendants||Live Birth, Skilled attendant',
-    #         'breast_feeding_initiation_within_90_mins': 'HA - Breast Feeding initiation <=90 mins at birth||default',
-    #         'introduction_of_fluids_foods_at_6_months': 'HA - Introduction of fluids/foods to babies at 6 months||default',
-            
-    #         # Child welfare and immunization
-    #         'child_welfare_clinic_attendance_less_than_12_months_health_facility': 'HA - Child welfare clinic attendance||<12 Months, Health Facility',
-    #         'child_welfare_clinic_attendance_less_than_12_months_satellite': 'HA - Child welfare clinic attendance||<12 Months, Satellite',
-    #         'child_welfare_clinic_attendance_12_to_59_months_health_facility': 'HA - Child welfare clinic attendance||12 to 59 Months, Health Facility',
-    #         'child_welfare_clinic_attendance_12_to_59_months_satellite': 'HA - Child welfare clinic attendance||12 to 59 Months, Satellite',
-            
-    #         # Deaths data (Page4)
-    #         'deaths_general_less_than_8_days_health_facility_male': 'HA - Deaths general||<8 Days, Health Facility, M',
-    #         'deaths_general_less_than_8_days_health_facility_female': 'HA - Deaths general||<8 Days, Health Facility, F',
-    #         'deaths_general_8_to_27_days_health_facility_male': 'HA - Deaths general||8 to 27 Days, Health Facility, M',
-    #         'deaths_general_8_to_27_days_health_facility_female': 'HA - Deaths general||8 to 27 Days, Health Facility, F',
-    #         'deaths_general_28_days_to_less_than_1_year_health_facility_male': 'HA - Deaths general||28 Days to <1 Year, Health Facility, M',
-    #         'deaths_general_28_days_to_less_than_1_year_health_facility_female': 'HA - Deaths general||28 Days to <1 Year, Health Facility, F',
-    #         'deaths_general_1_to_4_years_health_facility_male': 'HA - Deaths general||1 to 4 Years, Health Facility, M',
-    #         'deaths_general_1_to_4_years_health_facility_female': 'HA - Deaths general||1 to 4 Years, Health Facility, F',
-    #         'deaths_general_5_to_14_years_health_facility_male': 'HA - Deaths general||5 to 14 Years, Health Facility, M',
-    #         'deaths_general_5_to_14_years_health_facility_female': 'HA - Deaths general||5 to 14 Years, Health Facility, F',
-    #         'deaths_general_15_to_49_years_health_facility_male': 'HA - Deaths general||15 to 49 Years, Health Facility, M',
-    #         'deaths_general_15_to_49_years_health_facility_female': 'HA - Deaths general||15 to 49 Years, Health Facility, F',
-    #         'deaths_general_50_plus_years_health_facility_male': 'HA - Deaths general||50+ Years, Health Facility, M',
-    #         'deaths_general_50_plus_years_health_facility_female': 'HA - Deaths general||50+ Years, Health Facility, F',
-            
-    #         # GBV and other special cases
-    #         'gender_based_violence_referrals_18_plus_years': 'HA - GBV referrals||18+ Years',
-    #         'gbv_referrals_18_plus_years': 'HA - GBV referrals||18+ Years',
-            
-    #         # Infrastructure and resources
-    #         'medical_teams_tours': 'HA - Tours Medical team||default',
-    #         'tours_medical_team': 'HA - Tours Medical team||default',
-    #         'cold_chain_days_not_working': 'HA - Cold chain days not working||default',
-    #         'radio_days_not_working': 'HA - Radio days not working||default',
-    #         'access_to_basic_water': 'HA - Access to basic Water||Basic',
-    #         'access_to_basic_sanitation': 'HA - Access to basic Sanitation||Basic',
-    #         'access_to_basic_hygiene': 'HA - Access to basic Hygiene||Basic',
-    #         'access_to_basic_waste_management': 'HA - Access to basic Waste Management||Basic',
-    #         'medical_doctors': 'HA - Medical doctor(s)||default',
-    #         'registered_nurses': 'HA - Registered Nurse(s)||default',
-            
-    #         # Hospital admissions
-    #         'admissions_other_15_to_49_years_male': 'HA - Admissions Other||15 to 49 Years, M',
-    #         'admissions_other_15_to_49_years_female': 'HA - Admissions Other||15 to 49 Years, F',
-    #     }
-        
-        
-    #     # Apply essential emergency mapping rules (minimal fallback)
-    #     for input_field, value in health_data.items():
-    #         if input_field in essential_mapping_rules:
-    #             dhis_field = essential_mapping_rules[input_field]
-                
-    #             # Check if the DHIS2 field actually exists in our mappings
-    #             if dhis_field in dhis2_fields:
-    #                 mapped_data[dhis_field] = str(value)
-    #                 logger.info(f"Mapped: {input_field} → {dhis_field} = {value}")
-    #             else:
-    #                 logger.warning(f"DHIS2 field not found: {dhis_field}")
-        
-    #     logger.info(f"Rule-based mapping completed: {len(mapped_data)} fields mapped")
-    #     return mapped_data
     
     def complete_mapping(self, health_data: Dict[str, Any]) -> Dict[str, str]:
         """
@@ -1914,21 +1578,8 @@ Return ONLY the JSON mapping, no explanations."""
             await self.browser.close()
             logger.info("Browser closed")
 
-# UNUSED FUNCTION - NOT USED IN CURRENT FLOW
-# def load_test_data(json_file: str = "test_data.json") -> Dict[str, Any]:
-#     try:
-#         with open(json_file, 'r') as f:
-#             test_data_config = json.load(f)
-#             return test_data_config.get("data", {})
-#     except FileNotFoundError:
-#         logger.error(f"Test data file {json_file} not found")
-#         return {}
-#     except Exception as e:
-#         logger.error(f"Failed to load test data: {e}")
-#         return {}
 
 async def main():
-    """Main entry point - now supports KWARAKA JSON input!"""
     import sys
     
     # Check for health facility JSON file argument
@@ -1951,14 +1602,23 @@ async def main():
     try:
         logger.info(f"Starting DHIS2 Smart Automation with data from {health_data_file}...")
         
+        # Validate required environment variables
+        dhis_username = os.getenv("DHIS_USERNAME")
+        dhis_password = os.getenv("DHIS_PASSWORD")
+        
+        if not dhis_username or not dhis_password:
+            logger.error("Missing required environment variables: DHIS_USERNAME and DHIS_PASSWORD")
+            logger.error("Please set them in your .env file or environment")
+            return
+        
         # Initialize once
         await automation.initialize()
         
         # Login once
         await automation.login(
-            url="https://sols1.baosystems.com",
-            username="qure", 
-            password="A1@wpro1"
+            url=os.getenv("DHIS_URL", "https://sols1.baosystems.com"),
+            username=dhis_username, 
+            password=dhis_password
         )
         
         # Navigate to Data Entry once
@@ -1969,9 +1629,10 @@ async def main():
             logger.info("No org unit cache found - discovering organizational units...")
             await automation.discover_organizational_units()
         
-        # Dynamic org unit navigation - can be configured via command line
-        # Default path if none provided
-        default_path = ["Solomon Islands", "Western", "Central Islands Western Province", "Ghatere"]
+        # Dynamic org unit navigation - can be configured via command line or environment
+        # Default path from environment variable or fallback
+        default_org_path = os.getenv("DHIS_DEFAULT_ORG_PATH", "Solomon Islands,Western,Central Islands Western Province,Ghatere")
+        default_path = [unit.strip() for unit in default_org_path.split(",")]
         
         # Check if org unit path was provided as command line argument
         if len(sys.argv) > 2:
@@ -1988,7 +1649,7 @@ async def main():
             logger.error("Failed to navigate to organizational unit")
             return
             
-        await automation.select_period("August 2025")
+        await automation.select_period()
         
         # Try to load cached mappings first
         cache_loaded = await automation.load_cached_mappings()
@@ -1999,11 +1660,26 @@ async def main():
         
         # Field mappings ready - proceed to data processing
         
-        # Load data file and detect if it's health facility data
+        # Load and validate data file
         try:
             with open(health_data_file, 'r') as f:
                 data = json.load(f)
             logger.info(f"Loaded data from {health_data_file}")
+            
+            # Validate data structure
+            if not isinstance(data, dict):
+                logger.error("Data file must contain a JSON object")
+                return
+                
+            if len(data) == 0:
+                logger.error("Data file is empty")
+                return
+                
+            logger.info(f"Data validation passed: {len(data)} fields found")
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON format in data file: {e}")
+            return
         except Exception as e:
             logger.error(f"Failed to load data: {e}")
             return
@@ -2014,12 +1690,6 @@ async def main():
             for key in data.keys() if isinstance(data, dict)
         )
         
-        # UNUSED DETECTION - related to commented out map_kwaraka_to_dhis_fields method
-        # is_health_facility_data = (
-        #     'report_header' in data and 
-        #     'outpatients' in data and 
-        #     'health_facility_name' in data.get('report_header', {})
-        # )
         
         # Auto-detect health facility data format based on content, not filename
         if has_health_facility_fields or any(key.startswith(('outpatients_', 'deaths_', 'anc_', 'communicable_diseases_')) for key in data.keys() if isinstance(data, dict)):
@@ -2048,19 +1718,6 @@ async def main():
                 
             logger.info(f"Complete auto-mapping finished: {len(mapped_data)} fields ready for form filling")
             
-        # UNUSED CODE BLOCK - map_kwaraka_to_dhis_fields method is commented out
-        # elif is_health_facility_data:
-        #     logger.info("DETECTED: Complex health facility data - Using STREAMLINED approach!")
-        #     logger.info("WORKFLOW: Health Facility JSON → LLM → DHIS2 (no intermediate files!)")
-        #     
-        #     # Use LLM to map health facility data directly to DHIS2 fields  
-        #     mapped_data = automation.map_kwaraka_to_dhis_fields(data)
-        #     
-        #     if not mapped_data:
-        #         logger.error("LLM mapping failed - cannot proceed")
-        #         return
-        #         
-        #     logger.info(f"LLM mapped {len(mapped_data)} fields directly from health facility data")
             
         else:
             # OLD APPROACH: Direct field mapping (for already mapped data)
@@ -2099,19 +1756,6 @@ async def main():
     finally:
         await automation.cleanup()
 
-# UNUSED FUNCTION - NOT USED IN CURRENT FLOW
-# def run_with_health_data(filename: str = "health_facility_data.json"):
-#     """
-#     Convenience function to run automation with a specific health data file
-#     """
-#     import sys
-#     
-#     # Set the data source
-#     if len(sys.argv) == 1:
-#         sys.argv.append(filename)
-#     
-#     logger.info(f"Starting DHIS2 automation with {filename}...")
-#     asyncio.run(main())
 
 if __name__ == "__main__":
     asyncio.run(main())
