@@ -1,6 +1,72 @@
-# DHIS2 Smart Automation System
+# DHIS2 PDF Automation System
 
-Advanced automation system for Solomon Islands DHIS2 health data entry with intelligent field mapping, dynamic organizational unit navigation, and self-healing capabilities.
+A complete web application for automating DHIS2 form filling from PDF reports. Upload a PDF, have it compared with a reference document using AI, and automatically fill DHIS2 forms with the extracted data.
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React UI      │    │  Django API     │    │  DHIS2 System   │
+│                 │    │                 │    │                 │
+│ • PDF Upload    │───▶│ • PDF Processing│───▶│ • Form Filling  │
+│ • Progress      │    │ • LLM Analysis  │    │ • Validation    │
+│ • Results       │    │ • DHIS2 Control │    │ • Submission    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## ✨ Features
+
+### Frontend (React + Material-UI)
+- Clean, modern upload interface
+- Step-by-step progress tracking
+- Real-time status updates
+- Error handling and user feedback
+- Mobile-responsive design
+
+### Backend (Django + AI Processing)
+- Follows exact `llm.py` methodology
+- Multi-schema PDF processing using Portkey/Gemini
+- Comparison with reference documents
+- Integration with existing `dhis_automation.py`
+- Comprehensive logging and monitoring
+
+### DHIS2 Integration
+- Reuses existing automation scripts
+- Complete field mapping and form filling
+- Organizational unit navigation
+- Form validation and submission
+
+## 🚀 Quick Start
+
+### 1. Setup
+```bash
+python setup_project.py
+```
+
+### 2. Configuration
+Edit `.env` with your credentials:
+```bash
+DHIS_USERNAME=your_username
+DHIS_PASSWORD=your_password
+DHIS_URL=https://your-dhis2-instance.com
+PORTKEY_API_KEY=your_portkey_key
+VERTEX_API_KEY=your_vertex_key
+```
+
+### 3. Test Setup (Optional)
+```bash
+python test_setup.py
+```
+
+### 4. Start Application
+```bash
+./start.sh
+```
+
+### 5. Access
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:9000/api/
+- **Admin Panel**: http://localhost:9000/admin/
 
 ## 🚀 Key Features
 
@@ -192,3 +258,77 @@ For issues or questions:
 4. Run mapping generator if needed
 
 **System designed for 99.9% reliability with comprehensive error handling and self-recovery capabilities.**# dhis_automation
+
+
+## 🔍 Troubleshooting
+
+### Dependency Installation Issues
+
+**Problem**: `pdf2image>=3.1.0` not found or Python version errors
+```bash
+# Fix Python version and dependencies
+./fix_dependencies.sh
+```
+
+**Problem**: General dependency installation failures
+```bash
+# Clean installation with Python 3.10+
+conda env remove -n dhis -y
+conda create -n dhis python=3.10 -y
+conda activate dhis
+cd backend
+pip install -r requirements-minimal.txt
+```
+
+### Common Issues
+
+**1. Python Version Errors**
+- Install Python 3.10+ in conda environment
+- Use `./fix_dependencies.sh` to auto-fix version issues
+
+**2. AI Processing Fails**
+```bash
+# Check API keys in backend/.env
+PORTKEY_API_KEY=your_key
+VERTEX_API_KEY=your_key
+```
+
+**3. DHIS2 Connection Issues**
+```bash
+# Verify credentials in backend/.env
+DHIS_USERNAME=your_username  
+DHIS_PASSWORD=your_password
+DHIS_URL=https://your-instance.com
+```
+
+**4. Browser Automation Fails**
+```bash
+# Install Playwright browsers manually
+conda activate dhis
+cd backend
+playwright install
+```
+
+**5. Frontend Build Errors**
+```bash
+cd frontend
+rm -rf node_modules package-lock.json
+npm install
+```
+
+### Quick Fixes
+
+**If start.sh fails:**
+1. Run `./fix_dependencies.sh` to fix Python/dependency issues
+2. Check `backend.log` and `frontend.log` for detailed errors
+3. Ensure conda environment uses Python 3.10+
+4. Verify all environment variables in `backend/.env`
+
+### API Changes
+
+**Single Endpoint**: The system now uses a single API endpoint:
+- `POST /api/process-pdf-and-fill-dhis` - Complete workflow in one call
+- Legacy endpoints still available for backward compatibility
+- Frontend updated to use single-step processing
+
+

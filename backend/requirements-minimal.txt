@@ -1,0 +1,28 @@
+# Minimal requirements file for Python 3.9+ compatibility
+# Core Django packages
+Django==4.2.16
+djangorestframework==3.14.0
+django-cors-headers==4.0.0
+
+# Essential utilities
+python-dotenv==1.0.0
+requests==2.31.0
+
+# PDF processing (minimal versions)
+PyPDF2==3.0.1
+pdfplumber==0.7.6
+
+# AI processing
+portkey-ai==0.1.90
+openai==1.54.4
+
+# Browser automation
+playwright==1.40.0
+asyncio-throttle==1.0.2
+
+# Image processing (compatible versions)
+Pillow==9.5.0
+pdf2image==1.17.0
+
+# Optional OCR
+pytesseract==0.3.10

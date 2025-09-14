@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-12T13:54:58.189523",
+  "timestamp": "2025-09-14T10:33:26.679888",
   "page_url": "https://sols1.baosystems.com/dhis-web-dataentry/index.action",
   "mappings": {
     "HA - Outpatients New||<8 Days, M": {
@@ -3902,5 +3902,15 @@
   "total_fields": 974,
   "tabs_discovered": 4,
   "discovery_method": "tab_aware",
-  "form_fingerprint": {}
+  "form_fingerprint": {
+    "tabs_found": 4,
+    "total_field_estimate": 3896,
+    "field_counts_per_tab": {
+      "Page1": 974,
+      "Page2": 974,
+      "Page3": 974,
+      "Page4": 974
+    },
+    "form_hash": 388770346996389955
+  }
 }
