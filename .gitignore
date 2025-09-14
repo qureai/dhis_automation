@@ -85,8 +85,6 @@ api.log
 # Generated files
 complete_field_mapping.json
 comprehensive_field_mapping.json
-dhis_field_mappings.json
-dhis_org_units.json
 field_mapping_summary.md
 
 # PDF files

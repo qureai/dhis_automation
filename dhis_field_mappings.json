@@ -1,0 +1,3916 @@
+{
+  "timestamp": "2025-09-14T10:33:26.679888",
+  "page_url": "https://sols1.baosystems.com/dhis-web-dataentry/index.action",
+  "mappings": {
+    "HA - Outpatients New||<8 Days, M": {
+      "selector": "#Nb30BaxMLwY-eITjZJRXeju-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||<8 Days, F": {
+      "selector": "#Nb30BaxMLwY-j74NlUtE3av-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||8 to 27 Days, M": {
+      "selector": "#Nb30BaxMLwY-j2HJdFcbd0l-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||8 to 27 Days, F": {
+      "selector": "#Nb30BaxMLwY-lvbjNrNxzGD-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||28 Days to <1 Year, M": {
+      "selector": "#Nb30BaxMLwY-CJDY5RX4XFB-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||28 Days to <1 Year, F": {
+      "selector": "#Nb30BaxMLwY-jZk8v2zizKY-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||1 to 4 Years, M": {
+      "selector": "#Nb30BaxMLwY-nPVn8MHSK6D-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||1 to 4 Years, F": {
+      "selector": "#Nb30BaxMLwY-NboIe3HcXnR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||5 to 14 Years, M": {
+      "selector": "#Nb30BaxMLwY-yfjvm9Un3Oz-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||5 to 14 Years, F": {
+      "selector": "#Nb30BaxMLwY-YK60KIwH7wt-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||15 to 49 Years, M": {
+      "selector": "#Nb30BaxMLwY-hOPsrgfnlPj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||15 to 49 Years, F": {
+      "selector": "#Nb30BaxMLwY-v9O7pjxHzZj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||50+ Years, M": {
+      "selector": "#Nb30BaxMLwY-M8c4Gtyn6YR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients New||50+ Years, F": {
+      "selector": "#Nb30BaxMLwY-oYUJg0wGqhv-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||<8 Days, M": {
+      "selector": "#JIC3qfkeLKd-eITjZJRXeju-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||<8 Days, F": {
+      "selector": "#JIC3qfkeLKd-j74NlUtE3av-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||8 to 27 Days, M": {
+      "selector": "#JIC3qfkeLKd-j2HJdFcbd0l-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||8 to 27 Days, F": {
+      "selector": "#JIC3qfkeLKd-lvbjNrNxzGD-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||28 Days to <1 Year, M": {
+      "selector": "#JIC3qfkeLKd-CJDY5RX4XFB-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||28 Days to <1 Year, F": {
+      "selector": "#JIC3qfkeLKd-jZk8v2zizKY-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||1 to 4 Years, M": {
+      "selector": "#JIC3qfkeLKd-nPVn8MHSK6D-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||1 to 4 Years, F": {
+      "selector": "#JIC3qfkeLKd-NboIe3HcXnR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||5 to 14 Years, M": {
+      "selector": "#JIC3qfkeLKd-yfjvm9Un3Oz-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||5 to 14 Years, F": {
+      "selector": "#JIC3qfkeLKd-YK60KIwH7wt-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||15 to 49 Years, M": {
+      "selector": "#JIC3qfkeLKd-hOPsrgfnlPj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||15 to 49 Years, F": {
+      "selector": "#JIC3qfkeLKd-v9O7pjxHzZj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||50+ Years, M": {
+      "selector": "#JIC3qfkeLKd-M8c4Gtyn6YR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Returned||50+ Years, F": {
+      "selector": "#JIC3qfkeLKd-oYUJg0wGqhv-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||<8 Days, M": {
+      "selector": "#Xi6tcndEsNl-eITjZJRXeju-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||<8 Days, F": {
+      "selector": "#Xi6tcndEsNl-j74NlUtE3av-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||8 to 27 Days, M": {
+      "selector": "#Xi6tcndEsNl-j2HJdFcbd0l-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||8 to 27 Days, F": {
+      "selector": "#Xi6tcndEsNl-lvbjNrNxzGD-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||28 Days to <1 Year, M": {
+      "selector": "#Xi6tcndEsNl-CJDY5RX4XFB-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||28 Days to <1 Year, F": {
+      "selector": "#Xi6tcndEsNl-jZk8v2zizKY-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||1 to 4 Years, M": {
+      "selector": "#Xi6tcndEsNl-nPVn8MHSK6D-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||1 to 4 Years, F": {
+      "selector": "#Xi6tcndEsNl-NboIe3HcXnR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||5 to 14 Years, M": {
+      "selector": "#Xi6tcndEsNl-yfjvm9Un3Oz-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||5 to 14 Years, F": {
+      "selector": "#Xi6tcndEsNl-YK60KIwH7wt-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||15 to 49 Years, M": {
+      "selector": "#Xi6tcndEsNl-hOPsrgfnlPj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||15 to 49 Years, F": {
+      "selector": "#Xi6tcndEsNl-v9O7pjxHzZj-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||50+ Years, M": {
+      "selector": "#Xi6tcndEsNl-M8c4Gtyn6YR-val",
+      "tab": "Page1"
+    },
+    "HA - Outpatients Chronic||50+ Years, F": {
+      "selector": "#Xi6tcndEsNl-oYUJg0wGqhv-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||<8 Days, M": {
+      "selector": "#O4R51T42ssj-eITjZJRXeju-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||<8 Days, F": {
+      "selector": "#O4R51T42ssj-j74NlUtE3av-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||8 to 27 Days, M": {
+      "selector": "#O4R51T42ssj-j2HJdFcbd0l-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||8 to 27 Days, F": {
+      "selector": "#O4R51T42ssj-lvbjNrNxzGD-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||28 Days to <1 Year, M": {
+      "selector": "#O4R51T42ssj-CJDY5RX4XFB-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||28 Days to <1 Year, F": {
+      "selector": "#O4R51T42ssj-jZk8v2zizKY-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||1 to 4 Years, M": {
+      "selector": "#O4R51T42ssj-nPVn8MHSK6D-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||1 to 4 Years, F": {
+      "selector": "#O4R51T42ssj-NboIe3HcXnR-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||5 to 14 Years, M": {
+      "selector": "#O4R51T42ssj-yfjvm9Un3Oz-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||5 to 14 Years, F": {
+      "selector": "#O4R51T42ssj-YK60KIwH7wt-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||15 to 49 Years, M": {
+      "selector": "#O4R51T42ssj-hOPsrgfnlPj-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||15 to 49 Years, F": {
+      "selector": "#O4R51T42ssj-v9O7pjxHzZj-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||50+ Years, M": {
+      "selector": "#O4R51T42ssj-M8c4Gtyn6YR-val",
+      "tab": "Page1"
+    },
+    "Outpatients with Disability||50+ Years, F": {
+      "selector": "#O4R51T42ssj-oYUJg0wGqhv-val",
+      "tab": "Page1"
+    },
+    "HA - Treatments Injection||default": {
+      "selector": "#xteK7JTq5qK-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Treatments Dressing||default": {
+      "selector": "#VOqMUc2elma-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Emergency||RHC": {
+      "selector": "#JTwdQ7qONyq-lAR0KAm9zAm-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Emergency||AHC": {
+      "selector": "#JTwdQ7qONyq-p5bod6etjig-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Emergency||Hospital": {
+      "selector": "#JTwdQ7qONyq-ppgxI9GngCu-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Emergency||NRH": {
+      "selector": "#JTwdQ7qONyq-pzcTkSN5H2U-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Non-Emergency||RHC": {
+      "selector": "#diyGxcuWN5S-lAR0KAm9zAm-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Non-Emergency||AHC": {
+      "selector": "#diyGxcuWN5S-p5bod6etjig-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Non-Emergency||Hospital": {
+      "selector": "#diyGxcuWN5S-ppgxI9GngCu-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Non-Emergency||NRH": {
+      "selector": "#diyGxcuWN5S-pzcTkSN5H2U-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Mental Health Problem||RHC": {
+      "selector": "#jVVx1ehdLQ5-lAR0KAm9zAm-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Mental Health Problem||AHC": {
+      "selector": "#jVVx1ehdLQ5-p5bod6etjig-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Mental Health Problem||Hospital": {
+      "selector": "#jVVx1ehdLQ5-ppgxI9GngCu-val",
+      "tab": "Page1"
+    },
+    "HA - Referrals Mental Health Problem||NRH": {
+      "selector": "#jVVx1ehdLQ5-pzcTkSN5H2U-val",
+      "tab": "Page1"
+    },
+    "HA - GBV referrals||<18 Years": {
+      "selector": "#kbzbon5rpuh-MPNhjxIfAe5-val",
+      "tab": "Page1"
+    },
+    "HA - GBV referrals||18+ Years": {
+      "selector": "#kbzbon5rpuh-G6f9WpxD6qO-val",
+      "tab": "Page1"
+    },
+    "HA - Tours National program||default": {
+      "selector": "#PaS0h7SXIpQ-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Tours Provincial program||default": {
+      "selector": "#MhkgweChGnY-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Tours Area Supervisory||default": {
+      "selector": "#KfQVtpxnzW6-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Tours Medical team||default": {
+      "selector": "#Bqw9DqlEjjx-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Tidy Village Activity/Meeting||default": {
+      "selector": "#mPFdfK9iXtT-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - School Health Visits||default": {
+      "selector": "#HDc2OOnPez1-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Village Health Committee Meeting||default": {
+      "selector": "#DxaoUPp7TgO-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Satellite Clinic Conducted||default": {
+      "selector": "#Op9pepDnvmI-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Family Health Card First Visit||default": {
+      "selector": "#dYJJxcuiJFR-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Family Health Card Follow-up Visit||default": {
+      "selector": "#uDU3XuRLTll-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Cold chain days not working||default": {
+      "selector": "#O2viYSHecm5-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Radio days not working||default": {
+      "selector": "#MWZj9ilWHLM-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Water||Basic": {
+      "selector": "#Hy7buUMcrTA-cynmNGHXI9T-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Water||Limit": {
+      "selector": "#Hy7buUMcrTA-cqJMN931gqT-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Water||No Service": {
+      "selector": "#Hy7buUMcrTA-QAYLwlDuBYY-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Sanitation||Basic": {
+      "selector": "#hURzmQDcMXD-cynmNGHXI9T-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Sanitation||Limit": {
+      "selector": "#hURzmQDcMXD-cqJMN931gqT-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Sanitation||No Service": {
+      "selector": "#hURzmQDcMXD-QAYLwlDuBYY-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Hygiene||Basic": {
+      "selector": "#Ul3CwaAPaQh-cynmNGHXI9T-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Hygiene||Limit": {
+      "selector": "#Ul3CwaAPaQh-cqJMN931gqT-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Hygiene||No Service": {
+      "selector": "#Ul3CwaAPaQh-QAYLwlDuBYY-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Waste Management||Basic": {
+      "selector": "#rjiIY1g30hh-cynmNGHXI9T-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Waste Management||Limit": {
+      "selector": "#rjiIY1g30hh-cqJMN931gqT-val",
+      "tab": "Page1"
+    },
+    "HA - Access to basic Waste Management||No Service": {
+      "selector": "#rjiIY1g30hh-QAYLwlDuBYY-val",
+      "tab": "Page1"
+    },
+    "HA - Medical doctor(s)||default": {
+      "selector": "#lFgkTSosF9o-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Midwife(s)||default": {
+      "selector": "#EDLike4XbrX-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Registered Nurse(s)||default": {
+      "selector": "#SWAftqb1yXU-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Registered Nurse Aide(s)||default": {
+      "selector": "#vduhNC1CBsE-OPaeQurssMS-val",
+      "tab": "Page1"
+    },
+    "HA - Child stunting < -2ZS - New||0 to 5 Months": {
+      "selector": "#DXKzA2qAkAq-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - Return||0 to 5 Months": {
+      "selector": "#oLvLrCoGYDy-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - New||6 to 11 Months": {
+      "selector": "#DXKzA2qAkAq-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - Return||6 to 11 Months": {
+      "selector": "#oLvLrCoGYDy-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - New||12 to 23 Months": {
+      "selector": "#DXKzA2qAkAq-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - Return||12 to 23 Months": {
+      "selector": "#oLvLrCoGYDy-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - New||24 to 59 Months": {
+      "selector": "#DXKzA2qAkAq-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -2ZS - Return||24 to 59 Months": {
+      "selector": "#oLvLrCoGYDy-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - New||0 to 5 Months": {
+      "selector": "#OHrDAUxaAYb-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - Return||0 to 5 Months": {
+      "selector": "#UGkT2ikzQ6Y-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - New||6 to 11 Months": {
+      "selector": "#OHrDAUxaAYb-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - Return||6 to 11 Months": {
+      "selector": "#UGkT2ikzQ6Y-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - New||12 to 23 Months": {
+      "selector": "#OHrDAUxaAYb-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - Return||12 to 23 Months": {
+      "selector": "#UGkT2ikzQ6Y-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - New||24 to 59 Months": {
+      "selector": "#OHrDAUxaAYb-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child stunting < -3ZS - Return||24 to 59 Months": {
+      "selector": "#UGkT2ikzQ6Y-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - New||0 to 5 Months": {
+      "selector": "#lxGTNh7VL2E-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - Return||0 to 5 Months": {
+      "selector": "#o3ZJEf0p2YB-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - New||6 to 11 Months": {
+      "selector": "#lxGTNh7VL2E-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - Return||6 to 11 Months": {
+      "selector": "#o3ZJEf0p2YB-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - New||12 to 23 Months": {
+      "selector": "#lxGTNh7VL2E-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - Return||12 to 23 Months": {
+      "selector": "#o3ZJEf0p2YB-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - New||24 to 59 Months": {
+      "selector": "#lxGTNh7VL2E-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -2ZS - Return||24 to 59 Months": {
+      "selector": "#o3ZJEf0p2YB-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - New||0 to 5 Months": {
+      "selector": "#gQyMkjbhbDR-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - Return||0 to 5 Months": {
+      "selector": "#Lto9P5WgyG6-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - New||6 to 11 Months": {
+      "selector": "#gQyMkjbhbDR-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - Return||6 to 11 Months": {
+      "selector": "#Lto9P5WgyG6-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - New||12 to 23 Months": {
+      "selector": "#gQyMkjbhbDR-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - Return||12 to 23 Months": {
+      "selector": "#Lto9P5WgyG6-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - New||24 to 59 Months": {
+      "selector": "#gQyMkjbhbDR-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Wasting < -3ZS - Return||24 to 59 Months": {
+      "selector": "#Lto9P5WgyG6-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - New||0 to 5 Months": {
+      "selector": "#KUbgHI1RvHQ-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - Return||0 to 5 Months": {
+      "selector": "#S2BW6UwxKqD-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - New||6 to 11 Months": {
+      "selector": "#KUbgHI1RvHQ-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - Return||6 to 11 Months": {
+      "selector": "#S2BW6UwxKqD-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - New||12 to 23 Months": {
+      "selector": "#KUbgHI1RvHQ-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - Return||12 to 23 Months": {
+      "selector": "#S2BW6UwxKqD-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - New||24 to 59 Months": {
+      "selector": "#KUbgHI1RvHQ-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -2ZS - Return||24 to 59 Months": {
+      "selector": "#S2BW6UwxKqD-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - New||0 to 5 Months": {
+      "selector": "#nPbp6a0GUeq-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - Return||0 to 5 Months": {
+      "selector": "#GNkgsoaT345-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - New||6 to 11 Months": {
+      "selector": "#nPbp6a0GUeq-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - Return||6 to 11 Months": {
+      "selector": "#GNkgsoaT345-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - New||12 to 23 Months": {
+      "selector": "#nPbp6a0GUeq-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - Return||12 to 23 Months": {
+      "selector": "#GNkgsoaT345-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - New||24 to 59 Months": {
+      "selector": "#nPbp6a0GUeq-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Underweight < -3ZS - Return||24 to 59 Months": {
+      "selector": "#GNkgsoaT345-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - New||0 to 5 Months": {
+      "selector": "#IVU7wn0aZoG-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - Return||0 to 5 Months": {
+      "selector": "#EfIgfSEM3YE-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - New||6 to 11 Months": {
+      "selector": "#IVU7wn0aZoG-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - Return||6 to 11 Months": {
+      "selector": "#EfIgfSEM3YE-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - New||12 to 23 Months": {
+      "selector": "#IVU7wn0aZoG-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - Return||12 to 23 Months": {
+      "selector": "#EfIgfSEM3YE-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - New||24 to 59 Months": {
+      "selector": "#IVU7wn0aZoG-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Overweight >+2ZS - Return||24 to 59 Months": {
+      "selector": "#EfIgfSEM3YE-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS New||0 to 5 Months": {
+      "selector": "#Hv38osiVwq3-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS Return||0 to 5 Months": {
+      "selector": "#C0bIWa2zMpx-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS New||6 to 11 Months": {
+      "selector": "#Hv38osiVwq3-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS Return||6 to 11 Months": {
+      "selector": "#C0bIWa2zMpx-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS New||12 to 23 Months": {
+      "selector": "#Hv38osiVwq3-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS Return||12 to 23 Months": {
+      "selector": "#C0bIWa2zMpx-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS New||24 to 59 Months": {
+      "selector": "#Hv38osiVwq3-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Obese >+3ZS Return||24 to 59 Months": {
+      "selector": "#C0bIWa2zMpx-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child Well Nourished||0 to 5 Months": {
+      "selector": "#lxxOAWUtVGw-BAOuPAs8nhR-val",
+      "tab": "Page2"
+    },
+    "HA - Child Well Nourished||6 to 11 Months": {
+      "selector": "#lxxOAWUtVGw-vT38bLhhn6M-val",
+      "tab": "Page2"
+    },
+    "HA - Child Well Nourished||12 to 23 Months": {
+      "selector": "#lxxOAWUtVGw-Ae6By3OFrLI-val",
+      "tab": "Page2"
+    },
+    "HA - Child Well Nourished||24 to 59 Months": {
+      "selector": "#lxxOAWUtVGw-q5dVGBpb8t6-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||<12 Months, Health Facility": {
+      "selector": "#keNEzFIEaUO-xmmNaVhOazG-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||12 to 23 Months, Health Facility": {
+      "selector": "#keNEzFIEaUO-JOL4DXYyP08-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||24 to 59 Months, Health Facility": {
+      "selector": "#keNEzFIEaUO-NXCPpvLeVIC-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||<12 Months, Satellite": {
+      "selector": "#keNEzFIEaUO-hfSlPMtONyh-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||12 to 23 Months, Satellite": {
+      "selector": "#keNEzFIEaUO-g64N35jjMRO-val",
+      "tab": "Page2"
+    },
+    "HA - Child welfare clinic attendance||24 to 59 Months, Satellite": {
+      "selector": "#keNEzFIEaUO-KwCl00qC142-val",
+      "tab": "Page2"
+    },
+    "HA - Vitamin A doses 6months||default": {
+      "selector": "#FNyFvLVfr1H-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Vitamin A doses 1-4 years||default": {
+      "selector": "#u6fw4AaAgJi-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Albendazole doses 1 year||default": {
+      "selector": "#VDiT2EYPMP6-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Albendazole doses 2-4 years||default": {
+      "selector": "#wjKHPRqTxPW-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Introduction of fluids/foods to babies at birth||default": {
+      "selector": "#q5yMEjPz7Fz-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Introduction of fluids/foods to babies 0-5 months||default": {
+      "selector": "#s7XAReOr4hf-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Introduction of fluids/foods to babies at 6 months||default": {
+      "selector": "#niq3hIS1sW9-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Introduction of fluids/foods to babies >=7 months||default": {
+      "selector": "#jMt4vddGbgb-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Notification forms for Births||default": {
+      "selector": "#YtAnKyN8cxG-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Notification forms for Deaths||default": {
+      "selector": "#BA1IQJrQVE1-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Verbal Autopsy conducted||default": {
+      "selector": "#m8xQmCfm5rx-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 1st, Health Facility": {
+      "selector": "#Hoq2IDUeCBB-D9xANDvh4RF-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 1st, Satellite": {
+      "selector": "#Hoq2IDUeCBB-yVBtg0pO4JV-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 2nd, Health Facility": {
+      "selector": "#Hoq2IDUeCBB-o8zrEWaCoz7-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 2nd, Satellite": {
+      "selector": "#Hoq2IDUeCBB-RqcZJi63FbY-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 3rd, Health Facility": {
+      "selector": "#Hoq2IDUeCBB-VUlBzCfBqtW-val",
+      "tab": "Page2"
+    },
+    "HA - ANC 1st visit||Trimester 3rd, Satellite": {
+      "selector": "#Hoq2IDUeCBB-zjPwIcSljmf-val",
+      "tab": "Page2"
+    },
+    "HA - ANC Return Visit||Health Facility": {
+      "selector": "#fav3Ne6mHBx-vP3yYuu6Jd4-val",
+      "tab": "Page2"
+    },
+    "HA - ANC Return Visit||Satellite": {
+      "selector": "#fav3Ne6mHBx-Ejz5R0ho9Lq-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit <=2 days||Health Facility": {
+      "selector": "#N0PaYKCb0Tv-vP3yYuu6Jd4-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit <=2 days||Satellite": {
+      "selector": "#N0PaYKCb0Tv-Ejz5R0ho9Lq-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit 2-4 days||Health Facility": {
+      "selector": "#YzYCBOzuKBI-vP3yYuu6Jd4-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit 2-4 days||Satellite": {
+      "selector": "#YzYCBOzuKBI-Ejz5R0ho9Lq-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit 5-7 days||Health Facility": {
+      "selector": "#XuwClXwsPak-vP3yYuu6Jd4-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit 5-7 days||Satellite": {
+      "selector": "#XuwClXwsPak-Ejz5R0ho9Lq-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit at 6 weeks||Health Facility": {
+      "selector": "#aFRczC5o47k-vP3yYuu6Jd4-val",
+      "tab": "Page2"
+    },
+    "HA - PNC visit at 6 weeks||Satellite": {
+      "selector": "#aFRczC5o47k-Ejz5R0ho9Lq-val",
+      "tab": "Page2"
+    },
+    "HA - Breast Feeding initiation <=90 mins at birth||default": {
+      "selector": "#lFWBXalOSTq-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Breast Feeding exclusively 6 mns||default": {
+      "selector": "#a0BaEcu8YMB-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Birth live||Health Facility": {
+      "selector": "#OpjHr7We9P5-pIYQVNaACys-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Health Facility, Fresh": {
+      "selector": "#lGygGLRRqGo-h7beMflKiBM-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Health Facility, Macerated": {
+      "selector": "#lGygGLRRqGo-DV5zEf8fdzd-val",
+      "tab": "Page2"
+    },
+    "HA - Birth with Congenital syphillis||Health Facility": {
+      "selector": "#bKGD8b2XTfK-pIYQVNaACys-val",
+      "tab": "Page2"
+    },
+    "HA - PNC <=24 hrs||Health Facility": {
+      "selector": "#M1VQch0q2lt-pIYQVNaACys-val",
+      "tab": "Page2"
+    },
+    "HA - Birth live||Village/Home": {
+      "selector": "#OpjHr7We9P5-kcGMh4zhPeK-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Village/Home, Fresh": {
+      "selector": "#lGygGLRRqGo-exf6FkmQNhi-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Village/Home, Macerated": {
+      "selector": "#lGygGLRRqGo-o3BJuoXwyM6-val",
+      "tab": "Page2"
+    },
+    "HA - Birth with Congenital syphillis||Village/Home": {
+      "selector": "#bKGD8b2XTfK-kcGMh4zhPeK-val",
+      "tab": "Page2"
+    },
+    "HA - PNC <=24 hrs||Village/Home": {
+      "selector": "#M1VQch0q2lt-kcGMh4zhPeK-val",
+      "tab": "Page2"
+    },
+    "HA - Birth live||Other BBA": {
+      "selector": "#OpjHr7We9P5-M26I1EvcFR2-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Other BBA, Fresh": {
+      "selector": "#lGygGLRRqGo-TtBbKnCpEXt-val",
+      "tab": "Page2"
+    },
+    "HA - Birth Still||Other BBA, Macerated": {
+      "selector": "#lGygGLRRqGo-hwLYZZcdzo7-val",
+      "tab": "Page2"
+    },
+    "HA - Birth with Congenital syphillis||Other BBA": {
+      "selector": "#bKGD8b2XTfK-M26I1EvcFR2-val",
+      "tab": "Page2"
+    },
+    "HA - PNC <=24 hrs||Other BBA": {
+      "selector": "#M1VQch0q2lt-M26I1EvcFR2-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Live Birth, NVD": {
+      "selector": "#SQx4eonU37F-uPRosjZNBto-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Still Birth, NVD": {
+      "selector": "#SQx4eonU37F-jlJyUTZuXp5-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Live Birth, Ceasar": {
+      "selector": "#SQx4eonU37F-OuAY6Ge8i49-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Still Birth, Ceasar": {
+      "selector": "#SQx4eonU37F-pdccXxZIS3Y-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Live Birth, Forcep": {
+      "selector": "#SQx4eonU37F-O8RAlW937Zg-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Still Birth, Forcep": {
+      "selector": "#SQx4eonU37F-lQsaoxMpLnq-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Live Birth, Vacuum": {
+      "selector": "#SQx4eonU37F-fLz4CBnujnB-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by type||Still Birth, Vacuum": {
+      "selector": "#SQx4eonU37F-ID9NVuUY4oc-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Live Birth, Doctor": {
+      "selector": "#MGYBecvA34r-Z6Bhaa1a4nH-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Still Birth, Doctor": {
+      "selector": "#MGYBecvA34r-DdBTLzH5DcI-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Live Birth, Midwife": {
+      "selector": "#MGYBecvA34r-VXdwud8L6El-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Still Birth, Midwife": {
+      "selector": "#MGYBecvA34r-SpIoDdQmlVW-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Live Birth, RN": {
+      "selector": "#MGYBecvA34r-ae65prxcQpK-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Still Birth, RN": {
+      "selector": "#MGYBecvA34r-x5EFrVXAFG7-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Live Birth, RNA": {
+      "selector": "#MGYBecvA34r-X19gAKWuGA5-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Still Birth, RNA": {
+      "selector": "#MGYBecvA34r-ObbhXVkxB0X-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Live Birth, Others": {
+      "selector": "#MGYBecvA34r-m8og3CfzpvK-val",
+      "tab": "Page2"
+    },
+    "HA - Delivery by attendants||Still Birth, Others": {
+      "selector": "#MGYBecvA34r-fSONlL2pcs7-val",
+      "tab": "Page2"
+    },
+    "HA - Women completed ANC 4+ visits before delivery||default": {
+      "selector": "#hOJU4ad2PEa-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - New High Risk Babies||default": {
+      "selector": "#YN8uPXqpMem-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Babies Protected From Neonatal Tetanus||default": {
+      "selector": "#UxNmTbBfOoG-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Hepatitis B1 Vaccine <=24 hours||default": {
+      "selector": "#ZwfjBTLi9zA-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Hepatitis B1 Vaccine >24 hours||default": {
+      "selector": "#ixs9i0xRJRY-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - BCG Vaccine||default": {
+      "selector": "#RRJ5QbFiaJp-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 1||<12 Months": {
+      "selector": "#iJwctK60OfD-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 2||<12 Months": {
+      "selector": "#SmHPifNNg16-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 3||<12 Months": {
+      "selector": "#sMNJnlKnPo8-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 1||12 to 23 Months": {
+      "selector": "#iJwctK60OfD-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 2||12 to 23 Months": {
+      "selector": "#SmHPifNNg16-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 3||12 to 23 Months": {
+      "selector": "#sMNJnlKnPo8-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 1||24 to 59 Months": {
+      "selector": "#iJwctK60OfD-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 2||24 to 59 Months": {
+      "selector": "#SmHPifNNg16-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - PENTA vaccine 3||24 to 59 Months": {
+      "selector": "#sMNJnlKnPo8-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 1||<12 Months": {
+      "selector": "#xFIgxPzzln3-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 2||<12 Months": {
+      "selector": "#lTIgrCKuXoZ-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 3||<12 Months": {
+      "selector": "#WuJgFYGKHyw-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 1||12 to 23 Months": {
+      "selector": "#xFIgxPzzln3-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 2||12 to 23 Months": {
+      "selector": "#lTIgrCKuXoZ-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 3||12 to 23 Months": {
+      "selector": "#WuJgFYGKHyw-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 1||24 to 59 Months": {
+      "selector": "#xFIgxPzzln3-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 2||24 to 59 Months": {
+      "selector": "#lTIgrCKuXoZ-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) 3||24 to 59 Months": {
+      "selector": "#WuJgFYGKHyw-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Oral Polio Vaccine (OPV) at school||default": {
+      "selector": "#TyG2tlru5QN-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Injectable Polio Vaccine (IPV) < 1 Year||default": {
+      "selector": "#SDLZwvkFuBK-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 1||<12 Months": {
+      "selector": "#wp0i0DcNYJQ-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 2||<12 Months": {
+      "selector": "#tVYeRpkhMKf-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 3||<12 Months": {
+      "selector": "#jE4YDrXIUr4-wPYLYrCpje4-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 1||12 to 23 Months": {
+      "selector": "#wp0i0DcNYJQ-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 2||12 to 23 Months": {
+      "selector": "#tVYeRpkhMKf-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 3||12 to 23 Months": {
+      "selector": "#jE4YDrXIUr4-WMikUg7OD5A-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 1||24 to 59 Months": {
+      "selector": "#wp0i0DcNYJQ-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 2||24 to 59 Months": {
+      "selector": "#tVYeRpkhMKf-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Pneumococcal conjugate vaccine (PCV) 3||24 to 59 Months": {
+      "selector": "#jE4YDrXIUr4-bvSRGpYwn5r-val",
+      "tab": "Page2"
+    },
+    "HA - Measles Rubella Vaccine 1||default": {
+      "selector": "#grL67jInTMv-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Measles Rubella Vaccine 2||default": {
+      "selector": "#WuynORW254c-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Rotavirus Vaccine < 1 Year 1st dose||default": {
+      "selector": "#THdDf7eFqf0-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Rotavirus Vaccine < 1 Year 2nd dose||default": {
+      "selector": "#hvHJzvHPPVe-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Rotavirus Vaccine < 1 Year 3rd dose||default": {
+      "selector": "#TpSmcmV5J7k-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - Tetanus Toxoid Vaccine (TT) at school||default": {
+      "selector": "#t87WjDUEdHq-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - ANC TT1||default": {
+      "selector": "#Bj3E3Gg2wpM-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - ANC TT2||default": {
+      "selector": "#GsROI8yhhSp-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - ANC Booster||default": {
+      "selector": "#IHqoZywyGF7-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - TT at OPD||default": {
+      "selector": "#YOeVskkJE6r-OPaeQurssMS-val",
+      "tab": "Page2"
+    },
+    "HA - EPI Immunisations Given On Tour||Satellite clinic": {
+      "selector": "#xkffUQv7AXF-Ow8C5Basq3f-val",
+      "tab": "Page2"
+    },
+    "HA - EPI Immunisations Given On Tour||School": {
+      "selector": "#xkffUQv7AXF-KpPWfxaOali-val",
+      "tab": "Page2"
+    },
+    "HPV||9 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-N3oqYoWK4Pm-val",
+      "tab": "Page2"
+    },
+    "HPV||9 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-YSyEMga8ZPy-val",
+      "tab": "Page2"
+    },
+    "HPV||9 years, School": {
+      "selector": "#A0g8YWqgUtF-FSyqKFIb6We-val",
+      "tab": "Page2"
+    },
+    "HPV||10 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-YS5V037tObc-val",
+      "tab": "Page2"
+    },
+    "HPV||10 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-GboqPp8HYRZ-val",
+      "tab": "Page2"
+    },
+    "HPV||10 years, School": {
+      "selector": "#A0g8YWqgUtF-LnihlfXqIKA-val",
+      "tab": "Page2"
+    },
+    "HPV||11 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-mbi408Xq4PN-val",
+      "tab": "Page2"
+    },
+    "HPV||11 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-hN6zhjOvSUG-val",
+      "tab": "Page2"
+    },
+    "HPV||11 years, School": {
+      "selector": "#A0g8YWqgUtF-d9nXPR8cgO4-val",
+      "tab": "Page2"
+    },
+    "HPV||12 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-VTYMwAhPvvJ-val",
+      "tab": "Page2"
+    },
+    "HPV||12 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-sd0ON0dGaPD-val",
+      "tab": "Page2"
+    },
+    "HPV||12 years, School": {
+      "selector": "#A0g8YWqgUtF-N4bOGvp3qap-val",
+      "tab": "Page2"
+    },
+    "HPV||13 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-cPUfmALy5CH-val",
+      "tab": "Page2"
+    },
+    "HPV||13 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-LyX6nx6KgYq-val",
+      "tab": "Page2"
+    },
+    "HPV||13 years, School": {
+      "selector": "#A0g8YWqgUtF-HqNbIagVuQi-val",
+      "tab": "Page2"
+    },
+    "HPV||14 years, Health Facility": {
+      "selector": "#A0g8YWqgUtF-Z2pvplgGoY7-val",
+      "tab": "Page2"
+    },
+    "HPV||14 years, Satellite": {
+      "selector": "#A0g8YWqgUtF-pQvPX6PQCjm-val",
+      "tab": "Page2"
+    },
+    "HPV||14 years, School": {
+      "selector": "#A0g8YWqgUtF-hhD92sMppGM-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Pill": {
+      "selector": "#SAjSmrFoSrY-RW438x35CtL-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Pill": {
+      "selector": "#SAjSmrFoSrY-BzYEnBn1291-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, Pill": {
+      "selector": "#ZbMITWLYklK-RW438x35CtL-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, Pill": {
+      "selector": "#ZbMITWLYklK-BzYEnBn1291-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Pill": {
+      "selector": "#fAxG7dJ2WQw-RW438x35CtL-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Pill": {
+      "selector": "#fAxG7dJ2WQw-BzYEnBn1291-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Pill": {
+      "selector": "#FtphEsADIov-RW438x35CtL-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Pill": {
+      "selector": "#FtphEsADIov-BzYEnBn1291-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Deprovera": {
+      "selector": "#SAjSmrFoSrY-BVUHeAOhLd9-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Deprovera": {
+      "selector": "#SAjSmrFoSrY-AzrpVxxVoOS-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, Deprovera": {
+      "selector": "#ZbMITWLYklK-BVUHeAOhLd9-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, Deprovera": {
+      "selector": "#ZbMITWLYklK-AzrpVxxVoOS-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Deprovera": {
+      "selector": "#fAxG7dJ2WQw-BVUHeAOhLd9-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Deprovera": {
+      "selector": "#fAxG7dJ2WQw-AzrpVxxVoOS-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Deprovera": {
+      "selector": "#FtphEsADIov-BVUHeAOhLd9-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Deprovera": {
+      "selector": "#FtphEsADIov-AzrpVxxVoOS-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Condom Male": {
+      "selector": "#SAjSmrFoSrY-Llowtn66rEr-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Condom Male": {
+      "selector": "#SAjSmrFoSrY-KaICOnQ7LF4-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, Condom Male": {
+      "selector": "#ZbMITWLYklK-Llowtn66rEr-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, Condom Male": {
+      "selector": "#ZbMITWLYklK-KaICOnQ7LF4-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Condom Male": {
+      "selector": "#fAxG7dJ2WQw-Llowtn66rEr-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Condom Male": {
+      "selector": "#fAxG7dJ2WQw-KaICOnQ7LF4-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Condom Male": {
+      "selector": "#FtphEsADIov-Llowtn66rEr-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Condom Male": {
+      "selector": "#FtphEsADIov-KaICOnQ7LF4-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Condom Female": {
+      "selector": "#SAjSmrFoSrY-yTXDDmSwp5C-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Condom Female": {
+      "selector": "#SAjSmrFoSrY-QTPg0Te27Dr-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, Condom Female": {
+      "selector": "#ZbMITWLYklK-yTXDDmSwp5C-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, Condom Female": {
+      "selector": "#ZbMITWLYklK-QTPg0Te27Dr-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Condom Female": {
+      "selector": "#fAxG7dJ2WQw-yTXDDmSwp5C-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Condom Female": {
+      "selector": "#fAxG7dJ2WQw-QTPg0Te27Dr-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Condom Female": {
+      "selector": "#FtphEsADIov-yTXDDmSwp5C-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Condom Female": {
+      "selector": "#FtphEsADIov-QTPg0Te27Dr-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, IUCD": {
+      "selector": "#SAjSmrFoSrY-aifrgN1tKR9-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, IUCD": {
+      "selector": "#SAjSmrFoSrY-pIxvryPvMhM-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, IUCD": {
+      "selector": "#ZbMITWLYklK-aifrgN1tKR9-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, IUCD": {
+      "selector": "#ZbMITWLYklK-pIxvryPvMhM-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, IUCD": {
+      "selector": "#fAxG7dJ2WQw-aifrgN1tKR9-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, IUCD": {
+      "selector": "#fAxG7dJ2WQw-pIxvryPvMhM-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, IUCD": {
+      "selector": "#FtphEsADIov-aifrgN1tKR9-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, IUCD": {
+      "selector": "#FtphEsADIov-pIxvryPvMhM-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Jadelle": {
+      "selector": "#SAjSmrFoSrY-Y9Igjq92Ogc-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Jadelle": {
+      "selector": "#SAjSmrFoSrY-LzoKZg9wWzl-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||< 20 Years, Jadelle": {
+      "selector": "#ZbMITWLYklK-Y9Igjq92Ogc-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance return acceptors||\u2265 20 Years, Jadelle": {
+      "selector": "#ZbMITWLYklK-LzoKZg9wWzl-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Jadelle": {
+      "selector": "#fAxG7dJ2WQw-Y9Igjq92Ogc-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Jadelle": {
+      "selector": "#fAxG7dJ2WQw-LzoKZg9wWzl-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Jadelle": {
+      "selector": "#FtphEsADIov-Y9Igjq92Ogc-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Jadelle": {
+      "selector": "#FtphEsADIov-LzoKZg9wWzl-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Tubaligation": {
+      "selector": "#SAjSmrFoSrY-BY3I6F21rqu-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Tubaligation": {
+      "selector": "#SAjSmrFoSrY-Ffil4no78iI-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Tubaligation": {
+      "selector": "#fAxG7dJ2WQw-BY3I6F21rqu-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Tubaligation": {
+      "selector": "#fAxG7dJ2WQw-Ffil4no78iI-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Tubaligation": {
+      "selector": "#FtphEsADIov-BY3I6F21rqu-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Tubaligation": {
+      "selector": "#FtphEsADIov-Ffil4no78iI-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||< 20 Years, Vasectomy": {
+      "selector": "#SAjSmrFoSrY-LxqpzMq8iga-val",
+      "tab": "Page2"
+    },
+    "HA - FP clinic attendance new acceptors||\u2265 20 Years, Vasectomy": {
+      "selector": "#SAjSmrFoSrY-hA8u7zkFkP2-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||< 20 Years, Vasectomy": {
+      "selector": "#fAxG7dJ2WQw-LxqpzMq8iga-val",
+      "tab": "Page2"
+    },
+    "HA - FP drop out users||\u2265 20 Years, Vasectomy": {
+      "selector": "#fAxG7dJ2WQw-hA8u7zkFkP2-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||< 20 Years, Vasectomy": {
+      "selector": "#FtphEsADIov-LxqpzMq8iga-val",
+      "tab": "Page2"
+    },
+    "HA - FP current users of modern contraception||\u2265 20 Years, Vasectomy": {
+      "selector": "#FtphEsADIov-hA8u7zkFkP2-val",
+      "tab": "Page2"
+    },
+    "HA - Serious Bacterial Infection Cases||<28 Days": {
+      "selector": "#Rtx4c7GMc2m-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Serious Bacterial Infection Cases||28 Days to 1 Year": {
+      "selector": "#Rtx4c7GMc2m-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Local Bacterial Infection Cases||<28 Days": {
+      "selector": "#EF1ESA9auSU-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Local Bacterial Infection Cases||28 Days to 1 Year": {
+      "selector": "#EF1ESA9auSU-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||<28 Days": {
+      "selector": "#nhIt7cYhQ3S-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||28 Days to 1 Year": {
+      "selector": "#nhIt7cYhQ3S-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||1 to 4 Years": {
+      "selector": "#nhIt7cYhQ3S-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||5 to 14 Years": {
+      "selector": "#nhIt7cYhQ3S-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||15 to 49 Years": {
+      "selector": "#nhIt7cYhQ3S-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Influenza like illness cases||50+ Years": {
+      "selector": "#nhIt7cYhQ3S-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||<28 Days": {
+      "selector": "#n9GuUvxeH87-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||28 Days to 1 Year": {
+      "selector": "#n9GuUvxeH87-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||1 to 4 Years": {
+      "selector": "#n9GuUvxeH87-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||5 to 14 Years": {
+      "selector": "#n9GuUvxeH87-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||15 to 49 Years": {
+      "selector": "#n9GuUvxeH87-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Pneumonia cases||50+ Years": {
+      "selector": "#n9GuUvxeH87-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||<28 Days": {
+      "selector": "#b9NzX7l3lEL-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||28 Days to 1 Year": {
+      "selector": "#b9NzX7l3lEL-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||1 to 4 Years": {
+      "selector": "#b9NzX7l3lEL-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||5 to 14 Years": {
+      "selector": "#b9NzX7l3lEL-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||15 to 49 Years": {
+      "selector": "#b9NzX7l3lEL-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Severe Pneumonia cases||50+ Years": {
+      "selector": "#b9NzX7l3lEL-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||<28 Days": {
+      "selector": "#SNLjgjK1Nx9-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||28 Days to 1 Year": {
+      "selector": "#SNLjgjK1Nx9-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||1 to 4 Years": {
+      "selector": "#SNLjgjK1Nx9-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||5 to 14 Years": {
+      "selector": "#SNLjgjK1Nx9-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||15 to 49 Years": {
+      "selector": "#SNLjgjK1Nx9-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with no dehydration cases||50+ Years": {
+      "selector": "#SNLjgjK1Nx9-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||<28 Days": {
+      "selector": "#svf3lq707tI-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||28 Days to 1 Year": {
+      "selector": "#svf3lq707tI-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||1 to 4 Years": {
+      "selector": "#svf3lq707tI-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||5 to 14 Years": {
+      "selector": "#svf3lq707tI-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||15 to 49 Years": {
+      "selector": "#svf3lq707tI-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea with some dehydration cases||50+ Years": {
+      "selector": "#svf3lq707tI-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||<28 Days": {
+      "selector": "#zqZVDLLUo43-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||28 Days to 1 Year": {
+      "selector": "#zqZVDLLUo43-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||1 to 4 Years": {
+      "selector": "#zqZVDLLUo43-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||5 to 14 Years": {
+      "selector": "#zqZVDLLUo43-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||15 to 49 Years": {
+      "selector": "#zqZVDLLUo43-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with severe dehydration cases||50+ Years": {
+      "selector": "#zqZVDLLUo43-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||<28 Days": {
+      "selector": "#SckiMU8I9vJ-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||28 Days to 1 Year": {
+      "selector": "#SckiMU8I9vJ-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||1 to 4 Years": {
+      "selector": "#SckiMU8I9vJ-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||5 to 14 Years": {
+      "selector": "#SckiMU8I9vJ-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||15 to 49 Years": {
+      "selector": "#SckiMU8I9vJ-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhea persistent cases||50+ Years": {
+      "selector": "#SckiMU8I9vJ-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||<28 Days": {
+      "selector": "#iHS0ORjfyTH-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||28 Days to 1 Year": {
+      "selector": "#iHS0ORjfyTH-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||1 to 4 Years": {
+      "selector": "#iHS0ORjfyTH-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||5 to 14 Years": {
+      "selector": "#iHS0ORjfyTH-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||15 to 49 Years": {
+      "selector": "#iHS0ORjfyTH-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Diarrhoea with blood cases||50+ Years": {
+      "selector": "#iHS0ORjfyTH-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||<28 Days": {
+      "selector": "#P4oLdrwv9Ry-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||28 Days to 1 Year": {
+      "selector": "#P4oLdrwv9Ry-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||1 to 4 Years": {
+      "selector": "#P4oLdrwv9Ry-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||5 to 14 Years": {
+      "selector": "#P4oLdrwv9Ry-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||15 to 49 Years": {
+      "selector": "#P4oLdrwv9Ry-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Red eye - Conjuctivities cases||50+ Years": {
+      "selector": "#P4oLdrwv9Ry-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||<28 Days": {
+      "selector": "#zE2J0riS5wG-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||28 Days to 1 Year": {
+      "selector": "#zE2J0riS5wG-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||1 to 4 Years": {
+      "selector": "#zE2J0riS5wG-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||5 to 14 Years": {
+      "selector": "#zE2J0riS5wG-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||15 to 49 Years": {
+      "selector": "#zE2J0riS5wG-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Trachoma cases||50+ Years": {
+      "selector": "#zE2J0riS5wG-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||<28 Days": {
+      "selector": "#cFmpfOYm92q-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||28 Days to 1 Year": {
+      "selector": "#cFmpfOYm92q-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||1 to 4 Years": {
+      "selector": "#cFmpfOYm92q-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||5 to 14 Years": {
+      "selector": "#cFmpfOYm92q-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||15 to 49 Years": {
+      "selector": "#cFmpfOYm92q-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Eye injury cases||50+ Years": {
+      "selector": "#cFmpfOYm92q-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||<28 Days": {
+      "selector": "#IRn9Hh0FBt4-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||28 Days to 1 Year": {
+      "selector": "#IRn9Hh0FBt4-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||1 to 4 Years": {
+      "selector": "#IRn9Hh0FBt4-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||5 to 14 Years": {
+      "selector": "#IRn9Hh0FBt4-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||15 to 49 Years": {
+      "selector": "#IRn9Hh0FBt4-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Eye burn cases||50+ Years": {
+      "selector": "#IRn9Hh0FBt4-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||<28 Days": {
+      "selector": "#OOQea5RIS7f-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||28 Days to 1 Year": {
+      "selector": "#OOQea5RIS7f-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||1 to 4 Years": {
+      "selector": "#OOQea5RIS7f-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||5 to 14 Years": {
+      "selector": "#OOQea5RIS7f-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||15 to 49 Years": {
+      "selector": "#OOQea5RIS7f-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Acute Cases||50+ Years": {
+      "selector": "#OOQea5RIS7f-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||<28 Days": {
+      "selector": "#rWfozKCxQFy-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||28 Days to 1 Year": {
+      "selector": "#rWfozKCxQFy-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||1 to 4 Years": {
+      "selector": "#rWfozKCxQFy-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||5 to 14 Years": {
+      "selector": "#rWfozKCxQFy-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||15 to 49 Years": {
+      "selector": "#rWfozKCxQFy-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Ear Infection Chronic Cases||50+ Years": {
+      "selector": "#rWfozKCxQFy-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||<28 Days": {
+      "selector": "#T6SmxuJsYEf-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||28 Days to 1 Year": {
+      "selector": "#T6SmxuJsYEf-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||1 to 4 Years": {
+      "selector": "#T6SmxuJsYEf-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||5 to 14 Years": {
+      "selector": "#T6SmxuJsYEf-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||15 to 49 Years": {
+      "selector": "#T6SmxuJsYEf-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Dengue like illness cases||50+ Years": {
+      "selector": "#T6SmxuJsYEf-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||<28 Days": {
+      "selector": "#D66gIiVMIEY-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||28 Days to 1 Year": {
+      "selector": "#D66gIiVMIEY-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||1 to 4 Years": {
+      "selector": "#D66gIiVMIEY-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||5 to 14 Years": {
+      "selector": "#D66gIiVMIEY-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||15 to 49 Years": {
+      "selector": "#D66gIiVMIEY-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "Fever with Unknown causes||50+ Years": {
+      "selector": "#D66gIiVMIEY-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||<28 Days": {
+      "selector": "#IhBxvs7m4Q0-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||28 Days to 1 Year": {
+      "selector": "#IhBxvs7m4Q0-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||1 to 4 Years": {
+      "selector": "#IhBxvs7m4Q0-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||5 to 14 Years": {
+      "selector": "#IhBxvs7m4Q0-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||15 to 49 Years": {
+      "selector": "#IhBxvs7m4Q0-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - TB suspected Cases||50+ Years": {
+      "selector": "#IhBxvs7m4Q0-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||<28 Days": {
+      "selector": "#F9dLZTSTpJO-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||28 Days to 1 Year": {
+      "selector": "#F9dLZTSTpJO-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||1 to 4 Years": {
+      "selector": "#F9dLZTSTpJO-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||5 to 14 Years": {
+      "selector": "#F9dLZTSTpJO-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||15 to 49 Years": {
+      "selector": "#F9dLZTSTpJO-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Yaws Cases||50+ Years": {
+      "selector": "#F9dLZTSTpJO-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||<28 Days": {
+      "selector": "#TEuuP41tK76-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||28 Days to 1 Year": {
+      "selector": "#TEuuP41tK76-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||1 to 4 Years": {
+      "selector": "#TEuuP41tK76-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||5 to 14 Years": {
+      "selector": "#TEuuP41tK76-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||15 to 49 Years": {
+      "selector": "#TEuuP41tK76-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Scabies Cases||50+ Years": {
+      "selector": "#TEuuP41tK76-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||<28 Days": {
+      "selector": "#alFcI2z0BHh-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||28 Days to 1 Year": {
+      "selector": "#alFcI2z0BHh-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||1 to 4 Years": {
+      "selector": "#alFcI2z0BHh-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||5 to 14 Years": {
+      "selector": "#alFcI2z0BHh-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||15 to 49 Years": {
+      "selector": "#alFcI2z0BHh-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Fungal Infection Cases||50+ Years": {
+      "selector": "#alFcI2z0BHh-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||<28 Days": {
+      "selector": "#RBasp64qGO1-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||28 Days to 1 Year": {
+      "selector": "#RBasp64qGO1-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||1 to 4 Years": {
+      "selector": "#RBasp64qGO1-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||5 to 14 Years": {
+      "selector": "#RBasp64qGO1-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||15 to 49 Years": {
+      "selector": "#RBasp64qGO1-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Skin Diseases Cases||50+ Years": {
+      "selector": "#RBasp64qGO1-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||<28 Days": {
+      "selector": "#kDHafK2Le6m-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||28 Days to 1 Year": {
+      "selector": "#kDHafK2Le6m-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||1 to 4 Years": {
+      "selector": "#kDHafK2Le6m-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||5 to 14 Years": {
+      "selector": "#kDHafK2Le6m-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||15 to 49 Years": {
+      "selector": "#kDHafK2Le6m-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - All Other Disease Cases||50+ Years": {
+      "selector": "#kDHafK2Le6m-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Neonatal Cases||default": {
+      "selector": "#leHeRxGEz8i-OPaeQurssMS-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Cases||28 Days to 1 Year": {
+      "selector": "#EP3uzlf1SgA-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Cases||1 to 4 Years": {
+      "selector": "#EP3uzlf1SgA-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Cases||5 to 14 Years": {
+      "selector": "#EP3uzlf1SgA-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Cases||15 to 49 Years": {
+      "selector": "#EP3uzlf1SgA-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Tetanus Cases||50+ Years": {
+      "selector": "#EP3uzlf1SgA-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||<28 Days": {
+      "selector": "#hiTJXHFIG03-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||28 Days to 1 Year": {
+      "selector": "#hiTJXHFIG03-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||1 to 4 Years": {
+      "selector": "#hiTJXHFIG03-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||5 to 14 Years": {
+      "selector": "#hiTJXHFIG03-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||15 to 49 Years": {
+      "selector": "#hiTJXHFIG03-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Whooping Cough Cases||50+ Years": {
+      "selector": "#hiTJXHFIG03-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||<28 Days": {
+      "selector": "#bDSnpdYKlEH-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||28 Days to 1 Year": {
+      "selector": "#bDSnpdYKlEH-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||1 to 4 Years": {
+      "selector": "#bDSnpdYKlEH-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||5 to 14 Years": {
+      "selector": "#bDSnpdYKlEH-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||15 to 49 Years": {
+      "selector": "#bDSnpdYKlEH-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Acute flaccid paralysis cases||50+ Years": {
+      "selector": "#bDSnpdYKlEH-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||<28 Days": {
+      "selector": "#h1m5AiAQEa7-TrmTIR5EVWb-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||28 Days to 1 Year": {
+      "selector": "#h1m5AiAQEa7-ybjjhacxJKv-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||1 to 4 Years": {
+      "selector": "#h1m5AiAQEa7-wuKsrDL6rY9-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||5 to 14 Years": {
+      "selector": "#h1m5AiAQEa7-gSpjm4j1yR3-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||15 to 49 Years": {
+      "selector": "#h1m5AiAQEa7-mhJZKNgOgfz-val",
+      "tab": "Page3"
+    },
+    "HA - Acute Fever And Rash Cases||50+ Years": {
+      "selector": "#h1m5AiAQEa7-opYmYXllrAM-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||<10 Years": {
+      "selector": "#XK4WpqH15To-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||10 to 14 Years": {
+      "selector": "#XK4WpqH15To-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||15 to 19 Years": {
+      "selector": "#XK4WpqH15To-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||20 to 24 Years": {
+      "selector": "#XK4WpqH15To-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||25 to 49 Years": {
+      "selector": "#XK4WpqH15To-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI Urethral Discharge Syndrome Cases||50+ Years": {
+      "selector": "#XK4WpqH15To-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||<10 Years": {
+      "selector": "#gfkJMpJWp5A-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||10 to 14 Years": {
+      "selector": "#gfkJMpJWp5A-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||15 to 19 Years": {
+      "selector": "#gfkJMpJWp5A-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||20 to 24 Years": {
+      "selector": "#gfkJMpJWp5A-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||25 to 49 Years": {
+      "selector": "#gfkJMpJWp5A-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI Vaginal Discharge Syndrome Cases||50+ Years": {
+      "selector": "#gfkJMpJWp5A-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||<10 Years, M": {
+      "selector": "#OpPMgzsPl8d-oQdMVLs6Kbv-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||10 to 14 Years, M": {
+      "selector": "#OpPMgzsPl8d-dDg4156WlOT-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||15 to 19 Years, M": {
+      "selector": "#OpPMgzsPl8d-DXAimgb0w29-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||20 to 24 Years, M": {
+      "selector": "#OpPMgzsPl8d-Ft7pmSCrDTP-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||25 to 49 Years, M": {
+      "selector": "#OpPMgzsPl8d-eaMg7jFNPi4-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||50+ Years, M": {
+      "selector": "#OpPMgzsPl8d-TZqFvUGIbO3-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||<10 Years, F": {
+      "selector": "#OpPMgzsPl8d-lTwrN2gla0w-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||10 to 14 Years, F": {
+      "selector": "#OpPMgzsPl8d-caPcx1N2mWL-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||15 to 19 Years, F": {
+      "selector": "#OpPMgzsPl8d-bCYlpVZuQZi-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||20 to 24 Years, F": {
+      "selector": "#OpPMgzsPl8d-UHpiPbW1atX-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||25 to 49 Years, F": {
+      "selector": "#OpPMgzsPl8d-deIKpB96oik-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital Ulcer Syndrome Cases||50+ Years, F": {
+      "selector": "#OpPMgzsPl8d-MZ0MXwwxgtF-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||<10 Years": {
+      "selector": "#RGlZMZHGZYO-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||10 to 14 Years": {
+      "selector": "#RGlZMZHGZYO-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||15 to 19 Years": {
+      "selector": "#RGlZMZHGZYO-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||20 to 24 Years": {
+      "selector": "#RGlZMZHGZYO-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||25 to 49 Years": {
+      "selector": "#RGlZMZHGZYO-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI Pelvic inflammatory disease female cases||50+ Years": {
+      "selector": "#RGlZMZHGZYO-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||<10 Years": {
+      "selector": "#ifiGiJSdTGV-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||10 to 14 Years": {
+      "selector": "#ifiGiJSdTGV-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||15 to 19 Years": {
+      "selector": "#ifiGiJSdTGV-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||20 to 24 Years": {
+      "selector": "#ifiGiJSdTGV-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||25 to 49 Years": {
+      "selector": "#ifiGiJSdTGV-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Scrotal swelling||50+ Years": {
+      "selector": "#ifiGiJSdTGV-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - STI related Neonatal conjunctivitis||default": {
+      "selector": "#Jo32IssYoDJ-OPaeQurssMS-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||<10 Years, M": {
+      "selector": "#YSE8vC9Hzm6-oQdMVLs6Kbv-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||10 to 14 Years, M": {
+      "selector": "#YSE8vC9Hzm6-dDg4156WlOT-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||15 to 19 Years, M": {
+      "selector": "#YSE8vC9Hzm6-DXAimgb0w29-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||20 to 24 Years, M": {
+      "selector": "#YSE8vC9Hzm6-Ft7pmSCrDTP-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||25 to 49 Years, M": {
+      "selector": "#YSE8vC9Hzm6-eaMg7jFNPi4-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||50+ Years, M": {
+      "selector": "#YSE8vC9Hzm6-TZqFvUGIbO3-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||<10 Years, F": {
+      "selector": "#YSE8vC9Hzm6-lTwrN2gla0w-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||10 to 14 Years, F": {
+      "selector": "#YSE8vC9Hzm6-caPcx1N2mWL-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||15 to 19 Years, F": {
+      "selector": "#YSE8vC9Hzm6-bCYlpVZuQZi-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||20 to 24 Years, F": {
+      "selector": "#YSE8vC9Hzm6-UHpiPbW1atX-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||25 to 49 Years, F": {
+      "selector": "#YSE8vC9Hzm6-deIKpB96oik-val",
+      "tab": "Page3"
+    },
+    "HA - STI Genital warts cases||50+ Years, F": {
+      "selector": "#YSE8vC9Hzm6-MZ0MXwwxgtF-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||<10 Years": {
+      "selector": "#idb46Kg5r7h-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||10 to 14 Years": {
+      "selector": "#idb46Kg5r7h-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||15 to 19 Years": {
+      "selector": "#idb46Kg5r7h-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||20 to 24 Years": {
+      "selector": "#idb46Kg5r7h-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||25 to 49 Years": {
+      "selector": "#idb46Kg5r7h-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis cases||50+ Years": {
+      "selector": "#idb46Kg5r7h-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis ANC cases||10 to 14 Years": {
+      "selector": "#Js64GtjfV4P-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis ANC cases||15 to 19 Years": {
+      "selector": "#Js64GtjfV4P-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis ANC cases||20 to 24 Years": {
+      "selector": "#Js64GtjfV4P-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis ANC cases||25 to 49 Years": {
+      "selector": "#Js64GtjfV4P-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - STI Treated positive syphilis ANC cases||50+ Years": {
+      "selector": "#Js64GtjfV4P-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||<10 Years": {
+      "selector": "#Yab7axsk9dy-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||10 to 14 Years": {
+      "selector": "#Yab7axsk9dy-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||15 to 19 Years": {
+      "selector": "#Yab7axsk9dy-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||20 to 24 Years": {
+      "selector": "#Yab7axsk9dy-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||25 to 49 Years": {
+      "selector": "#Yab7axsk9dy-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT All (except ANC)||50+ Years": {
+      "selector": "#Yab7axsk9dy-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT Mothers with ANC||10 to 14 Years": {
+      "selector": "#xpemOupjNnj-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT Mothers with ANC||15 to 19 Years": {
+      "selector": "#xpemOupjNnj-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT Mothers with ANC||20 to 24 Years": {
+      "selector": "#xpemOupjNnj-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT Mothers with ANC||25 to 49 Years": {
+      "selector": "#xpemOupjNnj-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT Mothers with ANC||50+ Years": {
+      "selector": "#xpemOupjNnj-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||<10 Years": {
+      "selector": "#y2I6ynYegnz-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||10 to 14 Years": {
+      "selector": "#y2I6ynYegnz-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||15 to 19 Years": {
+      "selector": "#y2I6ynYegnz-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||20 to 24 Years": {
+      "selector": "#y2I6ynYegnz-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||25 to 49 Years": {
+      "selector": "#y2I6ynYegnz-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV (excluding ANC)||50+ Years": {
+      "selector": "#y2I6ynYegnz-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV ANC||10 to 14 Years": {
+      "selector": "#nGditZ7ysIv-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV ANC||15 to 19 Years": {
+      "selector": "#nGditZ7ysIv-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV ANC||20 to 24 Years": {
+      "selector": "#nGditZ7ysIv-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV ANC||25 to 49 Years": {
+      "selector": "#nGditZ7ysIv-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive HIV ANC||50+ Years": {
+      "selector": "#nGditZ7ysIv-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||<10 Years": {
+      "selector": "#GTdgzhnNFGr-ZDZA7YWjfP7-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||10 to 14 Years": {
+      "selector": "#GTdgzhnNFGr-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||15 to 19 Years": {
+      "selector": "#GTdgzhnNFGr-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||20 to 24 Years": {
+      "selector": "#GTdgzhnNFGr-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||25 to 49 Years": {
+      "selector": "#GTdgzhnNFGr-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis (excluding ANC)||50+ Years": {
+      "selector": "#GTdgzhnNFGr-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis ANC||10 to 14 Years": {
+      "selector": "#JjnLW6B1GPz-mFxGWRkbDF6-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis ANC||15 to 19 Years": {
+      "selector": "#JjnLW6B1GPz-g9OC9SaLBnZ-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis ANC||20 to 24 Years": {
+      "selector": "#JjnLW6B1GPz-CAufc7bW13k-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis ANC||25 to 49 Years": {
+      "selector": "#JjnLW6B1GPz-Jz2bInUR6vj-val",
+      "tab": "Page3"
+    },
+    "HA - PICT positive Syphillis ANC||50+ Years": {
+      "selector": "#JjnLW6B1GPz-bE1EwlMvUbo-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||18 to 19 Years, Partner": {
+      "selector": "#khkwPXJMeKZ-FEvYduTCTV5-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||18 to 19 Years, Family": {
+      "selector": "#khkwPXJMeKZ-U12OxxmXLVT-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||18 to 19 Years, Other": {
+      "selector": "#khkwPXJMeKZ-w5wMRlAzGPp-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||20 to 24 Years, Partner": {
+      "selector": "#khkwPXJMeKZ-DqjgbwzOutn-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||20 to 24 Years, Family": {
+      "selector": "#khkwPXJMeKZ-P2TCpgbjzVw-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||20 to 24 Years, Other": {
+      "selector": "#khkwPXJMeKZ-LJoE61oclBD-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||25 to 29 Years, Partner": {
+      "selector": "#khkwPXJMeKZ-t2s8Lpj8cUa-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||25 to 29 Years, Family": {
+      "selector": "#khkwPXJMeKZ-Dxgg6l7alPN-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||25 to 29 Years, Other": {
+      "selector": "#khkwPXJMeKZ-GSofln7Ww0u-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||30+ Years, Partner": {
+      "selector": "#khkwPXJMeKZ-OzfzB7gGycp-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||30+ Years, Family": {
+      "selector": "#khkwPXJMeKZ-hBBGOha8wYV-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Sexual violence||30+ Years, Other": {
+      "selector": "#khkwPXJMeKZ-c40U8IKp5UB-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) treated cases||default": {
+      "selector": "#j4CZvw2XMvv-OPaeQurssMS-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||18 to 19 Years, Partner": {
+      "selector": "#EdzNhhtw03H-FEvYduTCTV5-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||18 to 19 Years, Family": {
+      "selector": "#EdzNhhtw03H-U12OxxmXLVT-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||18 to 19 Years, Other": {
+      "selector": "#EdzNhhtw03H-w5wMRlAzGPp-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||20 to 24 Years, Partner": {
+      "selector": "#EdzNhhtw03H-DqjgbwzOutn-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||20 to 24 Years, Family": {
+      "selector": "#EdzNhhtw03H-P2TCpgbjzVw-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||20 to 24 Years, Other": {
+      "selector": "#EdzNhhtw03H-LJoE61oclBD-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||25 to 29 Years, Partner": {
+      "selector": "#EdzNhhtw03H-t2s8Lpj8cUa-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||25 to 29 Years, Family": {
+      "selector": "#EdzNhhtw03H-Dxgg6l7alPN-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||25 to 29 Years, Other": {
+      "selector": "#EdzNhhtw03H-GSofln7Ww0u-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||30+ Years, Partner": {
+      "selector": "#EdzNhhtw03H-OzfzB7gGycp-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||30+ Years, Family": {
+      "selector": "#EdzNhhtw03H-hBBGOha8wYV-val",
+      "tab": "Page3"
+    },
+    "HA - GBV against women (18+) cases - Physical violence||30+ Years, Other": {
+      "selector": "#EdzNhhtw03H-c40U8IKp5UB-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Sexual viollence||< 5 Years": {
+      "selector": "#VRg7aRG41Gj-Vic7JGZgstb-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Sexual viollence||5 to 9 years": {
+      "selector": "#VRg7aRG41Gj-PCzXpIk0G5K-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Sexual viollence||10 to 14 Years": {
+      "selector": "#VRg7aRG41Gj-vRmCWJNMguA-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Sexual viollence||15 to 17 Years": {
+      "selector": "#VRg7aRG41Gj-qVim79o2HDN-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) treated cases||default": {
+      "selector": "#JiMXDw901j4-OPaeQurssMS-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Physical viollence||< 5 Years": {
+      "selector": "#JqDSNuHoDmd-Vic7JGZgstb-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Physical viollence||5 to 9 years": {
+      "selector": "#JqDSNuHoDmd-PCzXpIk0G5K-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Physical viollence||10 to 14 Years": {
+      "selector": "#JqDSNuHoDmd-vRmCWJNMguA-val",
+      "tab": "Page3"
+    },
+    "HA - Violence against children (<18yrs) cases - Physical viollence||15 to 17 Years": {
+      "selector": "#JqDSNuHoDmd-qVim79o2HDN-val",
+      "tab": "Page3"
+    },
+    "HA - Diabetes New cases||< 1 Year, M": {
+      "selector": "#hZCM3wCMIQj-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||< 1 Year, F": {
+      "selector": "#hZCM3wCMIQj-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||1 to 4 Years, M": {
+      "selector": "#hZCM3wCMIQj-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||1 to 4 Years, F": {
+      "selector": "#hZCM3wCMIQj-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||5 to 9 Years, M": {
+      "selector": "#hZCM3wCMIQj-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||5 to 9 Years, F": {
+      "selector": "#hZCM3wCMIQj-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||10 to 19 Years, M": {
+      "selector": "#hZCM3wCMIQj-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||10 to 19 Years, F": {
+      "selector": "#hZCM3wCMIQj-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||20 to 24 Years, M": {
+      "selector": "#hZCM3wCMIQj-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||20 to 24 Years, F": {
+      "selector": "#hZCM3wCMIQj-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||25 to 49 Years, M": {
+      "selector": "#hZCM3wCMIQj-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||25 to 49 Years, F": {
+      "selector": "#hZCM3wCMIQj-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||50+ Years, M": {
+      "selector": "#hZCM3wCMIQj-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes New cases||50+ Years, F": {
+      "selector": "#hZCM3wCMIQj-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||< 1 Year, M": {
+      "selector": "#Zt6YkfCVPHf-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||< 1 Year, F": {
+      "selector": "#Zt6YkfCVPHf-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||1 to 4 Years, M": {
+      "selector": "#Zt6YkfCVPHf-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||1 to 4 Years, F": {
+      "selector": "#Zt6YkfCVPHf-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||5 to 9 Years, M": {
+      "selector": "#Zt6YkfCVPHf-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||5 to 9 Years, F": {
+      "selector": "#Zt6YkfCVPHf-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||10 to 19 Years, M": {
+      "selector": "#Zt6YkfCVPHf-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||10 to 19 Years, F": {
+      "selector": "#Zt6YkfCVPHf-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||20 to 24 Years, M": {
+      "selector": "#Zt6YkfCVPHf-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||20 to 24 Years, F": {
+      "selector": "#Zt6YkfCVPHf-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||25 to 49 Years, M": {
+      "selector": "#Zt6YkfCVPHf-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||25 to 49 Years, F": {
+      "selector": "#Zt6YkfCVPHf-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||50+ Years, M": {
+      "selector": "#Zt6YkfCVPHf-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Diabetes Checkups||50+ Years, F": {
+      "selector": "#Zt6YkfCVPHf-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||< 1 Year, M": {
+      "selector": "#hAkjPWghuKo-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||< 1 Year, F": {
+      "selector": "#hAkjPWghuKo-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||1 to 4 Years, M": {
+      "selector": "#hAkjPWghuKo-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||1 to 4 Years, F": {
+      "selector": "#hAkjPWghuKo-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||5 to 9 Years, M": {
+      "selector": "#hAkjPWghuKo-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||5 to 9 Years, F": {
+      "selector": "#hAkjPWghuKo-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||10 to 19 Years, M": {
+      "selector": "#hAkjPWghuKo-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||10 to 19 Years, F": {
+      "selector": "#hAkjPWghuKo-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||20 to 24 Years, M": {
+      "selector": "#hAkjPWghuKo-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||20 to 24 Years, F": {
+      "selector": "#hAkjPWghuKo-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||25 to 49 Years, M": {
+      "selector": "#hAkjPWghuKo-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||25 to 49 Years, F": {
+      "selector": "#hAkjPWghuKo-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||50+ Years, M": {
+      "selector": "#hAkjPWghuKo-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension New Cases||50+ Years, F": {
+      "selector": "#hAkjPWghuKo-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||< 1 Year, M": {
+      "selector": "#yYKYkPxpov9-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||< 1 Year, F": {
+      "selector": "#yYKYkPxpov9-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||1 to 4 Years, M": {
+      "selector": "#yYKYkPxpov9-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||1 to 4 Years, F": {
+      "selector": "#yYKYkPxpov9-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||5 to 9 Years, M": {
+      "selector": "#yYKYkPxpov9-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||5 to 9 Years, F": {
+      "selector": "#yYKYkPxpov9-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||10 to 19 Years, M": {
+      "selector": "#yYKYkPxpov9-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||10 to 19 Years, F": {
+      "selector": "#yYKYkPxpov9-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||20 to 24 Years, M": {
+      "selector": "#yYKYkPxpov9-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||20 to 24 Years, F": {
+      "selector": "#yYKYkPxpov9-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||25 to 49 Years, M": {
+      "selector": "#yYKYkPxpov9-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||25 to 49 Years, F": {
+      "selector": "#yYKYkPxpov9-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||50+ Years, M": {
+      "selector": "#yYKYkPxpov9-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Hypertension Checkups||50+ Years, F": {
+      "selector": "#yYKYkPxpov9-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||< 1 Year, M": {
+      "selector": "#Tp0I1hHZRBY-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||< 1 Year, F": {
+      "selector": "#Tp0I1hHZRBY-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||1 to 4 Years, M": {
+      "selector": "#Tp0I1hHZRBY-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||1 to 4 Years, F": {
+      "selector": "#Tp0I1hHZRBY-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||5 to 9 Years, M": {
+      "selector": "#Tp0I1hHZRBY-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||5 to 9 Years, F": {
+      "selector": "#Tp0I1hHZRBY-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||10 to 19 Years, M": {
+      "selector": "#Tp0I1hHZRBY-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||10 to 19 Years, F": {
+      "selector": "#Tp0I1hHZRBY-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||20 to 24 Years, M": {
+      "selector": "#Tp0I1hHZRBY-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||20 to 24 Years, F": {
+      "selector": "#Tp0I1hHZRBY-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||25 to 49 Years, M": {
+      "selector": "#Tp0I1hHZRBY-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||25 to 49 Years, F": {
+      "selector": "#Tp0I1hHZRBY-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||50+ Years, M": {
+      "selector": "#Tp0I1hHZRBY-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Asthma/Chest Cases||50+ Years, F": {
+      "selector": "#Tp0I1hHZRBY-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||< 1 Year, M": {
+      "selector": "#u1XTf9Q42Vg-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||< 1 Year, F": {
+      "selector": "#u1XTf9Q42Vg-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||1 to 4 Years, M": {
+      "selector": "#u1XTf9Q42Vg-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||1 to 4 Years, F": {
+      "selector": "#u1XTf9Q42Vg-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||5 to 9 Years, M": {
+      "selector": "#u1XTf9Q42Vg-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||5 to 9 Years, F": {
+      "selector": "#u1XTf9Q42Vg-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||10 to 19 Years, M": {
+      "selector": "#u1XTf9Q42Vg-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||10 to 19 Years, F": {
+      "selector": "#u1XTf9Q42Vg-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||20 to 24 Years, M": {
+      "selector": "#u1XTf9Q42Vg-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||20 to 24 Years, F": {
+      "selector": "#u1XTf9Q42Vg-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||25 to 49 Years, M": {
+      "selector": "#u1XTf9Q42Vg-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||25 to 49 Years, F": {
+      "selector": "#u1XTf9Q42Vg-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||50+ Years, M": {
+      "selector": "#u1XTf9Q42Vg-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Heart Disease Checkups||50+ Years, F": {
+      "selector": "#u1XTf9Q42Vg-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||< 1 Year, M": {
+      "selector": "#o8Zb3We24W3-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||< 1 Year, F": {
+      "selector": "#o8Zb3We24W3-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||1 to 4 Years, M": {
+      "selector": "#o8Zb3We24W3-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||1 to 4 Years, F": {
+      "selector": "#o8Zb3We24W3-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||5 to 9 Years, M": {
+      "selector": "#o8Zb3We24W3-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||5 to 9 Years, F": {
+      "selector": "#o8Zb3We24W3-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||10 to 19 Years, M": {
+      "selector": "#o8Zb3We24W3-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||10 to 19 Years, F": {
+      "selector": "#o8Zb3We24W3-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||20 to 24 Years, M": {
+      "selector": "#o8Zb3We24W3-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||20 to 24 Years, F": {
+      "selector": "#o8Zb3We24W3-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||25 to 49 Years, M": {
+      "selector": "#o8Zb3We24W3-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||25 to 49 Years, F": {
+      "selector": "#o8Zb3We24W3-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||50+ Years, M": {
+      "selector": "#o8Zb3We24W3-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Rheumatic Heart Disease Checkups||50+ Years, F": {
+      "selector": "#o8Zb3We24W3-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||< 1 Year, M": {
+      "selector": "#j3xG8sR6o9I-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||< 1 Year, F": {
+      "selector": "#j3xG8sR6o9I-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||1 to 4 Years, M": {
+      "selector": "#j3xG8sR6o9I-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||1 to 4 Years, F": {
+      "selector": "#j3xG8sR6o9I-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||5 to 9 Years, M": {
+      "selector": "#j3xG8sR6o9I-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||5 to 9 Years, F": {
+      "selector": "#j3xG8sR6o9I-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||10 to 19 Years, M": {
+      "selector": "#j3xG8sR6o9I-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||10 to 19 Years, F": {
+      "selector": "#j3xG8sR6o9I-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||20 to 24 Years, M": {
+      "selector": "#j3xG8sR6o9I-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||20 to 24 Years, F": {
+      "selector": "#j3xG8sR6o9I-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||25 to 49 Years, M": {
+      "selector": "#j3xG8sR6o9I-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||25 to 49 Years, F": {
+      "selector": "#j3xG8sR6o9I-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||50+ Years, M": {
+      "selector": "#j3xG8sR6o9I-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Mental Health Problem Checkups||50+ Years, F": {
+      "selector": "#j3xG8sR6o9I-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||< 1 Year, M": {
+      "selector": "#bqKPBANw812-GUgHHYpDa5g-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||< 1 Year, F": {
+      "selector": "#bqKPBANw812-iR7Fsg36Hlm-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||1 to 4 Years, M": {
+      "selector": "#bqKPBANw812-SaftXdxGGCV-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||1 to 4 Years, F": {
+      "selector": "#bqKPBANw812-a6BXy3zZ8eI-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||5 to 9 Years, M": {
+      "selector": "#bqKPBANw812-qM6Y0J1SEjJ-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||5 to 9 Years, F": {
+      "selector": "#bqKPBANw812-uHxYy2f5f5N-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||10 to 19 Years, M": {
+      "selector": "#bqKPBANw812-E7M1M1keH8A-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||10 to 19 Years, F": {
+      "selector": "#bqKPBANw812-eusmCSILatG-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||20 to 24 Years, M": {
+      "selector": "#bqKPBANw812-LVVuYUvRMy3-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||20 to 24 Years, F": {
+      "selector": "#bqKPBANw812-QiRrd7WtTEo-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||25 to 49 Years, M": {
+      "selector": "#bqKPBANw812-juCbyjelYbe-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||25 to 49 Years, F": {
+      "selector": "#bqKPBANw812-KfyGZ4f0HXF-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||50+ Years, M": {
+      "selector": "#bqKPBANw812-lmhVjFQbAom-val",
+      "tab": "Page4"
+    },
+    "HA - Substance Abuse Cases||50+ Years, F": {
+      "selector": "#bqKPBANw812-UNdBeqte4BQ-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||<8 Days, M": {
+      "selector": "#hEkjGiKUpMI-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||<8 Days, F": {
+      "selector": "#hEkjGiKUpMI-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||8 to 27 Days, M": {
+      "selector": "#hEkjGiKUpMI-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||8 to 27 Days, F": {
+      "selector": "#hEkjGiKUpMI-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||28 Days to <1 Year, M": {
+      "selector": "#hEkjGiKUpMI-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||28 Days to <1 Year, F": {
+      "selector": "#hEkjGiKUpMI-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||1 to 4 Years, M": {
+      "selector": "#hEkjGiKUpMI-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||1 to 4 Years, F": {
+      "selector": "#hEkjGiKUpMI-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||5 to 14 Years, M": {
+      "selector": "#hEkjGiKUpMI-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||5 to 14 Years, F": {
+      "selector": "#hEkjGiKUpMI-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||15 to 49 Years, M": {
+      "selector": "#hEkjGiKUpMI-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||15 to 49 Years, F": {
+      "selector": "#hEkjGiKUpMI-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||50+ Years, M": {
+      "selector": "#hEkjGiKUpMI-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malaria||50+ Years, F": {
+      "selector": "#hEkjGiKUpMI-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||<8 Days, M": {
+      "selector": "#uz1A8aavNm2-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||<8 Days, F": {
+      "selector": "#uz1A8aavNm2-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||8 to 27 Days, M": {
+      "selector": "#uz1A8aavNm2-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||8 to 27 Days, F": {
+      "selector": "#uz1A8aavNm2-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||28 Days to <1 Year, M": {
+      "selector": "#uz1A8aavNm2-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||28 Days to <1 Year, F": {
+      "selector": "#uz1A8aavNm2-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||1 to 4 Years, M": {
+      "selector": "#uz1A8aavNm2-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||1 to 4 Years, F": {
+      "selector": "#uz1A8aavNm2-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||5 to 14 Years, M": {
+      "selector": "#uz1A8aavNm2-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||5 to 14 Years, F": {
+      "selector": "#uz1A8aavNm2-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||15 to 49 Years, M": {
+      "selector": "#uz1A8aavNm2-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||15 to 49 Years, F": {
+      "selector": "#uz1A8aavNm2-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||50+ Years, M": {
+      "selector": "#uz1A8aavNm2-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions ARI||50+ Years, F": {
+      "selector": "#uz1A8aavNm2-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||<8 Days, M": {
+      "selector": "#VJzCcr6o6Zi-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||<8 Days, F": {
+      "selector": "#VJzCcr6o6Zi-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||8 to 27 Days, M": {
+      "selector": "#VJzCcr6o6Zi-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||8 to 27 Days, F": {
+      "selector": "#VJzCcr6o6Zi-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||28 Days to <1 Year, M": {
+      "selector": "#VJzCcr6o6Zi-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||28 Days to <1 Year, F": {
+      "selector": "#VJzCcr6o6Zi-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||1 to 4 Years, M": {
+      "selector": "#VJzCcr6o6Zi-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||1 to 4 Years, F": {
+      "selector": "#VJzCcr6o6Zi-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||5 to 14 Years, M": {
+      "selector": "#VJzCcr6o6Zi-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||5 to 14 Years, F": {
+      "selector": "#VJzCcr6o6Zi-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||15 to 49 Years, M": {
+      "selector": "#VJzCcr6o6Zi-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||15 to 49 Years, F": {
+      "selector": "#VJzCcr6o6Zi-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||50+ Years, M": {
+      "selector": "#VJzCcr6o6Zi-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Pneumonia||50+ Years, F": {
+      "selector": "#VJzCcr6o6Zi-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||<8 Days, M": {
+      "selector": "#scss8jTX6UE-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||<8 Days, F": {
+      "selector": "#scss8jTX6UE-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||8 to 27 Days, M": {
+      "selector": "#scss8jTX6UE-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||8 to 27 Days, F": {
+      "selector": "#scss8jTX6UE-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||28 Days to <1 Year, M": {
+      "selector": "#scss8jTX6UE-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||28 Days to <1 Year, F": {
+      "selector": "#scss8jTX6UE-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||1 to 4 Years, M": {
+      "selector": "#scss8jTX6UE-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||1 to 4 Years, F": {
+      "selector": "#scss8jTX6UE-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||5 to 14 Years, M": {
+      "selector": "#scss8jTX6UE-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||5 to 14 Years, F": {
+      "selector": "#scss8jTX6UE-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||15 to 49 Years, M": {
+      "selector": "#scss8jTX6UE-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||15 to 49 Years, F": {
+      "selector": "#scss8jTX6UE-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||50+ Years, M": {
+      "selector": "#scss8jTX6UE-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diarrhoea||50+ Years, F": {
+      "selector": "#scss8jTX6UE-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||<8 Days, M": {
+      "selector": "#ly7Yu06cAXC-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||<8 Days, F": {
+      "selector": "#ly7Yu06cAXC-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||8 to 27 Days, M": {
+      "selector": "#ly7Yu06cAXC-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||8 to 27 Days, F": {
+      "selector": "#ly7Yu06cAXC-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||28 Days to <1 Year, M": {
+      "selector": "#ly7Yu06cAXC-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||28 Days to <1 Year, F": {
+      "selector": "#ly7Yu06cAXC-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||1 to 4 Years, M": {
+      "selector": "#ly7Yu06cAXC-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||1 to 4 Years, F": {
+      "selector": "#ly7Yu06cAXC-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||5 to 14 Years, M": {
+      "selector": "#ly7Yu06cAXC-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||5 to 14 Years, F": {
+      "selector": "#ly7Yu06cAXC-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||15 to 49 Years, M": {
+      "selector": "#ly7Yu06cAXC-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||15 to 49 Years, F": {
+      "selector": "#ly7Yu06cAXC-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||50+ Years, M": {
+      "selector": "#ly7Yu06cAXC-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Injury/Trauma||50+ Years, F": {
+      "selector": "#ly7Yu06cAXC-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||<8 Days, M": {
+      "selector": "#BLndBnx1ROU-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||<8 Days, F": {
+      "selector": "#BLndBnx1ROU-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||8 to 27 Days, M": {
+      "selector": "#BLndBnx1ROU-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||8 to 27 Days, F": {
+      "selector": "#BLndBnx1ROU-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||28 Days to <1 Year, M": {
+      "selector": "#BLndBnx1ROU-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||28 Days to <1 Year, F": {
+      "selector": "#BLndBnx1ROU-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||1 to 4 Years, M": {
+      "selector": "#BLndBnx1ROU-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||1 to 4 Years, F": {
+      "selector": "#BLndBnx1ROU-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||5 to 14 Years, M": {
+      "selector": "#BLndBnx1ROU-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||5 to 14 Years, F": {
+      "selector": "#BLndBnx1ROU-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||15 to 49 Years, M": {
+      "selector": "#BLndBnx1ROU-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||15 to 49 Years, F": {
+      "selector": "#BLndBnx1ROU-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||50+ Years, M": {
+      "selector": "#BLndBnx1ROU-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Malnutrition||50+ Years, F": {
+      "selector": "#BLndBnx1ROU-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||<8 Days, M": {
+      "selector": "#UAdsq1iOrLs-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||<8 Days, F": {
+      "selector": "#UAdsq1iOrLs-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||8 to 27 Days, M": {
+      "selector": "#UAdsq1iOrLs-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||8 to 27 Days, F": {
+      "selector": "#UAdsq1iOrLs-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||28 Days to <1 Year, M": {
+      "selector": "#UAdsq1iOrLs-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||28 Days to <1 Year, F": {
+      "selector": "#UAdsq1iOrLs-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||1 to 4 Years, M": {
+      "selector": "#UAdsq1iOrLs-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||1 to 4 Years, F": {
+      "selector": "#UAdsq1iOrLs-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||5 to 14 Years, M": {
+      "selector": "#UAdsq1iOrLs-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||5 to 14 Years, F": {
+      "selector": "#UAdsq1iOrLs-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||15 to 49 Years, M": {
+      "selector": "#UAdsq1iOrLs-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||15 to 49 Years, F": {
+      "selector": "#UAdsq1iOrLs-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||50+ Years, M": {
+      "selector": "#UAdsq1iOrLs-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Diabetes||50+ Years, F": {
+      "selector": "#UAdsq1iOrLs-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||<8 Days, M": {
+      "selector": "#hFmIDwmiOo9-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||<8 Days, F": {
+      "selector": "#hFmIDwmiOo9-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||8 to 27 Days, M": {
+      "selector": "#hFmIDwmiOo9-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||8 to 27 Days, F": {
+      "selector": "#hFmIDwmiOo9-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||28 Days to <1 Year, M": {
+      "selector": "#hFmIDwmiOo9-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||28 Days to <1 Year, F": {
+      "selector": "#hFmIDwmiOo9-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||1 to 4 Years, M": {
+      "selector": "#hFmIDwmiOo9-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||1 to 4 Years, F": {
+      "selector": "#hFmIDwmiOo9-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||5 to 14 Years, M": {
+      "selector": "#hFmIDwmiOo9-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||5 to 14 Years, F": {
+      "selector": "#hFmIDwmiOo9-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||15 to 49 Years, M": {
+      "selector": "#hFmIDwmiOo9-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||15 to 49 Years, F": {
+      "selector": "#hFmIDwmiOo9-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||50+ Years, M": {
+      "selector": "#hFmIDwmiOo9-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Hypertension||50+ Years, F": {
+      "selector": "#hFmIDwmiOo9-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||<8 Days, M": {
+      "selector": "#RmQljXW15Xi-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||<8 Days, F": {
+      "selector": "#RmQljXW15Xi-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||8 to 27 Days, M": {
+      "selector": "#RmQljXW15Xi-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||8 to 27 Days, F": {
+      "selector": "#RmQljXW15Xi-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||28 Days to <1 Year, M": {
+      "selector": "#RmQljXW15Xi-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||28 Days to <1 Year, F": {
+      "selector": "#RmQljXW15Xi-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||1 to 4 Years, M": {
+      "selector": "#RmQljXW15Xi-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||1 to 4 Years, F": {
+      "selector": "#RmQljXW15Xi-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||5 to 14 Years, M": {
+      "selector": "#RmQljXW15Xi-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||5 to 14 Years, F": {
+      "selector": "#RmQljXW15Xi-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||15 to 49 Years, M": {
+      "selector": "#RmQljXW15Xi-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||15 to 49 Years, F": {
+      "selector": "#RmQljXW15Xi-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||50+ Years, M": {
+      "selector": "#RmQljXW15Xi-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Skin Infection||50+ Years, F": {
+      "selector": "#RmQljXW15Xi-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Admission Childbirth 5 To 14 Years||default": {
+      "selector": "#GsFBuQSuIIn-OPaeQurssMS-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Childbirth 15 To 49 Years||default": {
+      "selector": "#Xbo0ENd7kVY-OPaeQurssMS-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Childbirth 50+ Years||default": {
+      "selector": "#tNLspfkqEvl-OPaeQurssMS-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||<8 Days, M": {
+      "selector": "#gGXMVyNHqjj-eITjZJRXeju-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||<8 Days, F": {
+      "selector": "#gGXMVyNHqjj-j74NlUtE3av-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||8 to 27 Days, M": {
+      "selector": "#gGXMVyNHqjj-j2HJdFcbd0l-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||8 to 27 Days, F": {
+      "selector": "#gGXMVyNHqjj-lvbjNrNxzGD-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||28 Days to <1 Year, M": {
+      "selector": "#gGXMVyNHqjj-CJDY5RX4XFB-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||28 Days to <1 Year, F": {
+      "selector": "#gGXMVyNHqjj-jZk8v2zizKY-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||1 to 4 Years, M": {
+      "selector": "#gGXMVyNHqjj-nPVn8MHSK6D-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||1 to 4 Years, F": {
+      "selector": "#gGXMVyNHqjj-NboIe3HcXnR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||5 to 14 Years, M": {
+      "selector": "#gGXMVyNHqjj-yfjvm9Un3Oz-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||5 to 14 Years, F": {
+      "selector": "#gGXMVyNHqjj-YK60KIwH7wt-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||15 to 49 Years, M": {
+      "selector": "#gGXMVyNHqjj-hOPsrgfnlPj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||15 to 49 Years, F": {
+      "selector": "#gGXMVyNHqjj-v9O7pjxHzZj-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||50+ Years, M": {
+      "selector": "#gGXMVyNHqjj-M8c4Gtyn6YR-val",
+      "tab": "Page4"
+    },
+    "HA - Admissions Other||50+ Years, F": {
+      "selector": "#gGXMVyNHqjj-oYUJg0wGqhv-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-NNQuGtoKrBM-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-W6Fq70L8PtB-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-JRArhDjLRn6-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-sCm2IgcgpN7-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-wf1xs0xNA67-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-tyes3m1yy4C-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-vuJCSR1PS0s-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-vWtMDZzs56x-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-lmTpQ719efh-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-UACZvE2QB56-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-grhFhMSmzA0-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-wIx6x1WKsMW-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Health Facility, M": {
+      "selector": "#HjyNPN0zjYS-iSt30LAFrHv-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Health Facility, F": {
+      "selector": "#HjyNPN0zjYS-S6Mat4c1n7j-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-gKQWQaxaEnj-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-K55NWWyxCzm-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-RDhzaprQW0a-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-KVM2QnGiBvx-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-ROv1l3vZw8r-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-PvHn1mkHuvp-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-m7OxNPWpc1w-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-x7Q2z2yP2PI-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-Bt0rjfv2fJb-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-UugeJthX6jL-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-c5v2EbNy5oe-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-EoFEvg3ZoOS-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Village/Home, M": {
+      "selector": "#HjyNPN0zjYS-Yb4COaaaRyv-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Village/Home, F": {
+      "selector": "#HjyNPN0zjYS-efbY4vKkQdP-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-ayrJinUXLqc-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||<8 Days, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-cI1pj6Ea9BN-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-BoCqm9SIXC7-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||8 to 27 Days, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-lm8Oh58xZ2m-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-nzKv2p9Dukl-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||28 Days to <1 Year, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-hEjE2ohiHGy-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-QUtDki5bAKB-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||1 to 4 Years, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-f65VGdRg3vN-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-I21Jw8hQMOm-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||5 to 14 Years, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-wkHk6I71pvq-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-YrXGt6xLWM8-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||15 to 49 Years, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-I2meQI3OtPF-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Other DBA, M": {
+      "selector": "#HjyNPN0zjYS-wuCDwS5aMNi-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths general||50+ Years, Other DBA, F": {
+      "selector": "#HjyNPN0zjYS-GrAAUE95Ekb-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||10 to 14 Years, Health Facility": {
+      "selector": "#SfQMEif5eDa-jzz1Y84OuVT-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||15 to 19 Years, Health Facility": {
+      "selector": "#SfQMEif5eDa-LDJlGNbhLEk-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||20 to 24 Years, Health Facility": {
+      "selector": "#SfQMEif5eDa-l86t0lBaA1h-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||25 to 49 Years, Health Facility": {
+      "selector": "#SfQMEif5eDa-UGxL2HlxAmP-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||50+ Years, Health Facility": {
+      "selector": "#SfQMEif5eDa-hm0QIaeNGP9-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||10 to 14 Years, Village/Home": {
+      "selector": "#SfQMEif5eDa-UlZiDfbEKFb-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||15 to 19 Years, Village/Home": {
+      "selector": "#SfQMEif5eDa-TBkl2Ayc6Sz-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||20 to 24 Years, Village/Home": {
+      "selector": "#SfQMEif5eDa-Yeyr58nNVBd-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||25 to 49 Years, Village/Home": {
+      "selector": "#SfQMEif5eDa-qd4H42MCajc-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||50+ Years, Village/Home": {
+      "selector": "#SfQMEif5eDa-u5PhSlm9t2c-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||10 to 14 Years, Other DBA": {
+      "selector": "#SfQMEif5eDa-BOTB53Pv2py-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||15 to 19 Years, Other DBA": {
+      "selector": "#SfQMEif5eDa-Opu8g2Ts2B4-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||20 to 24 Years, Other DBA": {
+      "selector": "#SfQMEif5eDa-CfrQYArK0DA-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||25 to 49 Years, Other DBA": {
+      "selector": "#SfQMEif5eDa-Ol8n4VTbAPL-val",
+      "tab": "Page4"
+    },
+    "HA - Deaths maternal||50+ Years, Other DBA": {
+      "selector": "#SfQMEif5eDa-II7Aijgff4I-val",
+      "tab": "Page4"
+    }
+  },
+  "total_fields": 974,
+  "tabs_discovered": 4,
+  "discovery_method": "tab_aware",
+  "form_fingerprint": {
+    "tabs_found": 4,
+    "total_field_estimate": 3896,
+    "field_counts_per_tab": {
+      "Page1": 974,
+      "Page2": 974,
+      "Page3": 974,
+      "Page4": 974
+    },
+    "form_hash": 388770346996389955
+  }
+}
