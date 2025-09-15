@@ -88,20 +88,20 @@ def process_pdf_and_fill_dhis(request):
         
         log_processing_step(upload, 'info', 'Starting PDF processing')
         
-        print("🤖 Initializing PDF processor with root llm.py integration")
-        logger.info("Initializing PDF processor")
+        print("🎭 Initializing FAKE OCR PDF processor (loads health_facility_report.json)")
+        logger.info("Initializing FAKE OCR PDF processor")
         processor = PDFProcessor()
         
         try:
             pdf_path = upload.file.path
-            print(f"📁 Processing PDF at path: {pdf_path}")
-            logger.info(f"Processing PDF file: {pdf_path}")
+            print(f"📁 PDF file uploaded at: {pdf_path}")
+            logger.info(f"PDF file uploaded: {pdf_path}")
             
-            print("⚙️  Calling processor.process_pdf() - using root llm.py logic")
+            print("🎭 FAKE OCR: Simulating PDF processing - will load health_facility_report.json")
             logger.info("Calling processor.process_pdf() with root llm.py integration")
             extracted_data, comparison_result = processor.process_pdf(pdf_path)
             
-            print(f"✅ PDF processing completed! Extracted {len(extracted_data)} fields")
+            print(f"🎭 FAKE OCR completed! Loaded {len(extracted_data)} fields from health_facility_report.json")
             logger.info(f"PDF processing successful - {len(extracted_data)} fields extracted")
             
             # Update upload with PDF processing results
@@ -113,24 +113,24 @@ def process_pdf_and_fill_dhis(request):
             
             log_processing_step(
                 upload, 'info', 
-                f'PDF processing completed. Extracted {len(extracted_data)} fields'
+                f'🎭 FAKE OCR completed. Loaded {len(extracted_data)} fields from health_facility_report.json'
             )
             
-            print(f"📊 Extracted data sample: {list(extracted_data.keys())[:5]}...")
-            logger.info(f"Sample extracted fields: {list(extracted_data.keys())[:5]}")
+            print(f"📊 Sample loaded fields: {list(extracted_data.keys())[:5]}...")
+            logger.info(f"Sample loaded fields from fake OCR: {list(extracted_data.keys())[:5]}")
             
         except Exception as e:
-            print(f"❌ PDF processing failed: {str(e)}")
-            logger.error(f"PDF processing failed: {str(e)}")
+            print(f"❌ FAKE OCR failed: {str(e)}")
+            logger.error(f"FAKE OCR processing failed: {str(e)}")
             
             upload.status = 'failed'
             upload.error_message = str(e)
             upload.save()
             
-            log_processing_step(upload, 'error', f'PDF processing failed: {str(e)}')
+            log_processing_step(upload, 'error', f'🎭 FAKE OCR failed: {str(e)}')
             
             return Response(
-                {'error': f'PDF processing failed: {str(e)}'}, 
+                {'error': f'FAKE OCR processing failed: {str(e)}'}, 
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
         

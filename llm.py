@@ -2303,65 +2303,65 @@ def get_response_format(response_format):
 
 master_result = {}
 
-for tab_type in tab_types:
-    completion = port_key.chat.completions.create(
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful assistant."
-            },
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": data_url_actual
-                        }
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": data_url_digital
-                        }
-                    },
-                    {
-                        "type": "text",
-                        "text": f"""
-                            There are 2 PDF files uploaded. One is master copy in digital format. The other is handwritten and scanned. 
-                            From the handwritten document, extract information for {tab_type}
+# for tab_type in tab_types:
+#     completion = port_key.chat.completions.create(
+#         messages=[
+#             {
+#                 "role": "system",
+#                 "content": "You are a helpful assistant."
+#             },
+#             {
+#                 "role": "user",
+#                 "content": [
+#                     {
+#                         "type": "image_url",
+#                         "image_url": {
+#                             "url": data_url_actual
+#                         }
+#                     },
+#                     {
+#                         "type": "image_url",
+#                         "image_url": {
+#                             "url": data_url_digital
+#                         }
+#                     },
+#                     {
+#                         "type": "text",
+#                         "text": f"""
+#                             There are 2 PDF files uploaded. One is master copy in digital format. The other is handwritten and scanned. 
+#                             From the handwritten document, extract information for {tab_type}
                                 
-                            The ouput should contain all the keys on the same level. (no nested keys just keys on the same level)
-                            Your job is to map the layout of the two documents and compare the two documents and extract information from the handwritten document and return it in a json format.
-                            For the keys that are not present in the handwritten document, return empty string.
+#                             The ouput should contain all the keys on the same level. (no nested keys just keys on the same level)
+#                             Your job is to map the layout of the two documents and compare the two documents and extract information from the handwritten document and return it in a json format.
+#                             For the keys that are not present in the handwritten document, return empty string.
                             
-                            Some pages of the PDF can be oriented differently like landscape or portrait.
-                            Strictly no markdown
-                            """
-                    }
-                ]
-            }
-        ],
-        response_format=mapping[tab_type],
-        model="gemini-2.5-flash",
-    )
+#                             Some pages of the PDF can be oriented differently like landscape or portrait.
+#                             Strictly no markdown
+#                             """
+#                     }
+#                 ]
+#             }
+#         ],
+#         response_format=mapping[tab_type],
+#         model="gemini-2.5-flash",
+#     )
 
-    # print(f"{tab_type}: {completion.choices[0].message.content}")
+#     # print(f"{tab_type}: {completion.choices[0].message.content}")
 
-    content = completion.choices[0].message.content
-    if isinstance(content, str):
-        try:
-            content_dict = json.loads(content)
-        except Exception:
-            content_dict = {}
-    elif isinstance(content, dict):
-        content_dict = content
-    else:
-        content_dict = {}
+#     content = completion.choices[0].message.content
+#     if isinstance(content, str):
+#         try:
+#             content_dict = json.loads(content)
+#         except Exception:
+#             content_dict = {}
+#     elif isinstance(content, dict):
+#         content_dict = content
+#     else:
+#         content_dict = {}
 
-    # Merge content_dict into master_result
-    master_result.update(content_dict)
-    print(f"updated {tab_type}")
+#     # Merge content_dict into master_result
+#     master_result.update(content_dict)
+#     print(f"updated {tab_type}")
 
 
-print(master_result)
+# print(master_result)

@@ -51,130 +51,59 @@ class PDFProcessor:
     
     def process_pdf(self, pdf_path: str) -> Tuple[Dict[str, Any], Dict[str, Any]]:
         """
-        Process uploaded PDF using the EXACT logic from root llm.py
+        Fake OCR process: Load health_facility_report.json directly instead of processing PDF
         Returns: (extracted_data, comparison_result)
         """
-        if not self.llm_module or not self.portkey_client:
-            raise Exception("llm.py module or Portkey client not available - check import from root folder")
-        
         try:
-            logger.info(f"Processing PDF using EXACT root llm.py logic: {pdf_path}")
+            logger.info(f"🎭 FAKE OCR: Simulating PDF processing for: {pdf_path}")
+            logger.info("🎭 FAKE OCR: Loading health_facility_report.json instead of real OCR")
             
-            # Step 1: Use the exact same processing logic as root llm.py
-            extracted_data = self._process_pdf_with_root_llm_logic(pdf_path)
+            # Step 1: Load data from health_facility_report.json (fake OCR)
+            extracted_data = self._load_health_facility_data()
             
-            # Step 2: Create comparison result
-            comparison_result = self._create_comparison_result(extracted_data)
+            # Step 2: Create fake comparison result
+            comparison_result = self._create_fake_comparison_result(extracted_data)
             
-            logger.info(f"PDF processing completed using root llm.py. Extracted {len(extracted_data)} fields")
+            logger.info(f"🎭 FAKE OCR: Complete! Loaded {len(extracted_data)} fields from health_facility_report.json")
             
             return extracted_data, comparison_result
             
         except Exception as e:
-            logger.error(f"PDF processing failed: {e}")
-            raise Exception(f"PDF processing error: {str(e)}")
+            logger.error(f"Fake OCR process failed: {e}")
+            raise Exception(f"Fake OCR error: {str(e)}")
     
-    def _process_pdf_with_root_llm_logic(self, pdf_path: str) -> Dict[str, Any]:
-        """Use the EXACT same processing logic as the root llm.py file"""
-        
+    def _load_health_facility_data(self) -> Dict[str, Any]:
+        """
+        Load health facility data from JSON file (fake OCR)
+        """
         try:
-            # Convert PDF to base64 (same as root llm.py)
-            with open(pdf_path, 'rb') as f:
-                base64_image_actual = base64.b64encode(f.read()).decode('utf-8')
+            health_facility_json_path = self.root_dir / 'health_facility_report.json'
             
-            # Get reference PDF base64 (same as root llm.py)
-            base64_image_digital = None
-            if self.reference_pdf_path.exists():
-                with open(self.reference_pdf_path, 'rb') as f:
-                    base64_image_digital = base64.b64encode(f.read()).decode('utf-8')
+            if not health_facility_json_path.exists():
+                logger.error(f"🎭 FAKE OCR: health_facility_report.json not found at {health_facility_json_path}")
+                raise FileNotFoundError("health_facility_report.json not found")
             
-            data_url_actual = f"data:application/pdf;base64,{base64_image_actual}"
-            data_url_digital = f"data:application/pdf;base64,{base64_image_digital}" if base64_image_digital else None
+            logger.info(f"🎭 FAKE OCR: Loading data from {health_facility_json_path}")
             
-            # Use the EXACT same processing loop from root llm.py
-            master_result = {}
-            tab_types = list(self.schema_mapping.keys())
+            with open(health_facility_json_path, 'r', encoding='utf-8') as f:
+                health_data = json.load(f)
             
-            logger.info(f"Processing {len(tab_types)} schema types using root llm.py logic")
+            logger.info(f"🎭 FAKE OCR: Successfully loaded {len(health_data)} fields from health_facility_report.json")
             
-            for tab_type in tab_types:
-                try:
-                    logger.info(f"Processing schema type: {tab_type}")
-                    
-                    # Build messages array exactly like root llm.py
-                    messages = [
-                        {
-                            "role": "system",
-                            "content": "You are a helpful assistant."
-                        },
-                        {
-                            "role": "user",
-                            "content": []
-                        }
-                    ]
-                    
-                    # Add images exactly like root llm.py
-                    if data_url_digital:
-                        messages[1]["content"].append({
-                            "type": "image_url",
-                            "image_url": {"url": data_url_digital}
-                        })
-                    
-                    messages[1]["content"].append({
-                        "type": "image_url", 
-                        "image_url": {"url": data_url_actual}
-                    })
-                    
-                    # Add exact text prompt from root llm.py
-                    messages[1]["content"].append({
-                        "type": "text",
-                        "text": f"""
-                            There are 2 PDF files uploaded. One is master copy in digital format. The other is handwritten and scanned. 
-                            From the handwritten document, extract information for {tab_type}
-                                
-                            The ouput should contain all the keys on the same level. (no nested keys just keys on the same level)
-                            Your job is to map the layout of the two documents and compare the two documents and extract information from the handwritten document and return it in a json format.
-                            For the keys that are not present in the handwritten document, return empty string.
-                            
-                            Some pages of the PDF can be oriented differently like landscape or portrait.
-                            Strictly no markdown
-                            """
-                    })
-                    
-                    # Make API call exactly like root llm.py
-                    completion = self.portkey_client.chat.completions.create(
-                        messages=messages,
-                        response_format=self.schema_mapping[tab_type],
-                        model="gemini-2.5-flash"
-                    )
-                    
-                    # Process response exactly like root llm.py
-                    content = completion.choices[0].message.content
-                    if isinstance(content, str):
-                        try:
-                            content_dict = json.loads(content)
-                        except Exception:
-                            content_dict = {}
-                    elif isinstance(content, dict):
-                        content_dict = content
-                    else:
-                        content_dict = {}
-                    
-                    # Merge content_dict into master_result (exact same as root llm.py)
-                    master_result.update(content_dict)
-                    logger.info(f"Updated {tab_type} - extracted {len(content_dict)} fields")
-                    
-                except Exception as e:
-                    logger.warning(f"Failed to process schema type {tab_type}: {e}")
-                    continue
+            # Remove metadata fields that shouldn't be used for DHIS filling
+            metadata_fields = ['province_name', 'health_facility_name', 'month', 'year', 'zone', 'type']
+            filtered_data = {k: v for k, v in health_data.items() if k not in metadata_fields}
             
-            logger.info(f"Root llm.py processing completed: {len(master_result)} total fields extracted")
-            return master_result
+            logger.info(f"🎭 FAKE OCR: Filtered out metadata fields. {len(filtered_data)} data fields ready for DHIS")
+            
+            return filtered_data
             
         except Exception as e:
-            logger.error(f"Root llm.py processing failed: {e}")
-            # Fallback to basic extraction
-            return self._basic_pdf_extraction(pdf_path)
+            logger.error(f"🎭 FAKE OCR: Failed to load health facility data: {e}")
+            return {
+                "error": f"Failed to load health facility data: {str(e)}",
+                "fake_ocr_status": "failed"
+            }
     
     
     def _basic_pdf_extraction(self, pdf_path: str) -> Dict[str, Any]:
@@ -203,28 +132,29 @@ class PDFProcessor:
                 "extraction_method": "failed"
             }
     
-    def _create_comparison_result(self, extracted_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Create comparison result following llm.py logic"""
+    def _create_fake_comparison_result(self, extracted_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Create fake comparison result for testing"""
         
         comparison_result = {
             "status": "completed",
-            "method": "llm_comparison",
-            "reference_pdf_found": self.reference_pdf_path.exists(),
-            "schemas_processed": list(self.schema_mapping.keys()),
+            "method": "fake_ocr_simulation",
+            "source_file": "health_facility_report.json",
             "total_fields_extracted": len(extracted_data),
-            "processing_notes": []
+            "processing_notes": [
+                "🎭 FAKE OCR: No real PDF processing performed",
+                "🎭 FAKE OCR: Data loaded directly from health_facility_report.json",
+                "🎭 FAKE OCR: Ready for DHIS form filling",
+                "🎭 FAKE OCR: This is for testing/development purposes only"
+            ],
+            "fake_ocr_status": "success",
+            "data_ready_for_dhis": True
         }
         
-        # Add processing details
-        if self.reference_pdf_path.exists():
-            comparison_result["processing_notes"].append("Reference PDF used for comparison mapping")
-        else:
-            comparison_result["processing_notes"].append("No reference PDF - processed single document only")
-            
-        if self.portkey_client:
-            comparison_result["processing_notes"].append("AI processing with Portkey/Gemini")
-        else:
-            comparison_result["processing_notes"].append("Fallback to basic text extraction")
+        # Add field count details
+        if extracted_data:
+            non_zero_fields = sum(1 for v in extracted_data.values() if v and str(v) != "0")
+            comparison_result["fields_with_data"] = non_zero_fields
+            comparison_result["fields_empty_or_zero"] = len(extracted_data) - non_zero_fields
         
         return comparison_result
     
