@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
+    'image_api',
 ]
 
 MIDDLEWARE = [
@@ -146,12 +147,12 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
         'file': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'api.log',
             'formatter': 'verbose',
@@ -160,13 +161,33 @@ LOGGING = {
     'loggers': {
         'api': {
             'handlers': ['console', 'file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
         'api.views': {
             'handlers': ['console', 'file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'image_api': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'image_api.services': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'image_api.playwright_integration': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
             'propagate': False,
         },
     },
 }
+
+# API Keys for AI Processing
+PORTKEY_API_KEY = os.getenv('PORTKEY_API_KEY')
+PORTKEY_VIRTUAL_KEY = os.getenv('OPENROUTER_VIRTUAL_KEY') or os.getenv('VERTEX_API_KEY')
+VERTEX_API_KEY = os.getenv('VERTEX_API_KEY')

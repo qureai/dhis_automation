@@ -87,10 +87,9 @@ complete_field_mapping.json
 comprehensive_field_mapping.json
 field_mapping_summary.md
 
-# PDF files
+# PDF files (keep examples for testing)
 *.pdf
-example_report.pdf
-report_digital.pdf
+!docs/*.pdf
 
 # Node modules (frontend)
 node_modules/
@@ -111,6 +110,18 @@ backend/media/
 backend/staticfiles/
 backend/static/
 
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Generated outputs
+monthly_report.zip
+output.json
+lol.ipynb
+
 # Temporary files
 tmp/
 temp/
+
+# Documentation build
+docs/build/

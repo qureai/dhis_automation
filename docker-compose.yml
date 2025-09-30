@@ -1,0 +1,211 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: dhis-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-dhis_db}
+      POSTGRES_USER: ${DB_USER:-dhis_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-dhis_password}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    networks:
+      - dhis-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-dhis_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache (Optional - for production)
+  redis:
+    image: redis:7-alpine
+    container_name: dhis-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - dhis-network
+    profiles:
+      - production
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Django Backend
+  backend:
+    build:
+      context: ./backend
+      target: ${BUILD_TARGET:-development}  # Use 'production' for prod build
+    container_name: dhis-backend
+    restart: unless-stopped
+    ports:
+      - "${DJANGO_PORT:-8000}:8000"
+    volumes:
+      - ./backend:/app  # For development hot-reload
+      - media_data:/app/media
+      - static_data:/app/static
+    environment:
+      # Django Settings
+      SECRET_KEY: ${SECRET_KEY:-django-insecure-dev-key}
+      DEBUG: ${DEBUG:-True}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-*}
+      
+      # Database
+      DATABASE_URL: postgresql://${DB_USER:-dhis_user}:${DB_PASSWORD:-dhis_password}@db:5432/${DB_NAME:-dhis_db}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-dhis_db}
+      DB_USER: ${DB_USER:-dhis_user}
+      DB_PASSWORD: ${DB_PASSWORD:-dhis_password}
+      
+      # Redis (Optional)
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      
+      # Portkey Configuration
+      PORTKEY_API_KEY: ${PORTKEY_API_KEY}
+      PORTKEY_VIRTUAL_KEY: ${PORTKEY_VIRTUAL_KEY}
+      PORTKEY_MODEL: ${PORTKEY_MODEL:-gpt-4o-mini}
+      PORTKEY_VISION_MODEL: ${PORTKEY_VISION_MODEL:-gpt-4o}
+      
+      # AWS S3 (Optional)
+      USE_S3_STORAGE: ${USE_S3_STORAGE:-False}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_STORAGE_BUCKET_NAME: ${AWS_STORAGE_BUCKET_NAME}
+      AWS_S3_REGION_NAME: ${AWS_S3_REGION_NAME:-us-east-1}
+      
+      # CORS
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+      CORS_ALLOW_ALL_ORIGINS: ${CORS_ALLOW_ALL_ORIGINS:-True}
+    command: >
+      sh -c "
+        echo 'Waiting for database...' &&
+        while ! nc -z db 5432; do sleep 1; done &&
+        echo 'Database is ready!' &&
+        python manage.py migrate --noinput &&
+        if [ '${BUILD_TARGET:-development}' = 'production' ]; then
+          python manage.py collectstatic --noinput &&
+          gunicorn --bind 0.0.0.0:8000 --workers 4 --threads 2 --timeout 120 
+          --access-logfile - --error-logfile - 
+          image_processor.wsgi:application;
+        else
+          python manage.py runserver 0.0.0.0:8000;
+        fi
+      "
+    networks:
+      - dhis-network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # Nginx Web Server (Optional - for production)
+  nginx:
+    image: nginx:alpine
+    container_name: dhis-nginx
+    restart: unless-stopped
+    ports:
+      - "${NGINX_PORT:-80}:80"
+      - "${NGINX_SSL_PORT:-443}:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - static_data:/static:ro
+      - media_data:/media:ro
+    networks:
+      - dhis-network
+    profiles:
+      - production
+    depends_on:
+      - backend
+
+  # Jupyter Notebook Service
+  notebook:
+    build:
+      context: ./backend
+      target: ${BUILD_TARGET:-development}
+    container_name: dhis-notebook
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    volumes:
+      - ./backend:/app
+      - ./notebooks:/app/notebooks  # Dedicated notebooks directory
+      - media_data:/app/media
+    environment:
+      # Django Settings
+      SECRET_KEY: ${SECRET_KEY:-django-insecure-dev-key}
+      DEBUG: ${DEBUG:-True}
+      
+      # Database
+      DATABASE_URL: postgresql://${DB_USER:-dhis_user}:${DB_PASSWORD:-dhis_password}@db:5432/${DB_NAME:-dhis_db}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-dhis_db}
+      DB_USER: ${DB_USER:-dhis_user}
+      DB_PASSWORD: ${DB_PASSWORD:-dhis_password}
+      
+      # Portkey Configuration
+      PORTKEY_API_KEY: ${PORTKEY_API_KEY}
+      PORTKEY_VIRTUAL_KEY: ${PORTKEY_VIRTUAL_KEY}
+      PORTKEY_MODEL: ${PORTKEY_MODEL:-gpt-4o-mini}
+      PORTKEY_VISION_MODEL: ${PORTKEY_VISION_MODEL:-gpt-4o}
+      
+      # Jupyter
+      JUPYTER_ENABLE_LAB: "yes"
+    command: >
+      sh -c "
+        echo 'Waiting for database...' &&
+        while ! nc -z db 5432; do sleep 1; done &&
+        echo 'Database is ready!' &&
+        echo 'Starting Jupyter Notebook...' &&
+        echo 'Password: Qure@123' &&
+        echo 'URL: http://localhost:${JUPYTER_PORT:-8888}' &&
+        jupyter notebook --config=/root/.jupyter/jupyter_notebook_config.py --allow-root
+      "
+    networks:
+      - dhis-network
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles:
+      - with-notebook
+
+  # React Frontend (Optional)
+  frontend:
+    build: ./frontend
+    container_name: dhis-frontend
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8000/api}
+    stdin_open: true
+    tty: true
+    networks:
+      - dhis-network
+    profiles:
+      - with-frontend
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+  redis_data:
+  media_data:
+  static_data:
+
+networks:
+  dhis-network:
+    driver: bridge

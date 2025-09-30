@@ -147,7 +147,7 @@ class DHISAutomationService:
             
             # All methods below are the EXACT ORIGINAL methods from root folder
             
-            # Initialize browser (original method)
+            # Initialize browser using original method
             await automation.initialize()
             
             # Login with original retry logic
@@ -203,8 +203,13 @@ class DHISAutomationService:
             
             logger.info(f"Original automation completed: {successful}/{total_fields} fields filled")
             
-            # Cleanup using original method
-            await automation.cleanup()
+            # Cleanup using original method with proper error handling
+            try:
+                logger.info("Performing browser cleanup after successful automation")
+                await automation.cleanup()
+                logger.info("Browser cleanup completed successfully")
+            except Exception as cleanup_error:
+                logger.warning(f"Browser cleanup failed (this is usually safe to ignore): {cleanup_error}")
             
             return {
                 "status": "completed" if validation_success else "completed_with_warnings",
@@ -223,12 +228,14 @@ class DHISAutomationService:
         except Exception as e:
             logger.error(f"Original DHIS automation failed: {e}")
             
-            # Ensure cleanup using original cleanup method
+            # Ensure cleanup using original cleanup method with better error handling
             try:
-                if 'automation' in locals():
+                if 'automation' in locals() and hasattr(automation, 'browser') and automation.browser:
+                    logger.info("Attempting to cleanup browser resources")
                     await automation.cleanup()
-            except:
-                pass
+                    logger.info("Browser cleanup completed")
+            except Exception as cleanup_error:
+                logger.warning(f"Browser cleanup failed (this is usually safe to ignore): {cleanup_error}")
             
             raise Exception(f"Original DHIS automation failed: {str(e)}")
     

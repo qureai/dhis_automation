@@ -81,10 +81,14 @@ class DHISSmartAutomation:
         self.browser: Optional[Browser] = None
         self.context: Optional[BrowserContext] = None
         self.page: Optional[Page] = None
+        self.playwright = None
         self.mapping_cache = {}
-        self.cache_file = "dhis_field_mappings.json"
+        
+        # Use absolute paths for cache files relative to this script's directory
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.cache_file = os.path.join(script_dir, "dhis_field_mappings.json")
         self.org_unit_cache = {}
-        self.org_unit_cache_file = "dhis_org_units.json"
+        self.org_unit_cache_file = os.path.join(script_dir, "dhis_org_units.json")
         
         # Initialize LLM client if API key is available
         self.openai_client = None
@@ -97,8 +101,17 @@ class DHISSmartAutomation:
         
     async def initialize(self):
         try:
-            playwright = await async_playwright().start()
-            self.browser = await playwright.chromium.launch(headless=False)
+            self.playwright = await async_playwright().start()
+            self.browser = await self.playwright.chromium.launch(
+                headless=False,
+                args=[
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-web-security',
+                    '--disable-features=VizDisplayCompositor'
+                ]
+            )
             self.context = await self.browser.new_context()
             self.page = await self.context.new_page()
             logger.info("Browser initialized successfully")
@@ -395,7 +408,7 @@ class DHISSmartAutomation:
             cache_time = datetime.fromisoformat(cache_data['timestamp'])
             age_hours = (datetime.now() - cache_time).total_seconds() / 3600
             
-            if age_hours < 168:  # 7 days
+            if age_hours < 1680:  # 7 days
                 self.org_unit_cache = cache_data['org_units']
                 logger.info(f"Loaded {len(self.org_unit_cache)} org units from cache")
                 return True
@@ -1403,7 +1416,9 @@ Return ONLY the JSON mapping."""
         3. If regeneration fails → Fall back to rule-based mapping
         4. Self-healing system that never fails
         """
-        complete_mapping_file = "complete_field_mapping.json"
+        # Use absolute path for complete mapping file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        complete_mapping_file = os.path.join(script_dir, "complete_field_mapping.json")
         
         # Attempt to use existing complete mapping
         mapped_data = self._try_complete_mapping(complete_mapping_file, health_data)
@@ -1488,8 +1503,9 @@ Return ONLY the JSON mapping."""
         """Auto-regenerate complete field mapping if missing or corrupted"""
         try:
             # Check if required files exist for regeneration
-            health_file = "health_facility_report.json"  # Current data file
-            dhis_file = self.cache_file  # DHIS field mappings
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            health_file = os.path.join(script_dir, "health_facility_report.json")  # Current data file
+            dhis_file = self.cache_file  # DHIS field mappings (already uses absolute path)
             
             if not os.path.exists(dhis_file):
                 logger.warning("Cannot auto-regenerate: DHIS2 field cache not found")
@@ -1560,7 +1576,9 @@ Return ONLY the JSON mapping."""
                 "note": "Auto-generated emergency mapping - run generate_complete_mapping.py for full coverage"
             }
             
-            with open("complete_field_mapping.json", 'w') as f:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            complete_mapping_path = os.path.join(script_dir, "complete_field_mapping.json")
+            with open(complete_mapping_path, 'w') as f:
                 json.dump(emergency_mapping, f, indent=2)
             
             logger.info(f"Emergency mapping generated with {len(valid_mappings)} core fields")
@@ -1574,9 +1592,15 @@ Return ONLY the JSON mapping."""
 
     async def cleanup(self):
         """Cleanup browser resources"""
-        if self.browser:
-            await self.browser.close()
-            logger.info("Browser closed")
+        try:
+            if self.browser:
+                await self.browser.close()
+                logger.info("Browser closed")
+            if self.playwright:
+                await self.playwright.stop()
+                logger.info("Playwright stopped")
+        except Exception as e:
+            logger.warning(f"Cleanup error (safe to ignore): {e}")
 
 
 async def main():

@@ -1,6 +1,9 @@
-# DHIS2 PDF Automation System
+# DHIS2 Medical Processing & Automation System
 
-A complete web application for automating DHIS2 form filling from PDF reports. Upload a PDF, have it compared with a reference document using AI, and automatically fill DHIS2 forms with the extracted data.
+A comprehensive web application that combines DHIS2 PDF automation with medical image processing capabilities. This system can:
+- **PDF Processing**: Upload PDF reports, extract data using AI, and automatically fill DHIS2 forms
+- **Medical Image Processing**: Process medical images using advanced LLM integration through Portkey
+- **Docker Support**: Full containerization support with development and production configurations
 
 ## 🏗️ Architecture
 
@@ -24,10 +27,14 @@ A complete web application for automating DHIS2 form filling from PDF reports. U
 - Mobile-responsive design
 
 ### Backend (Django + AI Processing)
+- **PDF Processing**: Multi-schema PDF processing using Portkey/Gemini
+- **Image Processing**: Medical image analysis with LLM integration
+- **Dual API Support**: 
+  - `/api/` - DHIS2 PDF automation endpoints
+  - `/api/images/` - Medical image processing endpoints
 - Follows exact `llm.py` methodology
-- Multi-schema PDF processing using Portkey/Gemini
-- Comparison with reference documents
 - Integration with existing `dhis_automation.py`
+- Docker containerization support
 - Comprehensive logging and monitoring
 
 ### DHIS2 Integration
@@ -66,7 +73,37 @@ python test_setup.py
 ### 5. Access
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:9000/api/
+- **Image Processing API**: http://localhost:9000/api/images/
 - **Admin Panel**: http://localhost:9000/admin/
+
+## 🐳 Docker Deployment
+
+### Quick Start with Docker
+```bash
+# Start development environment
+docker-compose up -d
+
+# Start production environment
+BUILD_TARGET=production docker-compose --profile production up -d
+
+# Start with frontend
+docker-compose --profile with-frontend up -d
+
+# Start with Jupyter notebook
+docker-compose --profile notebook up -d
+```
+
+### Using Comprehensive Start Script
+```bash
+# Full local development setup
+./start_local_full.sh dev
+
+# Production deployment
+./start_local_full.sh prod
+
+# Clean and rebuild
+./start_local_full.sh clean
+```
 
 ## 🚀 Key Features
 
@@ -324,11 +361,47 @@ npm install
 3. Ensure conda environment uses Python 3.10+
 4. Verify all environment variables in `backend/.env`
 
+## 🔌 API Endpoints
+
+### DHIS2 PDF Processing API
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/process-pdf-and-fill-dhis` | POST | Complete PDF processing workflow |
+| `/api/health/` | GET | Health check |
+
+### Medical Image Processing API
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/images/health/` | GET | Health check |
+| `/api/images/` | GET | List all images |
+| `/api/images/` | POST | Upload image |
+| `/api/images/{id}/` | GET | Get image details |
+| `/api/images/{id}/process/` | POST | Process image with LLM |
+
+### Example Usage
+
+**PDF Processing:**
+```bash
+# Process PDF and fill DHIS2 form
+curl -X POST http://localhost:9000/api/process-pdf-and-fill-dhis \
+  -F "file=@report.pdf"
+```
+
+**Image Processing:**
+```bash
+# Upload image
+curl -X POST http://localhost:9000/api/images/ \
+  -F "original_image=@medical_image.jpg"
+
+# Process image
+curl -X POST http://localhost:9000/api/images/{id}/process/
+```
+
 ### API Changes
 
-**Single Endpoint**: The system now uses a single API endpoint:
-- `POST /api/process-pdf-and-fill-dhis` - Complete workflow in one call
-- Legacy endpoints still available for backward compatibility
-- Frontend updated to use single-step processing
+**Unified System**: The system now supports both PDF automation and image processing:
+- `/api/` - DHIS2 PDF automation endpoints
+- `/api/images/` - Medical image processing endpoints
+- Both APIs can run simultaneously
 
 
