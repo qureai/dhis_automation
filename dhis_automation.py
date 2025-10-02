@@ -743,11 +743,13 @@ class DHISSmartAutomation:
         """
         mappings = {}
         
-        # Find input fields on current tab
+        # Find input fields on current tab (including radio buttons)
         selectors_to_try = [
             'input.entryfield',      
+            'input.entryselect',     # Radio buttons
             'input[id*="-val"]',     
             'input[type="text"]',
+            'input[type="radio"]',   # Additional radio button selector
             'table input[type="text"]'
         ]
         
@@ -803,10 +805,35 @@ class DHISSmartAutomation:
                 # Create field mapping with tab info
                 if dataelement_text or optioncombo_text:
                     field_name = f"{dataelement_text}||{optioncombo_text}"
-                    mappings[field_name] = {
-                        "selector": f"#{input_id}",
-                        "tab": tab_name
-                    }
+                    
+                    # Check if this is a radio button
+                    input_type = await input_elem.get_attribute('type')
+                    input_class = await input_elem.get_attribute('class')
+                    
+                    if input_type == 'radio' or (input_class and 'entryselect' in input_class):
+                        # For radio buttons, use name+value selector
+                        input_name = await input_elem.get_attribute('name')
+                        input_value = await input_elem.get_attribute('value')
+                        if input_name and input_value:
+                            # Create separate mappings for Yes and No
+                            if input_value == 'true':
+                                field_name_yes = f"{dataelement_text}||Yes"
+                                mappings[field_name_yes] = {
+                                    "selector": f"input[name='{input_name}'][value='true']",
+                                    "tab": tab_name
+                                }
+                            elif input_value == 'false':
+                                field_name_no = f"{dataelement_text}||No"
+                                mappings[field_name_no] = {
+                                    "selector": f"input[name='{input_name}'][value='false']",
+                                    "tab": tab_name
+                                }
+                    else:
+                        # For text inputs, use ID selector
+                        mappings[field_name] = {
+                            "selector": f"#{input_id}",
+                            "tab": tab_name
+                        }
                 
             except Exception as e:
                 logger.warning(f"Error processing input element: {e}")
@@ -1136,6 +1163,55 @@ class DHISSmartAutomation:
             logger.warning(f"Failed to take screenshot: {e}")
             return ""
 
+    def _convert_value_for_dhis_fields(self, selector: str, value: str) -> str:
+        """
+        Smart value conversion for DHIS2 fields that expect specific data types
+        Handles boolean-to-integer conversion for fields that require numeric input
+        """
+        integer_field_patterns = [
+            'cynmNGHXI9T-val',  # RWASH Basic fields - confirmed to need integer conversion
+            'cqJMN931gqT-val',  # RWASH Limit fields (may also need conversion)
+            'QAYLwlDuBYY-val',  # RWASH No Service fields (may also need conversion)
+            # Add more patterns here as we discover other fields with integer validation
+            # Common DHIS2 patterns that might need conversion:
+            # - Any field ending with '-val' that shows "Value must be zero or positive integer" error
+        ]
+        
+        # Alternative: Check if value looks like a boolean but field might expect integer
+        # This is a more aggressive approach that converts ANY boolean string to integer
+        # if the current value suggests it might be boolean data
+        value_str = str(value).lower()
+        is_boolean_value = value_str in ['true', 'false', 'yes', 'no']
+        
+        # Strategy 1: Convert known field patterns
+        expects_integer = any(pattern in selector for pattern in integer_field_patterns)
+        
+        if expects_integer and isinstance(value, str):
+            # Convert boolean strings to integers for known patterns
+            if str(value).lower() in ['false', 'no', 'none', '0']:
+                logger.debug(f"Converting '{value}' to 0 for known integer field: {selector}")
+                return '0'
+            elif str(value).lower() in ['true', 'yes', '1']:
+                logger.debug(f"Converting '{value}' to 1 for known integer field: {selector}")
+                return '1'
+            # If it's already a number, keep it as-is
+            elif str(value).isdigit():
+                return str(value)
+        
+        # Strategy 2: Auto-detect potential integer fields with boolean values
+        # This helps catch fields we haven't identified yet
+        elif is_boolean_value and '-val' in selector:
+            # This is likely a DHIS2 form field that might expect integer input
+            if value_str in ['false', 'no', 'none']:
+                logger.info(f"Auto-converting boolean '{value}' to 0 for potential integer field: {selector}")
+                return '0'
+            elif value_str in ['true', 'yes']:
+                logger.info(f"Auto-converting boolean '{value}' to 1 for potential integer field: {selector}")
+                return '1'
+        
+        # For all other fields, return the value as-is
+        return str(value)
+
     async def fill_field_by_selector(self, selector: str, value: str) -> bool:
         """Fill a field using its CSS selector with smart visibility checking"""
         try:
@@ -1155,9 +1231,36 @@ class DHISSmartAutomation:
                 logger.debug(f"Field {selector} is disabled - skipping")
                 return False
             
-            # Clear and fill the field
-            await element.clear()
-            await element.fill(str(value))
+            # Convert value for DHIS2 field requirements (handles boolean-to-integer conversion)
+            converted_value = self._convert_value_for_dhis_fields(selector, value)
+            
+            # Check if this is a radio button by examining the element type and attributes
+            element_type = await element.get_attribute("type")
+            tag_name = await element.evaluate("el => el.tagName.toLowerCase()")
+            
+            # Detect radio buttons by element type or selector patterns
+            is_radio_selector = ("value=" in selector) or ("input[name=" in selector and "[value=" in selector)
+            
+            if element_type == "radio" or (tag_name == "input" and is_radio_selector):
+                # Handle radio buttons - click to select
+                if converted_value.lower() in ["y", "yes", "1", "true"]:
+                    await element.click()
+                    logger.debug(f"Clicked radio button field {selector}")
+                else:
+                    # For "No" values, try to find and click the "No" option
+                    no_selector = selector.replace("'true'", "'false'").replace("Yes", "No")
+                    try:
+                        no_element = self.page.locator(no_selector)
+                        if await no_element.count() > 0:
+                            await no_element.click()
+                            logger.debug(f"Clicked 'No' radio button {no_selector}")
+                    except:
+                        logger.debug(f"Could not find 'No' option for {selector}")
+            else:
+                # Handle all other fields as text inputs (original behavior)
+                await element.clear()
+                await element.fill(converted_value)
+                logger.debug(f"Filled field {selector} with {converted_value}")
             
             # Clear focus to prevent tab switching issues
             await self.clear_focus_safely()
@@ -1521,26 +1624,26 @@ Return ONLY the JSON mapping."""
             # This ensures we have at least the core mappings working
             basic_mappings = {
                 # Outpatients New Cases
-                'outpatients_new_cases_less_than_8_days_male': 'HA - Outpatients New||<8 Days, M',
-                'outpatients_new_cases_less_than_8_days_female': 'HA - Outpatients New||<8 Days, F',
-                'outpatients_new_cases_8_to_27_days_male': 'HA - Outpatients New||8 to 27 Days, M',
-                'outpatients_new_cases_8_to_27_days_female': 'HA - Outpatients New||8 to 27 Days, F',
-                'outpatients_new_cases_28_days_to_less_than_1_year_male': 'HA - Outpatients New||28 Days to <1 Year, M',
-                'outpatients_new_cases_28_days_to_less_than_1_year_female': 'HA - Outpatients New||28 Days to <1 Year, F',
-                'outpatients_new_cases_1_to_4_years_male': 'HA - Outpatients New||1 to 4 Years, M',
-                'outpatients_new_cases_1_to_4_years_female': 'HA - Outpatients New||1 to 4 Years, F',
-                'outpatients_new_cases_5_to_14_years_male': 'HA - Outpatients New||5 to 14 Years, M',
-                'outpatients_new_cases_5_to_14_years_female': 'HA - Outpatients New||5 to 14 Years, F',
-                'outpatients_new_cases_15_to_49_years_male': 'HA - Outpatients New||15 to 49 Years, M',
-                'outpatients_new_cases_15_to_49_years_female': 'HA - Outpatients New||15 to 49 Years, F',
-                'outpatients_new_cases_50_plus_years_male': 'HA - Outpatients New||50+ Years, M',
-                'outpatients_new_cases_50_plus_years_female': 'HA - Outpatients New||50+ Years, F',
-                
+            'outpatients_new_cases_less_than_8_days_male': 'HA - Outpatients New||<8 Days, M',
+            'outpatients_new_cases_less_than_8_days_female': 'HA - Outpatients New||<8 Days, F',
+            'outpatients_new_cases_8_to_27_days_male': 'HA - Outpatients New||8 to 27 Days, M',
+            'outpatients_new_cases_8_to_27_days_female': 'HA - Outpatients New||8 to 27 Days, F',
+            'outpatients_new_cases_28_days_to_less_than_1_year_male': 'HA - Outpatients New||28 Days to <1 Year, M',
+            'outpatients_new_cases_28_days_to_less_than_1_year_female': 'HA - Outpatients New||28 Days to <1 Year, F',
+            'outpatients_new_cases_1_to_4_years_male': 'HA - Outpatients New||1 to 4 Years, M',
+            'outpatients_new_cases_1_to_4_years_female': 'HA - Outpatients New||1 to 4 Years, F',
+            'outpatients_new_cases_5_to_14_years_male': 'HA - Outpatients New||5 to 14 Years, M',
+            'outpatients_new_cases_5_to_14_years_female': 'HA - Outpatients New||5 to 14 Years, F',
+            'outpatients_new_cases_15_to_49_years_male': 'HA - Outpatients New||15 to 49 Years, M',
+            'outpatients_new_cases_15_to_49_years_female': 'HA - Outpatients New||15 to 49 Years, F',
+            'outpatients_new_cases_50_plus_years_male': 'HA - Outpatients New||50+ Years, M',
+            'outpatients_new_cases_50_plus_years_female': 'HA - Outpatients New||50+ Years, F',
+            
                 # Key additional fields that are commonly needed
-                'referrals_non_emergency_hospital': 'HA - Referrals Non-Emergency||Hospital',
-                'gbv_referrals_18_plus_years': 'HA - GBV referrals||18+ Years',
-                'cold_chain_days_not_working': 'HA - Cold chain days not working||default',
-                'radio_days_not_working': 'HA - Radio days not working||default',
+            'referrals_non_emergency_hospital': 'HA - Referrals Non-Emergency||Hospital',
+            'gbv_referrals_18_plus_years': 'HA - GBV referrals||18+ Years',
+            'cold_chain_days_not_working': 'HA - Cold chain days not working||default',
+            'radio_days_not_working': 'HA - Radio days not working||default',
             }
             
             # Filter mappings to only include fields that exist in DHIS
