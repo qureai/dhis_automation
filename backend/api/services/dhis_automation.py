@@ -220,7 +220,7 @@ class DHISAutomationService:
                 "details": {
                     "mapped_fields": len(mapped_data),
                     "org_unit_path": org_unit_path,
-                    "period": os.getenv("DHIS_PERIOD", "August 2025"),
+                    "period": os.getenv("DHIS_PERIOD", "September 2025"),
                     "processing_method": "original_root_dhis_automation_py"
                 }
             }

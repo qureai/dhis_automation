@@ -557,7 +557,7 @@ class DHISSmartAutomation:
         
     async def select_period(self, period: str = None):
         if period is None:
-            period = os.getenv("DHIS_PERIOD", "August 2025")
+            period = os.getenv("DHIS_PERIOD", "September 2025")
         logger.info(f"Attempting to select period: {period}")
         
         try:
