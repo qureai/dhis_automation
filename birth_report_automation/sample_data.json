@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "program": "birth_notification",
+    "facility": "Ghatere"
+  },
+  "report_info": {
+    "report_date": "2025-11-13",
+    "serial_number": "BN_TIMESTAMP_",
+    "birth_status": "Live Birth",
+    "date_of_notification": "2025-11-13",
+    "date_of_entry": "2025-11-13",
+    "data_entry_officer": "System Administrator"
+  },
+  "child": {
+    "first_name": "Simon",
+    "middle_name": "Junior",
+    "surname": "Halo",
+    "sex": "Male",
+    "date_of_birth": "2025-11-07",
+    "place_of_birth": "Health facility",
+    "birth_location": "Health facility",
+    "birth_weight": "3400",
+    "gestation_period": "34 wks",
+    "birth_weight_group": "2500 to 4200 grams"
+  },
+  "location": {
+    "health_facility": "Vonunu AHC",
+    "province": "Western",
+    "island_area": "Vella la Vella"
+  },
+  "mother": {
+    "first_name": "Rosa",
+    "middle_name": "Page",
+    "surname": "Halo",
+    "maiden_name": "",
+    "date_of_birth": "2003-11-25",
+    "age_years": "32",
+    "age_group": "30 to 34 Years",
+    "nationality": "Solomon Islander",
+    "occupation": "Self-employed"
+  },
+  "father": {
+    "first_name": "David",
+    "middle_name": "John",
+    "surname": "Selau",
+    "date_of_birth": "1996-09-28",
+    "age_years": "28",
+    "nationality": "Solomon Islander",
+    "occupation": "Farmer"
+  },
+  "address": {
+    "permanent_village": "Iriri Silig",
+    "permanent_province": "Western",
+    "current_village": "Varese",
+    "current_province": "Western",
+    "closest_health_facility": "Varese Aid Post"
+  },
+  "birth_history": {
+    "previous_live_births": "3",
+    "previous_still_births": "0"
+  },
+  "attendant": {
+    "name": "Junelly Dilcara",
+    "position": "Midwife",
+    "signature_date": "2025-11-07"
+  },
+  "witness": {
+    "name": "Langton Hiliao",
+    "witness_date": "2025-11-07"
+  },
+  "parents_status": {
+    "marital_status": "Married",
+    "marriage_type": "Legal",
+    "marriage_place": "Vonunu Village",
+    "marriage_date": "2014-12-01"
+  },
+  "signatures": {
+    "mother_signature_date": "2025-11-07",
+    "father_signature_date": "2025-11-07"
+  }
+}

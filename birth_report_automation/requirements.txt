@@ -1,0 +1,12 @@
+# DHIS Birth Report Automation Requirements
+# Install with: pip install -r requirements.txt
+
+# Playwright for browser automation
+playwright==1.40.0
+
+# Environment variable management
+python-dotenv==1.0.0
+
+# After installing playwright, run:
+# python -m playwright install chromium
+

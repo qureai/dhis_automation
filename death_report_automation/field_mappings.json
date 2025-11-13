@@ -1,0 +1,300 @@
+{
+  "metadata": {
+    "total_fields": 38,
+    "person_fields": 24,
+    "enrollment_fields": 1,
+    "event_fields": 13
+  },
+  "person_profile": {
+    "serial_no": {
+      "selector": "[data-test=\"form-field-k1jH5QP4TeN\"] input",
+      "type": "text",
+      "label": "Serial No",
+      "required": true
+    },
+    "birth_certificate_no": {
+      "selector": "[data-test=\"form-field-qpwSldeEnq6\"] input",
+      "type": "text",
+      "label": "Birth Certificate No",
+      "required": false
+    },
+    "patient_nhn": {
+      "selector": "[data-test=\"form-field-IrGS9suwzVM\"] input",
+      "type": "text",
+      "label": "Patient NHN",
+      "required": false
+    },
+    "surname": {
+      "selector": "[data-test=\"form-field-JqNKVDmsTBD\"] input",
+      "type": "text",
+      "label": "Surname",
+      "required": true
+    },
+    "first_and_middle_names": {
+      "selector": "[data-test=\"form-field-ZrUoLrUGgGB\"] input",
+      "type": "text",
+      "label": "First and Middle Names",
+      "required": true
+    },
+    "mothers_name": {
+      "selector": "[data-test=\"form-field-fYp83ZhtG7r\"] input",
+      "type": "text",
+      "label": "Mothers Name",
+      "required": false
+    },
+    "date_of_birth": {
+      "selector": "[data-test=\"form-field-QESMqvj3xTK\"] input",
+      "type": "date",
+      "label": "Date of Birth",
+      "placeholder": "yyyy-mm-dd",
+      "required": false
+    },
+    "age_in_days": {
+      "selector": "[data-test=\"form-field-VxghdMCr1nL\"] input",
+      "type": "text",
+      "label": "Age in day(s)",
+      "required": false
+    },
+    "age_in_months": {
+      "selector": "[data-test=\"form-field-VkTyDSaKoA9\"] input",
+      "type": "text",
+      "label": "Age in month(s)",
+      "required": false
+    },
+    "age_in_years": {
+      "selector": "[data-test=\"form-field-GyadmnzSD1T\"] input",
+      "type": "text",
+      "label": "Age in year(s)",
+      "required": false
+    },
+    "sex": {
+      "selector": "input#i2npNEAnH7D",
+      "type": "select",
+      "label": "Sex",
+      "required": true,
+      "options": ["Male", "Female"]
+    },
+    "nationality": {
+      "selector": "input#cG5BSTK6EPb",
+      "type": "select",
+      "label": "Nationality",
+      "required": false,
+      "options": ["Solomon Islands", "Non-National"]
+    },
+    "ethnicity": {
+      "selector": "input#BY9KlYHP5CV",
+      "type": "select",
+      "label": "Ethnicity",
+      "required": false,
+      "options": ["Melanesian", "Polynesian", "Micronesian", "Other"]
+    },
+    "religion": {
+      "selector": "[data-test=\"form-field-ewd9j8nlRwl\"] input",
+      "type": "text",
+      "label": "Religion",
+      "required": false
+    },
+    "marital_status": {
+      "selector": "input#Vq5nON28XS8",
+      "type": "select",
+      "label": "Marital Status",
+      "required": false,
+      "options": ["Single", "Married", "Divorced", "Widowed"]
+    },
+    "place_of_death": {
+      "selector": "input#KaXF9HBQCdd",
+      "type": "select",
+      "label": "Place of Death",
+      "required": false,
+      "options": ["Hospital", "Home", "DOA", "Village"]
+    },
+    "place_of_burial": {
+      "selector": "[data-test=\"form-field-umTOigSn0Pz\"] input",
+      "type": "text",
+      "label": "Place of Burial",
+      "required": false
+    },
+    "occupation": {
+      "selector": "input#p54LYtetaIH",
+      "type": "select",
+      "label": "Occupation",
+      "required": false,
+      "options": ["Employed", "Self-employed", "Unemployed", "Student"]
+    },
+    "current_province": {
+      "selector": "input#rAc7lR0gRQk",
+      "type": "select",
+      "label": "Current Province",
+      "required": false
+    },
+    "current_village": {
+      "selector": "[data-test=\"form-field-wrOtALb4UXO\"] input",
+      "type": "text",
+      "label": "Current Village",
+      "required": false
+    },
+    "home_province": {
+      "selector": "input#HTMOSXzn3QT",
+      "type": "select",
+      "label": "Home Province",
+      "required": false
+    },
+    "home_village": {
+      "selector": "[data-test=\"form-field-sS91Pi3fJ3M\"] input",
+      "type": "text",
+      "label": "Home Village",
+      "required": false
+    },
+    "coordinate_latitude": {
+      "selector": "[data-test=\"form-field-FEATURETYPE_POINT\"] input.coordinateField_latitudeTextInput__FiumI",
+      "type": "text",
+      "label": "Coordinate - Latitude",
+      "required": false
+    },
+    "coordinate_longitude": {
+      "selector": "[data-test=\"form-field-FEATURETYPE_POINT\"] input.coordinateField_longitudeTextInput__iHcBu",
+      "type": "text",
+      "label": "Coordinate - Longitude",
+      "required": false
+    }
+  },
+  "enrollment": {
+    "date_of_death": {
+      "selector": "input[placeholder=\"yyyy-mm-dd\"]",
+      "type": "date",
+      "label": "Date of death (you must enter a value here before you can select a date of birth)",
+      "placeholder": "yyyy-mm-dd",
+      "required": true
+    }
+  },
+  "event": {
+    "basic_info": {
+      "date_of_death": {
+        "selector": "[data-test=\"dataentry-field-occurredAt\"] input",
+        "type": "date",
+        "label": "Date of death",
+        "placeholder": "yyyy-mm-dd",
+        "required": true
+      },
+      "organisation_unit": {
+        "selector": "[data-test=\"dataentry-field-orgUnit\"]",
+        "type": "org_unit",
+        "label": "Organisation unit",
+        "required": true,
+        "note": "Usually auto-filled, no action needed"
+      }
+    },
+    "source_of_notification": {
+      "source_of_information": {
+        "selector": "input#WiAkoty8mUF",
+        "type": "select",
+        "label": "Source of Information",
+        "required": false,
+        "options": [
+          "Registered Nurse/Nurse Aide",
+          "Church Leader",
+          "Magistrate",
+          "Family Member",
+          "Community Leader/Chief",
+          "Medical Officer/Doctor"
+        ]
+      },
+      "hospital_ward": {
+        "selector": "input#YsVLbbxCaPM",
+        "type": "select",
+        "label": "Hospital Ward",
+        "required": false,
+        "options": [
+          "Accident and Emergency",
+          "Birthing",
+          "Gynaecology",
+          "Paediatric - surg",
+          "Special Care Nursing",
+          "Surgical"
+        ]
+      },
+      "declarant_witnessed_body": {
+        "selector": "input[name=\"UzLuvVz5jLK\"]",
+        "name": "UzLuvVz5jLK",
+        "type": "radio",
+        "label": "Declarant witnessed the body",
+        "required": false,
+        "options": [
+          {"value": "true", "label": "Yes"},
+          {"value": "false", "label": "No"}
+        ]
+      }
+    },
+    "manner_of_death": {
+      "manner_of_death": {
+        "selector": "input#W6T9VeZIy6w",
+        "type": "select",
+        "label": "Manner of Death",
+        "required": false,
+        "options": [
+          "Disease",
+          "Accident",
+          "Not stated"
+        ]
+      },
+      "type_of_disease_or_injury": {
+        "selector": "[data-test=\"form-field-HFjvgzYzmGs\"] input",
+        "type": "text",
+        "label": "Type of disease or injury",
+        "required": false
+      },
+      "date_of_injury": {
+        "selector": "[data-test=\"form-field-YC3AioXWlfR\"] input",
+        "type": "date",
+        "label": "If external cause or poisoning, date of injury",
+        "placeholder": "yyyy-mm-dd",
+        "required": false
+      }
+    },
+    "declaration": {
+      "doctor_nurse_name": {
+        "selector": "[data-test=\"form-field-ZJ5UUz2YuAi\"] input",
+        "type": "text",
+        "label": "Doctor/Nurse name",
+        "required": false
+      },
+      "doctor_nurse_designation": {
+        "selector": "[data-test=\"form-field-vY5IIL5e07Q\"] input",
+        "type": "text",
+        "label": "Doctor/Nurse designation",
+        "required": false
+      },
+      "date_signed": {
+        "selector": "[data-test=\"form-field-klOqSrznMmP\"] input",
+        "type": "date",
+        "label": "Date signed",
+        "placeholder": "yyyy-mm-dd",
+        "required": false
+      },
+      "date_received_by_medical_records": {
+        "selector": "[data-test=\"form-field-pyZo4SK6uU7\"] input",
+        "type": "date",
+        "label": "Date received by Medical records",
+        "placeholder": "yyyy-mm-dd",
+        "required": false
+      },
+      "date_received_by_his": {
+        "selector": "[data-test=\"form-field-pOHudhoRlAP\"] input",
+        "type": "date",
+        "label": "Date received by HIS",
+        "placeholder": "yyyy-mm-dd",
+        "required": false
+      }
+    },
+    "status": {
+      "complete_event": {
+        "selector": "input[name=\"complete\"]",
+        "name": "complete",
+        "type": "radio",
+        "label": "Complete event",
+        "required": false,
+        "note": "Set to 'true' to mark event as complete (only 'Yes' option available)"
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "person_profile": {
+    "serial_no": null,
+    "surname": null,
+    "first_and_middle_names": null,
+    "sex": null
+  },
+  "enrollment": {
+    "enrollment_date": null,
+    "date_of_death": null
+  },
+  "event_data": {
+    "basic_info": {
+      "date_of_death": null,
+      "organisation_unit": null
+    },
+    "source_of_notification": {
+      "source_of_information": null,
+      "hospital_ward": null,
+      "declarant_witnessed_body": null
+    },
+    "manner_of_death": {
+      "manner_of_death": null,
+      "type_of_disease_or_injury": null,
+      "external_cause_date_of_injury": null
+    },
+    "declaration": {
+      "doctor_nurse_name": null,
+      "doctor_nurse_designation": null,
+      "date_signed": null,
+      "date_received_by_medical_records": null,
+      "date_received_by_his": null
+    },
+    "status": {
+      "complete_event": null
+    }
+  }
+}
+

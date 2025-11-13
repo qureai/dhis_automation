@@ -1,0 +1,123 @@
+{
+  "aefi": {
+    "program_id": "EZkN8vYZwjR",
+    "display_name": "Adverse Events Following Immunization (AEFI)"
+  },
+  "covid_vaccination": {
+    "program_id": "yDuAzyqYABS",
+    "display_name": "COVAC - COVID-19 Vaccination Registry"
+  },
+  "covid_tracing": {
+    "program_id": "SJKG0Q8We4S",
+    "display_name": "COVID-19 Contact Tracing"
+  },
+  "covid_surveillance": {
+    "program_id": "g1V9e9zwUNy",
+    "display_name": "COVID-19 Surveillance"
+  },
+  "death_notification": {
+    "program_id": "ZFISXSm5w7v",
+    "display_name": "Death Notification"
+  },
+  "medical_certificate_death": {
+    "program_id": "AvYUZTygKz6",
+    "display_name": "Medical Certificate of Cause of Death"
+  },
+  "nrh_patient_tracker": {
+    "program_id": "k8pRIw8b3Yx",
+    "display_name": "NRH Patient Registration"
+  },
+  "diabetic_foot_tracker": {
+    "program_id": "I9MpQ80zMSX",
+    "display_name": "Surgical Diabetic Foot Monitoring"
+  },
+  "birth_notification": {
+    "program_id": "yk8StAb1F1R",
+    "display_name": "Birth Notification"
+  },
+  "death_cause_registration": {
+    "program_id": "ogrOUKoSaWA",
+    "display_name": "Cause of Death (Registration)"
+  },
+  "child_health_surveillance": {
+    "program_id": "q7IQ0T7rsqw",
+    "display_name": "Child Health Surveillance Coding Sheet"
+  },
+  "cso_mapping": {
+    "program_id": "HjlAkcgG1F5",
+    "display_name": "Civil Society Organization Mapping"
+  },
+  "dengue_case": {
+    "program_id": "XPwePtbNCSB",
+    "display_name": "Dengue Case Register"
+  },
+  "dental_monitoring": {
+    "program_id": "KnwVzhirY0w",
+    "display_name": "Dental Department Patient Monitoring"
+  },
+  "event_syndromic": {
+    "program_id": "UyjLdhKhopo",
+    "display_name": "Event Syndromic Surveillance for Honiara Summit 2025"
+  },
+  "health_promotion": {
+    "program_id": "Z1TkMNIbgKH",
+    "display_name": "Health Promotion Activities V1.0"
+  },
+  "hospital_paediatrics": {
+    "program_id": "TBD",
+    "display_name": "Hospital Case Paediatrics"
+  },
+  "malaria_inpatient": {
+    "program_id": "pEvAKBLCRig",
+    "display_name": "In-Patient Malaria Case Management Register"
+  },
+  "llin_village": {
+    "program_id": "TBD",
+    "display_name": "LLIN Distribution at Village Level"
+  },
+  "llin_schools": {
+    "program_id": "TBD",
+    "display_name": "LLIN Distribution at Boarding Schools"
+  },
+  "mcmr": {
+    "program_id": "TBD",
+    "display_name": "MCMR Program"
+  },
+  "malaria_case_mgmt": {
+    "program_id": "TBD",
+    "display_name": "Malaria Case Management Register_v0.1"
+  },
+  "malaria_combined": {
+    "program_id": "TBD",
+    "display_name": "Malaria-Combined MCMR Data Entry"
+  },
+  "mosquito_trapping": {
+    "program_id": "TBD",
+    "display_name": "Mosquito Trapping Record"
+  },
+  "nrh_patient_demo": {
+    "program_id": "TBD",
+    "display_name": "NRH Patient Registration"
+  },
+  "malaria_outpatient": {
+    "program_id": "XgZdBefFHxi",
+    "display_name": "Out-Patient Malaria Case Management Register"
+  },
+  "eyecare": {
+    "program_id": "TBD",
+    "display_name": "REC: Eyecare Data Entry Sample System"
+  },
+  "diabetic_foot_demo": {
+    "program_id": "TBD",
+    "display_name": "Surgical Diabetic Foot Monitoring"
+  },
+  "xpert_mtb": {
+    "program_id": "P5l4aIdGpcZ",
+    "display_name": "Xpert MTB/RIF"
+  },
+  "test": {
+    "program_id": "TBD",
+    "display_name": "Test Program"
+  }
+}
+

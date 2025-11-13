@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "program": "death_notification",
+    "facility": "Yandina"
+  },
+  "enrollment": {
+    "date_of_death": "2025-11-12"
+  },
+  "person_profile": {
+    "serial_no": "DN_TIMESTAMP_",
+    "birth_certificate_no": "BC_TIMESTAMP_",
+    "patient_nhn": "NHN_TIMESTAMP_",
+    "surname": "JOHNSON",
+    "first_and_middle_names": "Michael Robert",
+    "mothers_name": "Sarah JOHNSON",
+    "date_of_birth": "1965-03-20",
+    "age_in_days": "21900",
+    "age_in_months": "715",
+    "age_in_years": "59",
+    "sex": "Male",
+    "nationality": "Solomon Islands",
+    "ethnicity": "Melanesian",
+    "religion": "Anglican",
+    "marital_status": "Married",
+    "place_of_death": "Hospital",
+    "place_of_burial": "Village Cemetery",
+    "occupation": "Employed",
+    "current_province": "Honiara",
+    "current_village": "White River",
+    "home_province": "Guadalcanal",
+    "home_village": "Tetere",
+    "coordinate_latitude": "-9.4333",
+    "coordinate_longitude": "159.9500"
+  },
+  "event": {
+    "basic_info": {
+      "date_of_death": "2025-11-12"
+    },
+    "source_of_notification": {
+      "source_of_information": "Registered Nurse/Nurse Aide",
+      "hospital_ward": "Surgical",
+      "declarant_witnessed_body": "Yes"
+    },
+    "manner_of_death": {
+      "manner_of_death": "Disease",
+      "type_of_disease_or_injury": "Cardiac arrest - Myocardial infarction",
+      "date_of_injury": "2025-11-10"
+    },
+    "declaration": {
+      "doctor_nurse_name": "Dr. Patricia Wong",
+      "doctor_nurse_designation": "Senior Medical Officer",
+      "date_signed": "2025-11-12",
+      "date_received_by_medical_records": "2025-11-12",
+      "date_received_by_his": "2025-11-13"
+    },
+    "status": {
+      "complete_event": "Yes"
+    }
+  }
+}
+

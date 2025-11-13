@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "serial_number": null,
+    "status_live": null,
+    "status_still": null,
+    "date_of_notification": null,
+    "health_facility": null,
+    "health_facility_village": null,
+    "health_facility_bba": null,
+    "province": null,
+    "island_area": null
+  },
+  "child_details": {
+    "first_name": null,
+    "middle_name": null,
+    "surname": null,
+    "sex": null,
+    "date_of_birth": null,
+    "place_of_birth": null,
+    "birth_location_type": null,
+    "birth_weight": null,
+    "gestation_period": null
+  },
+  "mother_details": {
+    "first_name": null,
+    "middle_name": null,
+    "surname": null,
+    "maiden_name": null,
+    "date_of_birth": null,
+    "nationality": null,
+    "occupation": null
+  },
+  "father_details": {
+    "first_name": null,
+    "middle_name": null,
+    "surname": null,
+    "date_of_birth": null,
+    "nationality": null,
+    "occupation": null
+  },
+  "parent_address": {
+    "permanent_address": null,
+    "current_address": null,
+    "closest_health_facility": null
+  },
+  "children_born_to_mother": {
+    "total_children_live": null,
+    "total_children_still": null
+  },
+  "attendant_and_witness": {
+    "attendant_name": null,
+    "attendant_position": null,
+    "attendant_signature": null,
+    "attendant_date": null,
+    "witness_name": null,
+    "witness_date": null
+  },
+  "parent_status": {
+    "status_single": null,
+    "status_married_legal": null,
+    "status_married_customary": null,
+    "status_de_facto": null,
+    "marriage_place": null,
+    "marriage_date": null
+  },
+  "signatures": {
+    "mother_signature": null,
+    "mother_signature_date": null,
+    "father_signature": null,
+    "father_signature_date": null
+  }
+}
+

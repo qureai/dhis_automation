@@ -1,0 +1,25 @@
+# Birth Report Automation - Git Ignore
+# Note: Root .gitignore already covers .env, __pycache__, *.pyc
+
+# Generated field mappings (birth-specific)
+discovered_fields.json
+suggested_field_mapping.json
+
+# Logs
+*.log
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

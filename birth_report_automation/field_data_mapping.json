@@ -1,0 +1,190 @@
+{
+  "_comment": "Maps sample_data.json paths to DHIS2 field IDs",
+  "report_info.report_date": {
+    "field_id": "occurredAt",
+    "selector": "[data-test='dataentry-field-occurredAt'] input",
+    "type": "date"
+  },
+  "report_info.serial_number": {
+    "field_id": "mxPrrap6Jx7",
+    "selector": "[data-test='form-field-mxPrrap6Jx7'] input",
+    "type": "text"
+  },
+  "report_info.date_of_entry": {
+    "field_id": "qgK9Un4o0XA",
+    "selector": "[data-test='form-field-qgK9Un4o0XA'] input",
+    "type": "date"
+  },
+  "report_info.data_entry_officer": {
+    "field_id": "rAXQBWxLLbn",
+    "selector": "[data-test='form-field-rAXQBWxLLbn'] input",
+    "type": "text"
+  },
+  "child.first_name": {
+    "field_id": "elpBq7sGiM6",
+    "selector": "[data-test='form-field-elpBq7sGiM6'] input",
+    "type": "text"
+  },
+  "child.surname": {
+    "field_id": "cFfLSBqmhPA",
+    "selector": "[data-test='form-field-cFfLSBqmhPA'] input",
+    "type": "text"
+  },
+  "child.sex": {
+    "field_id": "O2l8Bdpwv0M",
+    "selector": "input#O2l8Bdpwv0M",
+    "type": "select"
+  },
+  "child.date_of_birth": {
+    "field_id": "mThSFHqcW60",
+    "selector": "[data-test='form-field-mThSFHqcW60'] input",
+    "type": "date"
+  },
+  "report_info.birth_status": {
+    "field_id": "Q91VaKtbCJK",
+    "selector": "input#Q91VaKtbCJK",
+    "type": "select"
+  },
+  "child.place_of_birth": {
+    "field_id": "Mjto2hEXm4p",
+    "selector": "input#Mjto2hEXm4p",
+    "type": "select"
+  },
+  "location.province": {
+    "field_id": "UlUnYvdTL2R",
+    "selector": "input#UlUnYvdTL2R",
+    "type": "select"
+  },
+  "child.birth_weight": {
+    "field_id": "s9O1NtrleqB",
+    "selector": "[data-test='form-field-s9O1NtrleqB'] input",
+    "type": "text"
+  },
+  "child.gestation_period": {
+    "field_id": "FELJ5bOuqPV",
+    "selector": "input#FELJ5bOuqPV",
+    "type": "select"
+  },
+  "child.birth_weight_group": {
+    "field_id": "JhQGMkb9EgQ",
+    "selector": "input#JhQGMkb9EgQ",
+    "type": "select"
+  },
+  "_COMMENT_child_named_at_birth": "KNOWN ISSUE: DHIS2 frontend converts 'Yes'/'No' to boolean 'true'/'false' but backend rejects it. Field disabled until DHIS2 bug is fixed.",
+  "mother.first_name": {
+    "field_id": "AZfo37njZKH",
+    "selector": "[data-test='form-field-AZfo37njZKH'] input",
+    "type": "text"
+  },
+  "mother.surname": {
+    "field_id": "EUmkwQ3n9Dq",
+    "selector": "[data-test='form-field-EUmkwQ3n9Dq'] input",
+    "type": "text"
+  },
+  "mother.date_of_birth": {
+    "field_id": "wqM7BcQxeRB",
+    "selector": "[data-test='form-field-wqM7BcQxeRB'] input",
+    "type": "date"
+  },
+  "mother.age_years": {
+    "field_id": "Bh664sjxtVQ",
+    "selector": "[data-test='form-field-Bh664sjxtVQ'] input",
+    "type": "text"
+  },
+  "mother.age_group": {
+    "field_id": "mgDNc4lxXdH",
+    "selector": "input#mgDNc4lxXdH",
+    "type": "select"
+  },
+  "mother.nationality": {
+    "field_id": "xXSCMpBUrbE",
+    "selector": "input#xXSCMpBUrbE",
+    "type": "select"
+  },
+  "mother.occupation": {
+    "field_id": "ug8OviJTaJA",
+    "selector": "[data-test='form-field-ug8OviJTaJA'] input",
+    "type": "text"
+  },
+  "father.first_name": {
+    "field_id": "qKBMvyatEv1",
+    "selector": "[data-test='form-field-qKBMvyatEv1'] input",
+    "type": "text"
+  },
+  "father.surname": {
+    "field_id": "WlHKMxNckT9",
+    "selector": "[data-test='form-field-WlHKMxNckT9'] input",
+    "type": "text"
+  },
+  "father.date_of_birth": {
+    "field_id": "xh0HEMWc16E",
+    "selector": "[data-test='form-field-xh0HEMWc16E'] input",
+    "type": "date"
+  },
+  "father.age_years": {
+    "field_id": "kuLBmdMFckt",
+    "selector": "[data-test='form-field-kuLBmdMFckt'] input",
+    "type": "text"
+  },
+  "father.nationality": {
+    "field_id": "ONb9czyih8l",
+    "selector": "input#ONb9czyih8l",
+    "type": "select"
+  },
+  "father.occupation": {
+    "field_id": "ctJ6faa3zpc",
+    "selector": "[data-test='form-field-ctJ6faa3zpc'] input",
+    "type": "text"
+  },
+  "address.permanent_village": {
+    "field_id": "hXwxvJEdcLv",
+    "selector": "[data-test='form-field-hXwxvJEdcLv'] input",
+    "type": "text"
+  },
+  "address.permanent_province": {
+    "field_id": "EDQW5RX4Anj",
+    "selector": "input#EDQW5RX4Anj",
+    "type": "select"
+  },
+  "address.current_village": {
+    "field_id": "vAofIHNIDcL",
+    "selector": "[data-test='form-field-vAofIHNIDcL'] input",
+    "type": "text"
+  },
+  "address.current_province": {
+    "field_id": "PVFYychDn7Y",
+    "selector": "input#PVFYychDn7Y",
+    "type": "select"
+  },
+  "address.closest_health_facility": {
+    "field_id": "pqeWPTaTiT0",
+    "selector": "[data-test='form-field-pqeWPTaTiT0'] input",
+    "type": "text"
+  },
+  "birth_history.previous_live_births": {
+    "field_id": "KoSmJ4XlDvA",
+    "selector": "[data-test='form-field-KoSmJ4XlDvA'] input",
+    "type": "text"
+  },
+  "birth_history.previous_still_births": {
+    "field_id": "YEWn2kD9J5s",
+    "selector": "[data-test='form-field-YEWn2kD9J5s'] input",
+    "type": "text"
+  },
+  "attendant.name": {
+    "field_id": "IuIoKcF79Ht",
+    "selector": "[data-test='form-field-IuIoKcF79Ht'] input",
+    "type": "text"
+  },
+  "attendant.position": {
+    "field_id": "fuGw6Rk4u4P",
+    "selector": "input#fuGw6Rk4u4P",
+    "type": "select"
+  },
+  "_complete_event": {
+    "field_id": "complete",
+    "selector": "input[name='complete']",
+    "type": "radio"
+  }
+}
+
